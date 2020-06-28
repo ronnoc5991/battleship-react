@@ -1,38 +1,150 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  cursor: crosshair;
 }
 
-.App-link {
-  color: #61dafb;
+.GameboardDisplay {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 50%;
+  background-color: black;
+  border: 5px solid rgb(0, 255, 0);
+  width: 750px;
+  height: 750px;
+  align-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.arm {
+  height: 375px;
+  border: 2px solid rgb(0, 255, 0);
+  box-shadow: -200px -330px 150px 300px rgb(0, 255, 0, .8);
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(0deg);
+  /* animation-name: rotateArm; */
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.arm:after {
+  content: '';
+  margin-left: 2px;
+  height: 375px;
+  width: 0px;
+  position: absolute;
+  background-color: rgb(0, 0, 0, .6);
+  box-shadow: -300px 0px 40px 300px black;
+  transform-origin: bottom;
+  transform: rotate(-100deg);
+}
+
+.arm:before {
+  content: '';
+  margin-left: 2px;
+  height: 375px;
+  width: 10px;
+  position: absolute;
+  background-color: black;
+  box-shadow: 300px 0px 0px 300px black;
+}
+
+@keyframes rotateArm {
+  0% {transform: translateX(-50%) rotate(0deg);}
+  25% {transform: translateX(-50%) rotate(90deg);}
+  50% {transform: translateX(-50%) rotate(180deg);}
+  75% {transform: translateX(-50%) rotate(270deg);}
+  100% {transform: translateX(-50%) rotate(360deg);}
+}
+
+.circle {
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border: 2px solid rgb(0, 255, 0);
+  pointer-events: none;
+  opacity: 60%;
+}
+
+.circle-1 {
+  width: 696px;
+  height: 696px;
+  margin-top: -350px;
+  margin-left: -350px;
+}
+
+.circle-2 {
+  width: 596px;
+  height: 596px;
+  margin-top: -300px;
+  margin-left: -300px;
+}
+
+.circle-3 {
+  width: 496px;
+  height: 496px;
+  margin-top: -250px;
+  margin-left: -250px;
+}
+
+.circle-4 {
+  width: 396px;
+  height: 396px;
+  margin-top: -200px;
+  margin-left: -200px;
+}
+
+.circle-5 {
+  width: 296px;
+  height: 296px;
+  margin-top: -150px;
+  margin-left: -150px;
+}
+
+.circle-6 {
+  width: 196px;
+  height: 196px;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
+.circle-7 {
+  width: 96px;
+  height: 96px;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+.Row {
+  margin: auto;
+  display: flex;
+}
+
+.Square {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(0, 255, 0);
+  align-content: center;
+  opacity: 60%;
+}
+
+.Square:hover {
+  background-color: rgb(0, 255, 0);;
+}
+
+.blank {
+  align-content: center;
+  /* background-color: black; */
+}
+
+.filled {
+  align-content: center;
+  background-color: red;
 }
