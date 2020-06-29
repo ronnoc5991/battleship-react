@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
-import GameboardDisplay from './GameboardDisplay';
+import EnemyBoard from './EnemyBoard';
+import PlayerBoard from './PlayerBoard'
 
 function App() {
 
+//does the main game loop go here?
+//import the modules into this component and call the functions here?
+
   return (
     <div className="App">
-      <GameboardDisplay />
+      <PlayerBoard />
+      <EnemyBoard />
     </div>
   );
 }
