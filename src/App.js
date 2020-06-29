@@ -1,31 +1,15 @@
 import React, { useState } from 'react';
 import './App.css';
-import EnemyBoard from './EnemyBoard';
-import PlayerBoard from './PlayerBoard'
-const gameboardFactory = require('./gameboardFactory');
-const playerFactory = require('./playerFactory');
+import Enemy from './Enemy';
+import Player from './Player';
+import {PlayerProvider} from './PlayerContext';
+import {EnemyProvider} from './EnemyContext';
+// const gameboardFactory = require('./gameboardFactory');
+// const playerFactory = require('./playerFactory');
 
 function App() {
 
 const [inSetupPhase, setInSetupPhase] = useState(false);
-
-const [enemyBoard, setEnemyBoard] = useState(gameboardFactory());
-
-const [playerBoard, setPlayerBoard] = useState(gameboardFactory());
-
-enemyBoard.placeShip([0,0], 'horizontal', 5); //hardcode ship placement
-enemyBoard.placeShip([1,0], 'horizontal', 4);
-enemyBoard.placeShip([2,0], 'horizontal', 3);
-enemyBoard.placeShip([3,0], 'horizontal', 3);
-enemyBoard.placeShip([4,0], 'horizontal', 2);
-
-playerBoard.placeShip([0,0], 'horizontal', 2); //hardcode ship placement
-playerBoard.placeShip([1,0], 'horizontal', 4);
-playerBoard.placeShip([2,0], 'horizontal', 3);
-playerBoard.placeShip([3,0], 'horizontal', 3);
-playerBoard.placeShip([4,0], 'horizontal', 5);
-
-
 
 //main game loop should have two phases...
   //const inSetUpPhase = true
@@ -36,8 +20,6 @@ playerBoard.placeShip([4,0], 'horizontal', 5);
     //React Changes Display based on truthiness of that variable
       //when the setup is true... the enemies board should not be displayed... only the players
       //when the setup is false... the enemies boards should be displayed without ships
-
-//import the modules into this component and call the functions here?
 
 let nextPlayer = true;
 
@@ -58,25 +40,19 @@ const toggleTurn = () => {
      nextPlayer = !nextPlayer;
 }
 
-
-//rework the architecture of the app
-  //App
-//Player     Computer      Data stored here?
-//Board       Board
-//Row         Row
-//Square      Square
-
-
-
   return (
+    <PlayerProvider>
+    <EnemyProvider>
     <div className="App">
       { inSetupPhase ? 
-          <PlayerBoard /> : 
+          <Player /> : 
           <React.Fragment>
-          <PlayerBoard board={ playerBoard }/>
-          <EnemyBoard board={ enemyBoard }/>
+          <Player />
+          <Enemy />
           </React.Fragment> }
     </div>
+    </EnemyProvider>
+    </PlayerProvider>
   );
 }
 

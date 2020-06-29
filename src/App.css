@@ -83,6 +83,17 @@
   100% {transform: translateX(-50%) rotate(360deg);}
 }
 
+.player-circle {
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border: 2px solid yellow;
+  pointer-events: none;
+  opacity: 60%;
+  box-sizing: border-box;
+}
+
 .circle {
   border-radius: 50%;
   top: 50%;
@@ -133,7 +144,16 @@
   height: 35px;
   border: 1px solid rgb(0, 255, 0);
   align-content: center;
-  opacity: 60%;
+  opacity: 50%;
+}
+
+.player-square {
+  box-sizing: border-box;
+  width: 35px;
+  height: 35px;
+  border: 1px solid yellow;
+  align-content: center;
+  opacity: 80%;
 }
 
 .Square:hover {
@@ -144,7 +164,10 @@
   align-content: center;
 }
 
-.filled {
-  align-content: center;
+.miss {
+  background-color: white;
+}
+
+.hit {
   background-color: red;
 }

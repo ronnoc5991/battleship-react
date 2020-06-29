@@ -22,8 +22,8 @@ const gameboardFactory = () => {
     }
 
     const placeShip = (coordinates, direction, shipSize) => {
-        let row = coordinates[0];
-        let column = coordinates[1];
+        let row = Number(coordinates[0]);
+        let column = Number(coordinates[1]);
 
         if (direction === 'horizontal') {
             if ((column + shipSize) <= 10) { //can board fit the ship here?
@@ -37,6 +37,7 @@ const gameboardFactory = () => {
                 }
 
                 if (isOccupied === true) {
+                    console.log('this is occupied');
                     return 'Not valid placement';
                 } else { // green path
                     let newShip = shipFactory(shipSize) //create new ship from Factory
@@ -45,9 +46,12 @@ const gameboardFactory = () => {
                         newShip.placement.push([row, i]);  //pass the ship its coordinates
                     }
                     ships.push(newShip); //places ship in board's ship array
+                    console.log('Ship placed');
+
                 }
 
             } else {
+                console.log('This cannot fit here');
                 return 'Not valid placement';
             }
         }
