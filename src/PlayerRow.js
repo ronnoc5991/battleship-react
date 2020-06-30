@@ -5,8 +5,8 @@ const PlayerRow = (props) => {
 
     return (
         <div className="Row"> 
-        {props.row.map((square, squareIndex) => {
-            return <PlayerSquare square={square} rowIndex={ props.rowIndex } squareIndex={ squareIndex } />
+        {props.row.map((square, columnIndex) => {
+            return <PlayerSquare square={square} rowIndex={ props.rowIndex } columnIndex={ columnIndex } />
         })}
         </div>
     )

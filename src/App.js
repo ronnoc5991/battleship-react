@@ -21,12 +21,6 @@ const [inSetupPhase, setInSetupPhase] = useState(false);
       //when the setup is true... the enemies board should not be displayed... only the players
       //when the setup is false... the enemies boards should be displayed without ships
 
-let nextPlayer = true;
-
-
-// const player1 = playerFactory('Real Player');
-// const player2 = playerFactory('Computer Player');
-
 //game should start in set up mode
 //after the ships have been placed the game can begin
 //turns are had and shots are taken
@@ -34,9 +28,9 @@ let nextPlayer = true;
     //this consists of a allSunk() call on each gameboard
         //if one returns true, this is the loser
 
+let nextPlayer = true;
 
 const toggleTurn = () => {
-     //function that passes the turn from the computer to the player
      nextPlayer = !nextPlayer;
 }
 

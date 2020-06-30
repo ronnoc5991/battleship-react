@@ -14,22 +14,10 @@ enemy.placeShip([2,0], 'horizontal', 3);
 enemy.placeShip([3,0], 'horizontal', 3);
 enemy.placeShip([4,0], 'horizontal', 2);
 
-// function shipPlacement (e) {
-//     console.log(e.target.dataset.coordinates);
-//     let coordinates = e.target.dataset.coordinates
-//     console.log(e.target.dataset.board);
-//     .placeShip(coordinates, 'horizontal', 3);
-//     console.log(enemyBoard);
-//     //the board is being changed by these function calls...
-//     //but the visuals are not being updates according to styles
-// }
-
 function takeAttack (e) {
     let coordinates = e.target.dataset.coordinates
     enemy.receiveAttack(coordinates); //attack is received well and recorded on the board... but it is not re rendering the dom
-    console.log(enemyBoard);
     setNumber(number + 1);
-    console.log(number);
 }
 
     return (

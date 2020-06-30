@@ -92,6 +92,31 @@
   pointer-events: none;
   opacity: 60%;
   box-sizing: border-box;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.pulse {
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border: 5px solid yellow;
+  pointer-events: none;
+  opacity: 80%;
+  box-sizing: border-box;
+  transform: translateX(-50%) translateY(-50%);
+  height: 1px;
+  width: 1px;
+  animation-name: expand;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  box-shadow: 0px 0px 100px 80px rgb(255, 255, 0, .6) inset;
+}
+
+@keyframes expand {
+  0% {height: 1px; width: 1px}
+  100% {height: 550px; width: 550px}
 }
 
 .circle {
@@ -103,34 +128,27 @@
   pointer-events: none;
   opacity: 60%;
   box-sizing: border-box;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .circle-1 {
   width: 400px;
   height: 400px;
-  margin-top: -200px;
-  margin-left: -200px;
 }
 
 .circle-2 {
   width: 300px;
   height: 300px;
-  margin-top: -150px;
-  margin-left: -150px;
 }
 
 .circle-3 {
   width: 200px;
   height: 200px;
-  margin-top: -100px;
-  margin-left: -100px;
 }
 
 .circle-4 {
   width: 100px;
   height: 100px;
-  margin-top: -50px;
-  margin-left: -50px;
 }
 
 .Row {
@@ -170,4 +188,8 @@
 
 .hit {
   background-color: red;
+}
+
+.filled {
+  background-color: green;
 }
