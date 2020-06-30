@@ -38,7 +38,7 @@ const gameboardFactory = () => {
 
                 if (isOccupied === true) {
                     // console.log('this is occupied');
-                    return 'Not valid placement';
+                    return false;
                 } else { // green path
                     let newShip = shipFactory(shipSize) //create new ship from Factory
                     for (i = column; i < (column + shipSize); i++) { //loop through the different columns of this row
@@ -52,7 +52,7 @@ const gameboardFactory = () => {
 
             } else {
                 console.log('This cannot fit here');
-                return 'Not valid placement';
+                return false;
             }
         }
 
@@ -68,7 +68,7 @@ const gameboardFactory = () => {
                 }
 
                 if (isOccupied === true) {
-                    return 'Not valid placement';
+                    return false;
                 } else { //green path
                     let newShip = shipFactory(shipSize);
                     for (i = row; i < (row + shipSize); i++) { //iterate through rows based on shipSize
@@ -79,7 +79,7 @@ const gameboardFactory = () => {
                 }
 
             } else {
-                return 'Not valid placement';
+                return false;
             }
         }
     };

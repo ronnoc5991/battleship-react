@@ -12,21 +12,19 @@ const Player = () => {
 
     const shipsToPlace = [5, 4, 3, 3, 2];
 
-    player.placeShip([0,0], 'horizontal', 2); //hardcode ship placement
-    player.placeShip([1,0], 'horizontal', 4);
-    player.placeShip([2,0], 'horizontal', 3);
-    player.placeShip([3,0], 'horizontal', 3);
-    player.placeShip([4,0], 'horizontal', 5);
-
     function refresh (e) {
         setNumber(number + 1);
+    }
+
+    function logThis () {
+        console.log('This is from player dude')
     }
 
     return (
         <div className="player-side">
             <div className="ship-holder">
-                { shipsToPlace.map((ship) => {
-                    return <DraggableShips length={ ship } />
+                { shipsToPlace.map((ship, shipIndex) => {
+                    return <DraggableShips length={ ship } index={ shipIndex } onClick={logThis}/>
                 }) }
             </div>
             <div className="player-board" onMouseOver={ refresh }>

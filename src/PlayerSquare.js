@@ -10,15 +10,14 @@ const PlayerSquare = (props) => {
 
     function dragover (e) {
         e.preventDefault();
-        console.log('I am droppable');
     }
 
     function drop (e) {
         e.preventDefault();
         let coordinates = e.target.dataset.coordinates
         let length = Number(e.dataTransfer.getData("text"));
-        player.placeShip(coordinates, 'vertical', length);
-        // console.log(playerBoard);
+        player.placeShip(coordinates, 'vertical', length); //work out how to change orientation of the ships
+        //if the ship is placed correctly... the ship should be removed from the toBeplaced array
         setCounter(counter + 1);
     }
 
@@ -32,9 +31,3 @@ const PlayerSquare = (props) => {
 }
 
 export default PlayerSquare;
-
-//the droppable attribute should be added conditionally...
-//when dropped... the ship should be placed with the placeSHip function and the board updated..
-//if the ship is placed correctly... the ship should be removed from the toBeplaced array
-
-// the drop placement is working but the board is not being updated accordingly

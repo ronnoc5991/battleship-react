@@ -47,10 +47,15 @@ const toggleTurn = () => {
      nextPlayer = !nextPlayer;
 }
 
+// function stopContextMenu (e) { 
+//   e.preventDefault();
+// }
+// onContextMenu={ stopContextMenu }
+
   return (
     <PlayerProvider>
     <EnemyProvider>
-    <div className="App">
+    <div className="App" >
           <React.Fragment>
           <Player /> 
           <Enemy />
