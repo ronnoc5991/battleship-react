@@ -21,7 +21,7 @@ const gameboardFactory = () => {
         }
     }
 
-    const placeShip = (coordinates, direction, shipSize) => {
+    const placeShip = (coordinates=[0,0], direction, shipSize) => {
         let row = Number(coordinates[0]);
         let column = Number(coordinates[1]);
 
@@ -37,7 +37,7 @@ const gameboardFactory = () => {
                 }
 
                 if (isOccupied === true) {
-                    console.log('this is occupied');
+                    // console.log('this is occupied');
                     return 'Not valid placement';
                 } else { // green path
                     let newShip = shipFactory(shipSize) //create new ship from Factory

@@ -21,15 +21,24 @@ function takeAttack (e) {
 }
 
     return (
-        <div className="enemy-board" onClick={ takeAttack }>
-                <div className="arm"></div>
-                <div className="circle circle-1"></div>
-                <div className="circle circle-2"></div>
-                <div className="circle circle-3"></div>
-                <div className="circle circle-4"></div>
-                { enemyBoard.map((row, rowIndex) => {
-                return <EnemyRow row={row} rowIndex={ rowIndex } />
-                }) }
+        <div className="enemy-side">
+            <div className="enemy-board" onClick={ takeAttack }>
+                    <div className="arm"></div>
+                    <div className="circle circle-1"></div>
+                    <div className="circle circle-2"></div>
+                    <div className="circle circle-3"></div>
+                    <div className="circle circle-4"></div>
+                    { enemyBoard.map((row, rowIndex) => {
+                    return <EnemyRow row={row} rowIndex={ rowIndex } />
+                    }) }
+            </div>
+            <div className="ship-holder">
+            <div className="ship ship-5"></div>
+                <div className="ship ship-4"></div>
+                <div className="ship ship-3"></div>
+                <div className="ship ship-3"></div>
+                <div className="ship ship-2"></div>
+            </div>
         </div>
     )
 }

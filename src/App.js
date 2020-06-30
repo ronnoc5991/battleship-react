@@ -9,7 +9,20 @@ import {EnemyProvider} from './EnemyContext';
 
 function App() {
 
-const [inSetupPhase, setInSetupPhase] = useState(false);
+const [inSetupPhase, setInSetupPhase] = useState(true);
+
+//SETUP PHASE
+
+  // place ships in the player component
+  // click a button that starts the game
+  // this button toggles the inSetupPhase value to false
+  //enemy board is now rendered
+
+//GAME PHASE
+  //player should go first
+  //they click on 1 place 
+
+
 
 //main game loop should have two phases...
   //const inSetUpPhase = true
@@ -38,16 +51,33 @@ const toggleTurn = () => {
     <PlayerProvider>
     <EnemyProvider>
     <div className="App">
-      { inSetupPhase ? 
-          <Player /> : 
           <React.Fragment>
-          <Player />
+          <Player /> 
           <Enemy />
-          </React.Fragment> }
+          </React.Fragment>
     </div>
     </EnemyProvider>
     </PlayerProvider>
   );
+
+//could always display both radar screens.... during setup Phase the enemy radar could have fuzzy filter...
+//as if it were broken like an old tv... white snow
+
+  // return (
+  //   <PlayerProvider>
+  //   <EnemyProvider>
+  //     { inSetupPhase ? 
+  //       <div className="setup-stage">
+  //         <ShipPlacement />
+  //         <Player />
+  //         </div> : 
+  //         <div className="game-stage">
+  //         <Player />
+  //         <Enemy />
+  //         </div> }
+  //   </EnemyProvider>
+  //   </PlayerProvider>
+  // );
 }
 
 export default App;
