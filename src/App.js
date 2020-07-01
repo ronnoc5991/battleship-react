@@ -40,6 +40,7 @@ const toggleTurn = () => {
     <div className="App" >
       <div className="top">
         <div className="light">
+          <div className="light-circle"></div>
           <div className="line-1"></div>
           <div className="line-2"></div>
           <div className="line-3"></div>
@@ -64,3 +65,10 @@ const toggleTurn = () => {
 }
 
 export default App;
+
+// add screws to the light?
+//create gameplay phases
+
+//turn horizontal / vertical button into a switch like on a control panel
+
+//put everything in a single context... this allows the setupPhase state to be distributed app wide ... are there alternatives?  pass it as a prop?

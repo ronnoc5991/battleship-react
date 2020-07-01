@@ -8,7 +8,7 @@
   margin: auto;
   width: 100vw;
   height: 100vh;
-  background-color: #43464B;
+  background-color: rgb(46, 45, 45);
 }
 
 .top {
@@ -27,6 +27,19 @@
   border: 5px solid black;
   box-shadow: 0px 0px 3px 2px black;
   position: relative;
+}
+
+.light-circle {
+  width: 65px;
+  height: 65px;
+  background-color: transparent;
+  border: 4px solid black;
+  border-radius: 50%;
+  z-index: 6;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .line-1 {
@@ -69,7 +82,8 @@
 
 .inner {
   background-color: rgb(255, 0, 0, .9);
-  border: 1px solid rgb(255, 255, 255, .5);
+  /* border: 1px solid rgb(255, 255, 255, .5); */
+  border: 2px solid black;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -197,7 +211,7 @@
   margin: auto;
   height: 100%;
   display: grid;
-  grid-template-rows: 9fr 1fr;
+  grid-template-rows: 5fr 1fr;
 }
 
 .player-side .ship-holder {
@@ -213,15 +227,45 @@
 }
 
 .player-side .ship {
-  background-color: #43464B;
+  background-color: black;
 }
 
 .rotate-button {
-  height: 50px;
-  width: 100px;
+  outline: none;
+  height: 75px;
+  width: 75px;
+  background-color: white;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 3px solid black;
   grid-row-start: 2;
   grid-row-end: 3;
   margin: auto;
+  position: relative;
+}
+
+.switch {
+  width: 70px;
+  height: 20px;
+  background-color: grey;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.rotated {
+  transform: rotate(90deg);
+}
+
+.arrow {
+  width: 20px;
+  height: 4px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .player-board {
@@ -272,6 +316,7 @@
   border-radius: 50%;
   background-color: black;
   border: 5px solid rgb(0, 255, 0);
+  box-shadow: 0px 0px 10px 5px black;
   position: relative;
   overflow: hidden;
 }

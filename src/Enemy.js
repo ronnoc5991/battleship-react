@@ -14,9 +14,35 @@ enemy.placeShip([2,0], 'horizontal', 3);
 enemy.placeShip([3,0], 'horizontal', 3);
 enemy.placeShip([4,0], 'horizontal', 2);
 
+//while enemy.shipsToPlace.length > 0
+// function randomPlacement () {
+//  let length = enemy.shipsToPlace[0] ----gets first ship from the array and stores the length
+//  let coordinates;
+//  let orientation = randomOrientation
+//  get first ship from the array
+//  generate random coordinates based on the length of the ship
+//  let limitingCoordinate = 10 - length;     if length is 5 (10 - 5 = 5) the ship cannot be placed at a coordinate with a number higher than five for that orientation
+//  if (orientation ==== 'horizontal) {
+//      let row = random number between 0 and 9
+//      let column = random number between 0 and limitingCoordinate
+//}
+//  if (orienation === 'vertical) {
+//      let row = random number between 0 and limitingCoordinate
+//      let column = random number between 0 and 9
+//}
+//  make sure the placement is valid
+//  if (enemy.validMove(coordinates, orientation, length)) {
+//      enemy.placeShip(coordinates, orientaiton, length)
+//}  else {
+//      do it again
+//}
+//  call the placeShip method on enemy and move onto the next ship 
+//}
+
+
 function takeAttack (e) {
     let coordinates = e.target.dataset.coordinates
-    enemy.receiveAttack(coordinates); //attack is received well and recorded on the board... but it is not re rendering the dom
+    enemy.receiveAttack(coordinates);
     setNumber(number + 1);
 }
 

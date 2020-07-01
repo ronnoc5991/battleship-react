@@ -31,7 +31,11 @@ const Player = () => {
                         return <DraggableShips length={ ship } index={ shipIndex } direction={ direction } onClick={logThis}/>
                     }) }
                 </div>
-                <button className="rotate-button" onClick={ toggleDirection }> { direction ? 'Horizontal' : 'Vertical' } </button>
+                <button className={`rotate-button ${ direction ? 'rotated' : undefined }`} onClick={ toggleDirection }>
+                    <div className="switch">
+                        <div className="arrow"></div>
+                    </div>
+                </button>
             </div>
             <div className="player-board" onMouseOver={ refresh }>
                 <div className="pulse"></div>
