@@ -49,10 +49,4 @@ const Player = () => {
 
 export default Player;
 
-// possible test/placement function for the draggable ships
-    // can listen for drag enter event
-    //calculates if that ship can be placed or not
-    //it can can be placed... it should change the styling
-    //if it can not be placed... styling change
-
-//also... on dragstart the ship should size up as if it were being picked up and size back down on drop
+// on dragstart the ship should size up as if it were being picked up and size back down on drop?
