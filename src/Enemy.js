@@ -33,11 +33,11 @@ function takeAttack (e) {
                     }) }
             </div>
             <div className="ship-holder">
-            <div className="ship ship-5"></div>
-                <div className="ship ship-4"></div>
-                <div className="ship ship-3"></div>
-                <div className="ship ship-3"></div>
-                <div className="ship ship-2"></div>
+                <div className="ship ship-5-horizontal"></div>
+                <div className="ship ship-4-horizontal"></div>
+                <div className="ship ship-3-horizontal"></div>
+                <div className="ship ship-3-horizontal"></div>
+                <div className="ship ship-2-horizontal"></div>
             </div>
         </div>
     )

@@ -36,24 +36,49 @@
   margin: auto;
 }
 
-.ship-5 {
+.ship-5-horizontal {
   width: 175px;
   height: 35px;
 }
 
-.ship-4 {
+.ship-4-horizontal {
   width: 140px;
   height: 35px;
 }
 
-.ship-3 {
+.ship-3-horizontal {
   width: 105px;
   height: 35px;
 }
 
-.ship-2 {
+.ship-2-horizontal {
   width: 70px;
   height: 35px;
+}
+
+.ship-5-vertical {
+  width: 35px;
+  height: 175px;
+}
+
+.ship-4-vertical {
+  width: 35px;
+  height: 140px;
+}
+
+.ship-3-vertical {
+  width: 35px;
+  height: 105px;
+}
+
+.ship-2-vertical {
+  width: 35px;
+  height: 70px;
+}
+
+.vertical {
+  transform-origin: top;
+  transform: rotate(90deg);
 }
 
 /* --------------- PLAYER SIDE --------------- */
@@ -64,9 +89,18 @@
   flex-basis: 50%;
 }
 
+.player-left {
+  margin: auto;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 9fr 1fr;
+}
+
 .player-side .ship-holder {
-  width: 200px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
+  grid-row-start: 1;
+  grid-row-end: 2;
   margin: auto;
   border: 2px solid black;
   background-color: #0077be;
@@ -76,6 +110,14 @@
 
 .player-side .ship {
   background-color: #43464B;
+}
+
+.rotate-button {
+  height: 50px;
+  width: 100px;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin: auto;
 }
 
 .player-board {
@@ -103,8 +145,8 @@
 }
 
 .enemy-side .ship-holder {
-  width: 200px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   margin: auto;
   border: 2px solid rgb(0, 255, 0);
   background-color: black;

@@ -5,6 +5,17 @@ const gameboardFactory = () => {
     //this holds the ship objects
     const ships = [];
 
+    const shipsToPlace = [5, 4, 3, 3, 2];
+
+    const removeShip = (length) => {
+        let i;
+        for (i=0; i<shipsToPlace.length; i++) {
+            if (shipsToPlace[i] === length) {
+                shipsToPlace.splice(i, 1);
+            }
+        }
+    }
+
     const allSunk = () => {
         let sinkCount = 0;
 
@@ -19,6 +30,57 @@ const gameboardFactory = () => {
         } else {
             return false
         }
+    }
+
+    const validMove = (coordinates=[0,0], direction, shipSize) => {
+        let isThisValid = null;
+        let row = Number(coordinates[0]);
+        let column = Number(coordinates[1]);
+
+        if (direction === 'horizontal') {
+            if ((column + shipSize) <= 10) { //can board fit the ship here?
+
+                let isOccupied = false; //pull this above if statements?
+                let i;
+                for (i = column; i < (column + shipSize); i++) { //are these spaces already taken?
+                    if (board[row][i] !== '-') { //if the space is not empty
+                        isOccupied = true; //the space isOccupied
+                    }
+                }
+
+                if (isOccupied === true) {
+                    isThisValid = false;
+                } else { // green path
+                    isThisValid = true;
+                }
+
+            } else {
+                isThisValid = false;
+            }
+        }
+
+        if (direction === 'vertical') {
+            if ((row + shipSize) <= 10) {//check if placement is valid
+
+                let isOccupied = false;
+                let i;
+                for (i = row; i < (row + shipSize); i++) { //are these spaces already taken?
+                    if (board[i][column] !== '-') { //if the space is not empty
+                        isOccupied = true;
+                    }
+                }
+
+                if (isOccupied === true) {
+                    isThisValid = false;
+                } else { //green path
+                    isThisValid = true;
+                }
+
+            } else {
+                isThisValid = false;
+            }
+        }
+        return isThisValid;
     }
 
     const placeShip = (coordinates=[0,0], direction, shipSize) => {
@@ -119,7 +181,12 @@ const gameboardFactory = () => {
         ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-',]
     ];
 
-    return { placeShip, receiveAttack, allSunk, board, ships }
+    return { shipsToPlace, removeShip, validMove, placeShip, receiveAttack, allSunk, board, ships }
 }
 
 module.exports = gameboardFactory;
+
+// write function that determines if a move is valid
+//this will be called from the DOM on Dragover
+//will change styling accordingly
+//if move is valid and ship is dropped... remove it from the waiting dock

@@ -11,8 +11,10 @@ export const PlayerProvider = (props) => {
     const [player, setPlayer] = useState(gameboardFactory());
     const [playerBoard, setPlayerBoard] = useState(player.board);
 
+    const [direction, setDirection] = useState(true);
+
     return(
-        <PlayerContext.Provider value={{object: [player, setPlayer], board: [playerBoard, setPlayerBoard]}}>
+        <PlayerContext.Provider value={{object: [player, setPlayer], board: [playerBoard, setPlayerBoard], orientation: [direction, setDirection]}}>
             { props.children }
         </PlayerContext.Provider>
     );

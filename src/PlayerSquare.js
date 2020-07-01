@@ -4,20 +4,40 @@ import { PlayerContext } from './PlayerContext';
 const PlayerSquare = (props) => {
 
     const [counter, setCounter] = useState(1);
-    const { object, board } = useContext(PlayerContext);
+    const { object, board , orientation} = useContext(PlayerContext);
     const [player, setPlayer] = object;
     const [playerBoard, setPlayerBoard] = board;
+    const [direction, setDirection] = orientation;
 
     function dragover (e) {
         e.preventDefault();
+        // let placementDirection;
+        // if (direction === true) {
+        //     placementDirection = 'horizontal';
+        // } else {
+        //     placementDirection = 'vertical';
+        // }
+        // let coordinates = e.target.dataset.coordinates
+        // let length = Number(e.dataTransfer.getData("text"));
+        // console.log(player.validMove(coordinates, placementDirection, length)); //this seems to always return true
     }
 
     function drop (e) {
         e.preventDefault();
+        let placementDirection;
+        if (direction === true) {
+            placementDirection = 'horizontal';
+        } else {
+            placementDirection = 'vertical';
+        }
         let coordinates = e.target.dataset.coordinates
         let length = Number(e.dataTransfer.getData("text"));
-        player.placeShip(coordinates, 'vertical', length); //work out how to change orientation of the ships
-        //if the ship is placed correctly... the ship should be removed from the toBeplaced array
+        if (player.validMove(coordinates, placementDirection, length)) {
+            player.placeShip(coordinates, placementDirection, length); 
+            player.removeShip(length);
+        } else {
+            console.log('unsuccessful drop')
+        }
         setCounter(counter + 1);
     }
 
