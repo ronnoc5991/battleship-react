@@ -5,11 +5,12 @@ const PlayerSquare = (props) => {
 
     const [counter, setCounter] = useState(1);
 
-    const {playerObject, enemyObject, orientation, setUp} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     const [direction, setDirection] = orientation;
     const [inSetupPhase, setInSetupPhase] = setUp;
+    const [refresh, setRefresh] = refresher;
 
     function dragover (e) {
         e.preventDefault();
@@ -36,17 +37,17 @@ const PlayerSquare = (props) => {
         let length = Number(e.dataTransfer.getData("text"));
         if (player.validMove(coordinates, placementDirection, length)) {
             player.placeShip(coordinates, placementDirection, length); 
-            player.removeShip(length);
         } else {
             console.log('unsuccessful drop')
         }
-        setCounter(counter + 1);
+        setRefresh(refresh + 1);
     }
 
     return (
-        <div  onDragOver={ props.square === '-' ?  dragover  : undefined}  onDrop={ props.square === '-' ?  drop  : undefined} className={ `player-square ${ props.square === 'x' ? "hit" : ""} 
-                                        ${ props.square === 'm' ? "miss" : "" }
-                                        ${ props.square === '-' ? "untouched" : "placed-ship" }`} key={`[${props.rowIndex}, ${ props.squareIndex }]`} data-coordinates={ [`${props.rowIndex}${ props.columnIndex }`] } >
+        <div  onDragOver={ props.square === '-' ?  dragover  : undefined}  data-status={ (props.square === 'm') ? 'miss' : 'notamiss' } onDrop={ props.square === '-' ?  drop  : undefined} 
+            className={ `player-square ${ props.square === '-' ? "untouched" : "" } ${ (props.square !== '-' && props.square !== 'm' && props.square !== 'x') ? 'placed-ship' : "" }`} key={`[${props.rowIndex}, ${ props.squareIndex }]`} data-coordinates={ [`${props.rowIndex}${ props.columnIndex }`] } >
+                        { props.square === 'm' ? <div className="missed" ></div> : null}
+                        { props.square === 'x' ? <div className="hit placed-ship" ></div> : null}
         </div>
     )
 

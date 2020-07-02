@@ -15,8 +15,10 @@ export const GameProvider = (props) => {
 
     const [direction, setDirection] = useState(true);
 
+    const [refresh, setRefresh] = useState(1);
+
     return(
-        <GameContext.Provider value={{playerObject: [player, setPlayer], enemyObject: [enemy, setEnemy], orientation: [direction, setDirection], setUp: [inSetupPhase, setInSetupPhase]}}>
+        <GameContext.Provider value={{playerObject: [player, setPlayer], enemyObject: [enemy, setEnemy], orientation: [direction, setDirection], setUp: [inSetupPhase, setInSetupPhase], refresher: [refresh, setRefresh] }}>
             { props.children }
         </GameContext.Provider>
     );

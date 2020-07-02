@@ -2,14 +2,15 @@ import React, { useContext, useState } from 'react';
 import EnemyRow from './EnemyRow';
 import { GameContext } from './GameContext';
 
-const Enemy = (props) => {
+const Enemy = () => {
     const [number, setNumber] = useState(1);
 
-    const {playerObject, enemyObject, orientation, setUp} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     // const [direction, setDirection] = orientation;
     const [inSetupPhase, setInSetupPhase] = setUp;
+    const [refresh, setRefresh] = refresher;
 
     while (enemy.shipsToPlace.length > 0) {
         randomPlacement();
@@ -20,19 +21,19 @@ const Enemy = (props) => {
       }
 
     function randomPlacement () {
-        let length = enemy.shipsToPlace[0];  //gets first ship and stores the length
-        let orient = getRndInteger(0 , 1); //randomorientation function
+        let length = enemy.shipsToPlace[0];
+        let orient = getRndInteger(0 , 1); 
         let row;
         let column;
-        let bottleNeck = 10 - length;  //if length is 5 (10 - 5 = 5) the ship cannot be placed at a coordinate with a number higher than five for that orientation
-        if (orient === 1) { //horizontal
+        let bottleNeck = 10 - length;  
+        if (orient === 1) { 
             orient = 'horizontal';
-            row = getRndInteger(0 , 9);//random number between 0 and 9
-            column = getRndInteger(0, bottleNeck); //random number between 0 and bottleNeck
-            } else if (orient === 0) { //vertical
+            row = getRndInteger(0 , 9);
+            column = getRndInteger(0, bottleNeck); 
+            } else if (orient === 0) { 
             orient = 'vertical';
-            row = getRndInteger(0 , bottleNeck); //random number between 0 and bottleNeck
-            column = getRndInteger(0 , 9);//random number between 0 and 9
+            row = getRndInteger(0 , bottleNeck);
+            column = getRndInteger(0 , 9);
             }
 
         let coordinates = [row, column];
@@ -45,11 +46,26 @@ const Enemy = (props) => {
         }
 
     function takeAttack (e) { //should maybe launch an attack after taking an attack
-        if (e.target.dataset.coordinates) {
-            let coordinates = e.target.dataset.coordinates
-            enemy.receiveAttack(coordinates);
-            setNumber(number + 1);
+        if (e.target.dataset.status === 'attackable') {
+            if (e.target.dataset.coordinates) {
+                let coordinates = e.target.dataset.coordinates
+                enemy.receiveAttack(coordinates);
+                retaliate();
+                setRefresh(refresh + 1);
+                //launchAttack
+            }
         }
+    }
+
+    function retaliate () {
+        let coordinates = [getRndInteger(0 , 9), getRndInteger(0 , 9)];
+        player.receiveAttack(coordinates);
+        //generate random coordinates
+        //coordinates that have not yet been guessed
+        //if it is a hit... guess an adjacent set of coordinates
+        //if not try somewhere else
+        //player.receiveAttack(coordinates)
+        //save last attack coordiantes and result? outside of this function
     }
 
     return (

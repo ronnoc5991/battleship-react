@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './App.css';
 import Enemy from './Enemy';
 import Player from './Player';
 import UpperPanel from './UpperPanel';
-import {GameProvider} from './GameContext';
+import Game from './Game';
+import {GameProvider, GameContext} from './GameContext';
 
 function App() {
+
+  // const {playerObject, enemyObject, orientation, setUp} = useContext(GameContext);
+  // const [player, setPlayer] = playerObject;
+  // const [enemy, setEnemy] = enemyObject;
+  // const [direction, setDirection] = orientation;
+  // const [inSetupPhase, setInSetupPhase] = setUp;
+
+  // console.log(`This is from the App: ${inSetupPhase}`);
+
 //SETUP PHASE
 
   //enemy board should not be clickable
@@ -32,13 +42,14 @@ const toggleTurn = () => {
   return (
     <GameProvider>
       <div className="App" >
-        <UpperPanel />
+        <Game />
+        {/* <UpperPanel />
         <div className="bottom">
           <React.Fragment>
             <Player /> 
             <Enemy />
           </React.Fragment>
-        </div>
+        </div> */}
       </div>
     </GameProvider>
   );

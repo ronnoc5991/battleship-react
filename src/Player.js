@@ -7,14 +7,15 @@ const Player = (props) => {
 
     const [number, setNumber] = useState(1);
 
-    const {playerObject, enemyObject, orientation, setUp} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     const [direction, setDirection] = orientation;
     const [inSetupPhase, setInSetupPhase] = setUp;
+    const [refresh, setRefresh] = refresher;
 
-    function refresh (e) {
-        setNumber(number + 1);
+    function refreshIt (e) {
+        setRefresh(refresh + 1);
     }
 
     function toggleDirection () {
@@ -35,7 +36,7 @@ const Player = (props) => {
                     </div>
                 </button>
             </div>
-            <div className="player-board" onMouseOver={ refresh }>
+            <div className="player-board" onMouseOver={ refreshIt }>
                 <div className="pulse"></div>
                 <div className="player-circle circle-1"></div>
                 <div className="player-circle circle-2"></div>
