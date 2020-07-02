@@ -11,6 +11,10 @@ function App() {
 
 const [inSetupPhase, setInSetupPhase] = useState(true);
 
+
+function beginGame () {
+  setInSetupPhase(false);
+}
 //SETUP PHASE
 
   //enemy board should not be clickable
@@ -39,6 +43,9 @@ const toggleTurn = () => {
     <EnemyProvider>
     <div className="App" >
       <div className="top">
+      <button onClick={ beginGame } className="start-button" > 
+        <div className="start-button-inner"></div>
+      </button>
         <div className="light">
           <div className="light-circle"></div>
           <div className="line-1"></div>
@@ -54,8 +61,8 @@ const toggleTurn = () => {
       </div>
       <div className="bottom">
           <React.Fragment>
-          <Player /> 
-          <Enemy />
+          <Player setUp={ inSetupPhase } /> 
+          <Enemy setUp={ inSetupPhase } />
           </React.Fragment>
       </div>
     </div>
@@ -69,6 +76,10 @@ export default App;
 // add screws to the light?
 //create gameplay phases
 
-//turn horizontal / vertical button into a switch like on a control panel
-
 //put everything in a single context... this allows the setupPhase state to be distributed app wide ... are there alternatives?  pass it as a prop?
+
+//lifting state to above app level
+  //PROS
+    //Access to the setupPhase variable globally
+    //attacks on enemy ships can be called globally... or in the app component
+    //cleaner?

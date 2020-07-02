@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import EnemyRow from './EnemyRow';
 import {EnemyContext} from './EnemyContext'
 
-const Enemy = () => {
+const Enemy = (props) => {
     const [number, setNumber] = useState(1);
     const { object, board } = useContext(EnemyContext);
     const [enemy, setEnemy] = object;
@@ -39,6 +39,7 @@ enemy.placeShip([4,0], 'horizontal', 2);
 //  call the placeShip method on enemy and move onto the next ship 
 //}
 
+//when the setup Phase is true... the board should not be clickable
 
 function takeAttack (e) {
     let coordinates = e.target.dataset.coordinates
@@ -48,7 +49,7 @@ function takeAttack (e) {
 
     return (
         <div className="enemy-side">
-            <div className="enemy-board" onClick={ takeAttack }>
+            <div className="enemy-board" onClick={ props.setUp ? undefined : takeAttack }>
                     <div className="arm"></div>
                     <div className="circle circle-1"></div>
                     <div className="circle circle-2"></div>

@@ -3,7 +3,7 @@ import PlayerRow from './PlayerRow';
 import { PlayerContext } from './PlayerContext';
 import DraggableShips from './DraggableShips';
 
-const Player = () => {
+const Player = (props) => {
 
     const [number, setNumber] = useState(1);
     const { object, board , orientation} = useContext(PlayerContext);
@@ -27,9 +27,9 @@ const Player = () => {
         <div className="player-side">
             <div className="player-left">
                 <div className="ship-holder">
-                    { player.shipsToPlace.map((ship, shipIndex) => {
+                    { props.setUp ? player.shipsToPlace.map((ship, shipIndex) => {
                         return <DraggableShips length={ ship } index={ shipIndex } direction={ direction } onClick={logThis}/>
-                    }) }
+                    }) : 'Game has begun' }
                 </div>
                 <button className={`rotate-button ${ direction ? 'rotated' : undefined }`} onClick={ toggleDirection }>
                     <div className="switch">
