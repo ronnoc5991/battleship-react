@@ -1,15 +1,17 @@
 import React, { useContext, useState } from 'react';
 import PlayerRow from './PlayerRow';
-import { PlayerContext } from './PlayerContext';
 import DraggableShips from './DraggableShips';
+import {GameContext} from './GameContext';
 
 const Player = (props) => {
 
     const [number, setNumber] = useState(1);
-    const { object, board , orientation} = useContext(PlayerContext);
-    const [player, setPlayer] = object;
-    const [playerBoard, setPlayerBoard] = board;
+
+    const {playerObject, enemyObject, orientation, setUp} = useContext(GameContext);
+    const [player, setPlayer] = playerObject;
+    const [enemy, setEnemy] = enemyObject;
     const [direction, setDirection] = orientation;
+    const [inSetupPhase, setInSetupPhase] = setUp;
 
     function refresh (e) {
         setNumber(number + 1);
@@ -19,16 +21,12 @@ const Player = (props) => {
         setDirection(!direction);
     }
 
-    function logThis () {
-        console.log('This is from player dude')
-    }
-
     return (
         <div className="player-side">
             <div className="player-left">
                 <div className="ship-holder">
-                    { props.setUp ? player.shipsToPlace.map((ship, shipIndex) => {
-                        return <DraggableShips length={ ship } index={ shipIndex } direction={ direction } onClick={logThis}/>
+                    { inSetupPhase ? player.shipsToPlace.map((ship, shipIndex) => {
+                        return <DraggableShips length={ ship } index={ shipIndex } direction={ direction } />
                     }) : 'Game has begun' }
                 </div>
                 <button className={`rotate-button ${ direction ? 'rotated' : undefined }`} onClick={ toggleDirection }>
@@ -43,7 +41,7 @@ const Player = (props) => {
                 <div className="player-circle circle-2"></div>
                 <div className="player-circle circle-3"></div>
                 <div className="player-circle circle-4"></div>
-                {playerBoard.map((row, rowIndex) => {
+                {player.board.map((row, rowIndex) => {
                 return <PlayerRow row={row} rowIndex={ rowIndex }/>
                 }) }
             </div>

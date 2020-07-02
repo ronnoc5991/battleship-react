@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import {EnemyContext} from './EnemyContext';
+import { GameContext } from './GameContext';
 
-const Square = (props) => {
+const EnemySquare = (props) => {
 
-    const { object, board } = useContext(EnemyContext);
-    const [enemy, setEnemy] = object;
-    const [enemyBoard, setEnemyBoard] = board;
+    // IDK if state is necessary here
+
+    const {playerObject, enemyObject, orientation, setUp} = useContext(GameContext);
+    const [player, setPlayer] = playerObject;
+    const [enemy, setEnemy] = enemyObject;
+    const [direction, setDirection] = orientation;
+    const [inSetupPhase, setInSetupPhase] = setUp;
 
     return (
         <div className={ `Square ${ props.square === '-' ? "untouched" : ''} 
@@ -16,4 +20,4 @@ const Square = (props) => {
 
 }
 
-export default Square;
+export default EnemySquare;

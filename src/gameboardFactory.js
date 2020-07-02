@@ -108,8 +108,7 @@ const gameboardFactory = () => {
                         newShip.placement.push([row, i]);  //pass the ship its coordinates
                     }
                     ships.push(newShip); //places ship in board's ship array
-                    console.log('Ship placed');
-
+                    removeShip(shipSize);
                 }
 
             } else {
@@ -138,6 +137,7 @@ const gameboardFactory = () => {
                         newShip.placement.push([i, column]); //pass the ship its coordinates
                     }
                     ships.push(newShip); ////places ship in board's ship array
+                    removeShip(shipSize);
                 }
 
             } else {
@@ -185,8 +185,3 @@ const gameboardFactory = () => {
 }
 
 module.exports = gameboardFactory;
-
-// write function that determines if a move is valid
-//this will be called from the DOM on Dragover
-//will change styling accordingly
-//if move is valid and ship is dropped... remove it from the waiting dock
