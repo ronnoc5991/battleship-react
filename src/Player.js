@@ -5,14 +5,13 @@ import {GameContext} from './GameContext';
 
 const Player = (props) => {
 
-    const [number, setNumber] = useState(1);
-
-    const {playerObject, enemyObject, orientation, setUp, refresher} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher, game} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     const [direction, setDirection] = orientation;
     const [inSetupPhase, setInSetupPhase] = setUp;
     const [refresh, setRefresh] = refresher;
+    const [gameIsOver, setGameIsOver] = game;
 
     function refreshIt (e) {
         setRefresh(refresh + 1);
@@ -36,7 +35,7 @@ const Player = (props) => {
                     </div>
                 </button>
             </div>
-            <div className="player-board" onMouseOver={ refreshIt }>
+            <div className="player-board" >
                 <div className="pulse"></div>
                 <div className="player-circle circle-1"></div>
                 <div className="player-circle circle-2"></div>
@@ -53,3 +52,5 @@ const Player = (props) => {
 export default Player;
 
 // on dragstart the ship should size up as if it were being picked up and size back down on drop?
+
+// onMouseOver={ refreshIt }

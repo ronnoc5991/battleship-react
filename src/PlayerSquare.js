@@ -3,14 +3,13 @@ import { GameContext } from './GameContext';
 
 const PlayerSquare = (props) => {
 
-    const [counter, setCounter] = useState(1);
-
-    const {playerObject, enemyObject, orientation, setUp, refresher} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher, game} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     const [direction, setDirection] = orientation;
     const [inSetupPhase, setInSetupPhase] = setUp;
     const [refresh, setRefresh] = refresher;
+    const [gameIsOver, setGameIsOver] = game;
 
     function dragover (e) {
         e.preventDefault();

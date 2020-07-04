@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Enemy from './Enemy';
 import Player from './Player';
 import UpperPanel from './UpperPanel';
@@ -6,35 +6,47 @@ import {GameContext} from './GameContext';
 
 function Game() {
 
-    const {playerObject, enemyObject, orientation, setUp, refresher} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher, game} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     const [direction, setDirection] = orientation;
     const [inSetupPhase, setInSetupPhase] = setUp;
     const [refresh, setRefresh] = refresher;
+    const [gameIsOver, setGameIsOver] = game;
+
+    let winner;
 
     function checkGameOver () {
+      if (inSetupPhase) {
+        return false;
+      } else {
         let playerWins = enemy.allSunk();
         let enemyWins = player.allSunk();
         if (playerWins || enemyWins) {
+          if (playerWins) {
+            winner = 'You win!'
+          } else {
+            winner = 'You lose!'
+          }
             return true;
         } else {
             return false;
         }
+      }
     }
 
 
         useEffect(() => {
             console.log('This is from refresh effect');
             let gameOver = checkGameOver();
-            console.log(gameOver);
             if(gameOver) {
                 console.log('game is over');
+                setGameIsOver(true);
+                console.log(gameIsOver);
             }
-        });
+        }, [refresh]);
 
 
-        //THESE GAMEOVER CHEKS ARE NOT WORKING
 
 //SETUP PHASE
 
@@ -49,16 +61,11 @@ function Game() {
     //this consists of a allSunk() call on each gameboard
         //if one returns true, this is the loser
 
-// let nextPlayer = true;
-
-// const toggleTurn = () => {
-//      nextPlayer = !nextPlayer;
-// }
-
   return (
       <div className="Game" >
         <UpperPanel />
-        <div className="bottom">
+        { gameIsOver && <div className="end-game-popup"> Game Over</div> }
+        <div className={`bottom ${ gameIsOver ? 'unclickable' : ''}` }>
           <React.Fragment>
             <Player /> 
             <Enemy />

@@ -25,6 +25,8 @@ const gameboardFactory = () => {
             }
         })
 
+        console.log(`This is the sink Count: ${sinkCount}`)
+
         if (sinkCount === ships.length) {
             return true
         } else {
@@ -149,15 +151,13 @@ const gameboardFactory = () => {
     const receiveAttack = (coordinates) => {
         let row = coordinates[0];
         let column = coordinates[1];
-        //if the attack spot !== '-' or numbers... block attack... is this done in DOM?
-
         if(board[row][column] === 'm' || board[row][column] === 'x') {
             return 'Not valid attack'
         } else if (board[row][column] === '-') { //miss
             board[row][column] = 'm' //mark this place on the board as a missed shot
         } else { //hit
             let index = board[row][column]; //get the index number of the ship in this boards ship array
-            ships[index].hit(coordinates); //call that ships hit function with the coordinates
+            ships[index].hit([row, column]); //call that ships hit function with the coordinates
             board[row][column] = 'x' //mark this as a hit on the board
         }
     }

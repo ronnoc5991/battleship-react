@@ -1,6 +1,5 @@
 import React, { useState, createContext } from 'react';
 const gameboardFactory = require('./gameboardFactory');
-// const playerFactory = require('./playerFactory');
 
 
 export const GameContext = createContext();
@@ -17,8 +16,10 @@ export const GameProvider = (props) => {
 
     const [refresh, setRefresh] = useState(1);
 
+    const [gameIsOver, setGameIsOver] = useState(false);
+
     return(
-        <GameContext.Provider value={{playerObject: [player, setPlayer], enemyObject: [enemy, setEnemy], orientation: [direction, setDirection], setUp: [inSetupPhase, setInSetupPhase], refresher: [refresh, setRefresh] }}>
+        <GameContext.Provider value={{playerObject: [player, setPlayer], enemyObject: [enemy, setEnemy], orientation: [direction, setDirection], setUp: [inSetupPhase, setInSetupPhase], refresher: [refresh, setRefresh], game: [gameIsOver, setGameIsOver]}}>
             { props.children }
         </GameContext.Provider>
     );

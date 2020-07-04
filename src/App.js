@@ -1,20 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import './App.css';
-import Enemy from './Enemy';
-import Player from './Player';
-import UpperPanel from './UpperPanel';
 import Game from './Game';
-import {GameProvider, GameContext} from './GameContext';
+import {GameProvider} from './GameContext';
 
 function App() {
 
-  // const {playerObject, enemyObject, orientation, setUp} = useContext(GameContext);
-  // const [player, setPlayer] = playerObject;
-  // const [enemy, setEnemy] = enemyObject;
-  // const [direction, setDirection] = orientation;
-  // const [inSetupPhase, setInSetupPhase] = setUp;
-
-  // console.log(`This is from the App: ${inSetupPhase}`);
 
 //SETUP PHASE
 
@@ -33,23 +23,10 @@ function App() {
     //this consists of a allSunk() call on each gameboard
         //if one returns true, this is the loser
 
-let nextPlayer = true;
-
-const toggleTurn = () => {
-     nextPlayer = !nextPlayer;
-}
-
   return (
     <GameProvider>
       <div className="App" >
         <Game />
-        {/* <UpperPanel />
-        <div className="bottom">
-          <React.Fragment>
-            <Player /> 
-            <Enemy />
-          </React.Fragment>
-        </div> */}
       </div>
     </GameProvider>
   );

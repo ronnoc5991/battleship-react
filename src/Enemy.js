@@ -5,12 +5,13 @@ import { GameContext } from './GameContext';
 const Enemy = () => {
     const [number, setNumber] = useState(1);
 
-    const {playerObject, enemyObject, orientation, setUp, refresher} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher, game} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     // const [direction, setDirection] = orientation;
     const [inSetupPhase, setInSetupPhase] = setUp;
     const [refresh, setRefresh] = refresher;
+    const [gameIsOver, setGameIsOver] = game;
 
     while (enemy.shipsToPlace.length > 0) {
         randomPlacement();
@@ -52,7 +53,6 @@ const Enemy = () => {
                 enemy.receiveAttack(coordinates);
                 retaliate();
                 setRefresh(refresh + 1);
-                //launchAttack
             }
         }
     }
@@ -60,18 +60,17 @@ const Enemy = () => {
     function retaliate () {
         let coordinates = [getRndInteger(0 , 9), getRndInteger(0 , 9)];
         player.receiveAttack(coordinates);
-        //generate random coordinates
         //coordinates that have not yet been guessed
         //if it is a hit... guess an adjacent set of coordinates
         //if not try somewhere else
-        //player.receiveAttack(coordinates)
         //save last attack coordiantes and result? outside of this function
     }
 
     return (
         <div className="enemy-side">
             <div className="enemy-board" onClick={ inSetupPhase ? undefined : takeAttack }>
-                    <div className="arm"></div>
+                { !inSetupPhase && <div className="arm"></div>}
+                    {/* <div className="arm"></div> */}
                     <div className="circle circle-1"></div>
                     <div className="circle circle-2"></div>
                     <div className="circle circle-3"></div>
