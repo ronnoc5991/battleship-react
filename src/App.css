@@ -1,8 +1,13 @@
 /* --------------- GLOBAL APP DECLARATIONS --------------- */
 
+body {
+  overflow: hidden;
+}
+
 .App {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .Game {
@@ -14,16 +19,18 @@
   width: 100%;
   height: 100%;
   background-color: rgb(46, 45, 45);
+  overflow: hidden;
 }
+
+/* ------------------- DOOR ANIMATION ------------------- */
 
 .intro {
   height: 800px;
   width: 500px;
-  background-color: #aaaaa9;
-  border: 25px solid grey;
-  border-radius: 1000px;
+  background-color: transparent;
+  border: 2000px solid grey;
+  border-radius: 4000px;
   box-shadow: 0px 0px 3px 3px black, 0px 0px 3px 3px black inset;
-  box-sizing: border-box;
   position: absolute;
   left: 50%;
   bottom: 50%;
@@ -31,20 +38,91 @@
   z-index: 11;
   display: flex;
   flex-wrap: wrap;
+  transform-origin: center;
+  transition: transform 2000ms;
 }
 
 .door-1 {
   height: 650px;
   width: 350px;
-  background-color: #aaaaa9;
-  border: 25px solid grey;
+  background-color: transparent;
+  border: 75px solid rgb(66, 66, 66);
   border-radius: 1000px;
-  box-shadow: 0px 0px 3px 3px black, 0px 0px 3px 3px black inset;
-  box-sizing: border-box;
+  box-shadow: 0px 0px 3px 3px black, 0px 0px 5px 5px black inset;
   position: absolute;
   left: 50%;
   bottom: 50%;
   transform: translateX(-50%) translateY(50%);
+  z-index: 11;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.handle-1 {
+  height: 150px;
+  width: 150px;
+  background-color: transparent;
+  border: 15px solid black;
+  position: absolute;
+  box-sizing: border-box;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(40%) translateY(50%) rotate(45deg);
+  z-index: 12;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px 2px white, 0px 0px 2px 2px white inset;
+  overflow: hidden;
+}
+
+.axis-1 {
+width: 150px;
+height: 15px;
+background-color: black;
+left: 50%;
+bottom: 50%;
+transform: translateX(-50%) translateY(50%);
+position: absolute;
+border-top: 2px solid white;
+border-bottom: 2px solid white;
+}
+
+.axis-2 {
+  width: 15px;
+  height: 150px;
+  background-color: black;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%) translateY(50%);
+  position: absolute;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.handle-center {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: black;
+  left: 50%;
+  bottom: 50%;
+  box-shadow: 0px 0px 2px 2px white;
+  transform: translateX(-50%) translateY(50%);
+  position: absolute;
+}
+
+.door-2 {
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  border: 500px solid #848482;
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px 3px black, 0px 0px 3px 3px black inset;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: center;
+  transform: translateX(-50%) translateY(38%);
   z-index: 11;
   display: flex;
   flex-wrap: wrap;
@@ -53,16 +131,16 @@
 .door-window {
   height: 200px;
   width: 200px;
-  background-color: #dfdfdf;
-  border: 25px solid grey;
+  background-color: transparent;
+  border: 25px solid rgb(66, 66, 66);
   border-radius: 1000px;
   box-shadow: 0px 0px 3px 3px black, 0px 0px 3px 3px black inset;
   box-sizing: border-box;
   position: absolute;
-  left: 50%;
+  /* left: 50%;
   bottom: 50%;
-  transform: translateX(-50%) translateY(-25%);
-  z-index: 11;
+  transform: translateX(-50%) translateY(-25%); */
+  z-index: 12;
   display: flex;
   flex-wrap: wrap;
 }
@@ -328,15 +406,8 @@
   grid-row-end: 3;
   display: flex;
   width: 100%;
+  overflow: hidden;
 }
-
-/* .peg-hole {
-  height: 15px;
-  width: 15px;
-  background-color: black;
-  margin: auto;
-  border-radius: 50%;
-} */
 
 .ship-placer {
   height: 500px;
@@ -451,18 +522,6 @@
   margin: auto;
   display: flex;
   flex-basis: 50%;
-}
-
-.ship-status-container {
-  width: 190px;
-  height: 350px;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  margin: auto;
-  border: 2px solid black;
-  background-color: #0077be;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .player-left {
@@ -757,6 +816,10 @@
 }
 
 /* ------------------------- PLAYER-SHIP-STATUS -------------------------*/
+.player-side .ship-status-container {
+  background-color: #0077be;
+}
+
 .player-side .ship {
   border: 3px dotted yellow;
   background-color: transparent;
@@ -818,6 +881,9 @@
 }
 
 /* ------------------- ENEMY SHIP STATUS ------------------- */
+.enemy-side .ship-status-container {
+  background-color: black;
+}
 
 .enemy-side .ship {
   border: 3px dotted rgb(0, 255, 0);
