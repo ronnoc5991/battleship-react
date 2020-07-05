@@ -3,6 +3,7 @@ import Enemy from './Enemy';
 import Player from './Player';
 import UpperPanel from './UpperPanel';
 import {GameContext} from './GameContext';
+import ShipPlacer from './ShipPlacer';
 
 function Game() {
 
@@ -13,6 +14,7 @@ function Game() {
     const [inSetupPhase, setInSetupPhase] = setUp;
     const [refresh, setRefresh] = refresher;
     const [gameIsOver, setGameIsOver] = game;
+    const [intro, setIntro] = useState(true);
 
     let winner;
 
@@ -47,27 +49,28 @@ function Game() {
         }, [refresh]);
 
 
-
-//SETUP PHASE
-
-  //enemy radar should have some cool fuzz/static effect
-
-//GAME PHASE
-  //player should go first
-  //they click on 1 place 
-  //enemy attacks their ships
-  //worry about timing later and AI can be dumb for now
-  //at the beginning of each turn, a game over check should be run 
-    //this consists of a allSunk() call on each gameboard
-        //if one returns true, this is the loser
-
   return (
       <div className="Game" >
         <UpperPanel />
         { gameIsOver && <div className="end-game-popup"> Game Over</div> }
         <div className={`bottom ${ gameIsOver ? 'unclickable' : ''}` }>
           <React.Fragment>
+            { intro ? <div className="intro">
+              <div className="door-1">
+                <div className="door-window">
+                  <div className="screw screw-1"></div>
+                  <div className="screw screw-2"></div>
+                  <div className="screw screw-3"></div>
+                  <div className="screw screw-4"></div>
+                  <div className="screw screw-5"></div>
+                  <div className="screw screw-6"></div>
+                  <div className="screw screw-7"></div>
+                  <div className="screw screw-8"></div>
+                </div>
+              </div>
+            </div> : null}
             <Player /> 
+            { inSetupPhase ? <ShipPlacer /> : null }
             <Enemy />
           </React.Fragment>
         </div>

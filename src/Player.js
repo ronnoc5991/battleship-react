@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import PlayerRow from './PlayerRow';
-import DraggableShips from './DraggableShips';
 import {GameContext} from './GameContext';
 
 const Player = (props) => {
@@ -17,23 +16,25 @@ const Player = (props) => {
         setRefresh(refresh + 1);
     }
 
-    function toggleDirection () {
-        setDirection(!direction);
-    }
+    // function toggleDirection () {
+    //     setDirection(!direction);
+    // }
 
     return (
         <div className="player-side">
             <div className="player-left">
-                <div className="ship-holder">
-                    { inSetupPhase ? player.shipsToPlace.map((ship, shipIndex) => {
-                        return <DraggableShips length={ ship } index={ shipIndex } direction={ direction } />
-                    }) : 'Game has begun' }
+                <div className="ship-status-container">
+                    <div className="ship carrier"></div>
+                    <div className="ship battleship"></div>
+                    <div className="ship cruiser"></div>
+                    <div className="ship submarine"></div>
+                    <div className="ship destroyer"></div>
                 </div>
-                <button className={`rotate-button ${ direction ? 'rotated' : undefined }`} onClick={ toggleDirection }>
+                {/* <button className={`rotate-button ${ direction ? 'rotated' : undefined }`} onClick={ toggleDirection }>
                     <div className="switch">
                         <div className="arrow"></div>
                     </div>
-                </button>
+                </button> */}
             </div>
             <div className="player-board" >
                 <div className="pulse"></div>

@@ -79,12 +79,12 @@ const Enemy = () => {
                     return <EnemyRow row={row} rowIndex={ rowIndex } />
                     }) }
             </div>
-            <div className="ship-holder">
-                <div className="ship ship-5-horizontal"></div>
-                <div className="ship ship-4-horizontal"></div>
-                <div className="ship ship-3-horizontal"></div>
-                <div className="ship ship-3-horizontal"></div>
-                <div className="ship ship-2-horizontal"></div>
+            <div className="ship-status-container">
+                <div className="ship carrier"></div>
+                <div className="ship battleship"></div>
+                <div className="ship cruiser"></div>
+                <div className="ship submarine"></div>
+                <div className="ship destroyer"></div>
             </div>
         </div>
     )

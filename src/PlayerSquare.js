@@ -47,6 +47,7 @@ const PlayerSquare = (props) => {
             className={ `player-square ${ props.square === '-' ? "untouched" : "" } ${ (props.square !== '-' && props.square !== 'm' && props.square !== 'x') ? 'placed-ship' : "" }`} key={`[${props.rowIndex}, ${ props.squareIndex }]`} data-coordinates={ [`${props.rowIndex}${ props.columnIndex }`] } >
                         { props.square === 'm' ? <div className="missed" ></div> : null}
                         { props.square === 'x' ? <div className="hit placed-ship" ></div> : null}
+                        {/* { (props.square !== '-' && props.square !== 'm' && props.square !== 'x') ? <div className="placed"> </div> : "" } */}
         </div>
     )
 
