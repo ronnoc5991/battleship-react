@@ -2,13 +2,15 @@ import React from 'react';
 import './App.css';
 import Game from './Game';
 import {GameProvider} from './GameContext';
+import IntroAnimation from './IntroAnimation';
 
 function App() {
 
   return (
     <GameProvider>
       <div className="App" >
-        <Game />
+        <IntroAnimation />
+        {/* <Game /> */}
       </div>
     </GameProvider>
   );
