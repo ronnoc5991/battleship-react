@@ -1,5 +1,16 @@
 /* --------------- GLOBAL APP DECLARATIONS --------------- */
 
+:root {
+  --ocean-blue-1: #004772;
+  --ocean-blue-2: #00578b;
+  --ocean-blue-3: #0067a5;
+  --ocean-blue-4: #0077be;
+  --ocean-blue-5: #0087d8;
+  --ocean-blue-6: #0097f1;
+  --ocean-blue-7: #0ca4ff;
+}
+
+
 body {
   overflow: hidden;
 }
@@ -950,7 +961,9 @@ border-bottom: 2px solid white;
 .intro-animation-container {
   width: 100%;
   height: 100%;
-  background-color: rgb(50, 50, 214);
+  background-color: var(--ocean-blue-3);
+  display: grid;
+  grid-template-rows: 50vh 1fr;
 }
 
 .logo-container {
@@ -967,11 +980,14 @@ border-bottom: 2px solid white;
   height: 1000px;
 }
 
-.intro-sky {
+.sky {
   width: 100%;
   height: 50%;
-  background-color: lightblue;
+  background-color: rgb(255, 166, 125);
+  grid-row-start: 1;
+  grid-row-end: 2;
   position: relative;
+  z-index: 2;
 }
 
 .sun {
@@ -983,45 +999,268 @@ border-bottom: 2px solid white;
   left: 50%;
   bottom: 50%;
   transform: translateX(-50%) translateY(50%);
-  box-shadow: 0px 0px 15px 5px rgb(255, 105, 105);
+  box-shadow: 0px 0px 15px 5px rgb(255, 74, 74), 0px 0px 50px 20px rgb(255, 120, 120);
+}
+
+.wave-parent {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  height: 100vh;
 }
 
 .wave-container {
-  width: 110%;
-  height: 200px;
+  width: 105vw;
   position: absolute;
   display: flex;
   bottom: 50%;
-  transform: translateY(55%);
 }
 
 .wave {
-  width: 100px;
-  height: 110px;
-  background-color: lightblue;
+  flex-basis: 5%;
+  height: 50px;
   border-radius: 50%;
   transform: rotate(45deg);
-  animation-name: spinWaves;
   animation-duration: 3000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   margin-left: -30px;
+  border-right: 5px solid rgb(255, 105, 105);
 }
 
-.tilted {
-  /* width: 250px;
-  height: 200px;
-  background-color: white;
-  border-radius: 40%;
-  transform: rotate(45deg);
-  animation-name: spinWaves;
-  animation-duration: 3000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear; */
+.row-1 {
+  transform: translateY(750%);
 }
+
+.row-1 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinWaves;
+}
+
+.row-2 {
+  transform: translateY(700%);
+}
+
+.row-2 .wave {
+  background-color: var(--ocean-blue-2);
+  animation-name: spinReverse;
+}
+
+.row-3 {
+  transform: translateY(650%);
+}
+
+.row-3 .wave {
+  background-color: var(--ocean-blue-3);
+  animation-name: spinWaves;
+}
+
+.row-4 {
+  transform: translateY(600%);
+}
+
+.row-4 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinReverse;
+}
+
+.row-5 {
+  transform: translateY(550%);
+}
+
+.row-5 .wave {
+  background-color: var(--ocean-blue-2);
+  animation-name: spinWaves;
+}
+
+.row-6 {
+  transform: translateY(500%);
+}
+
+.row-6 .wave {
+  background-color: var(--ocean-blue-3);
+  animation-name: spinReverse;
+}
+
+.row-7 {
+  transform: translateY(450%);
+}
+
+.row-7 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinWaves;
+}
+
+.row-8 {
+  transform: translateY(400%);
+}
+
+.row-8 .wave {
+  background-color: var(--ocean-blue-2);
+  animation-name: spinReverse;
+}
+
+.row-9 {
+  transform: translateY(350%);
+}
+
+.row-9 .wave {
+  background-color: var(--ocean-blue-3);
+  animation-name: spinWaves;
+}
+
+.row-10 {
+  transform: translateY(300%);
+}
+
+.row-10 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinReverse;
+}
+
+.row-11 {
+  transform: translateY(250%);
+}
+
+.row-11 .wave {
+  background-color: var(--ocean-blue-2);
+  animation-name: spinWaves;
+}
+
+.row-12 {
+  transform: translateY(200%);
+}
+
+.row-12 .wave {
+  background-color: var(--ocean-blue-3);
+  animation-name: spinReverse;
+}
+
+.row-13 {
+  transform: translateY(150%);
+}
+
+.row-13 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinWaves;
+}
+
+.row-14 {
+  transform: translateY(100%);
+}
+
+.row-14 .wave {
+  background-color: var(--ocean-blue-2);
+  animation-name: spinReverse;
+}
+
+.row-15 {
+  transform: translateY(50%);
+}
+
+.row-15 .wave {
+  background-color: var(--ocean-blue-3);
+  animation-name: spinWaves;
+}
+
+.row-16 {
+  transform: translateY(0%);
+}
+
+.row-16 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinReverse;
+}
+
+.row-17 {
+  transform: translateY(-50%);
+}
+
+.row-17 .wave {
+  background-color: var(--ocean-blue-2);
+  animation-name: spinWaves;
+}
+
+.row-18 {
+  transform: translateY(-100%);
+}
+
+.row-18 .wave {
+  background-color: var(--ocean-blue-3);
+  animation-name: spinReverse;
+}
+
+.row-19 {
+  transform: translateY(-150%);
+}
+
+.row-19 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinWaves;
+}
+
+.row-20 {
+  transform: translateY(-200%);
+}
+
+.row-20 .wave {
+  background-color: var(--ocean-blue-2);
+  animation-name: spinReverse;
+}
+
+.row-21 {
+  transform: translateY(-250%);
+}
+
+.row-21 .wave {
+  background-color: var(--ocean-blue-3);
+  animation-name: spinWaves;
+}
+
+.row-22 {
+  transform: translateY(-300%);
+}
+
+.row-22 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinReverse;
+}
+
+.row-23 {
+  transform: translateY(-350%);
+}
+
+.row-23 .wave {
+  background-color: var(--ocean-blue-2);
+  animation-name: spinWaves;
+}
+
+.row-24 {
+  transform: translateY(-400%);
+}
+
+.row-24 .wave {
+  background-color: var(--ocean-blue-3);
+  animation-name: spinReverse;
+}
+
+.row-25 {
+  transform: translateY(-450%);
+}
+
+.row-25 .wave {
+  background-color: var(--ocean-blue-1);
+  animation-name: spinWaves;
+}
+
 
 @keyframes spinWaves {
   0% { transform: rotate(45deg); }
-  50% { transform: rotate(225deg); }
-  100% { transform: rotate(405deg); }
+  50% { transform: rotate(-45deg); }
+  100% { transform: rotate(45deg); }
+}
+
+@keyframes spinReverse {
+  0% { transform: rotate(-45deg); }
+  50% { transform: rotate(45deg); }
+  100% { transform: rotate(-45deg); }
 }
