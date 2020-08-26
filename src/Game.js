@@ -59,7 +59,7 @@ function Game() {
         { gameIsOver && <div className="end-game-popup"> Game Over</div> }
         <div className={`bottom ${ gameIsOver ? 'unclickable' : ''}` }>
           <React.Fragment>
-            { intro ? <div className="intro">
+            {/* { intro ? <div className="intro">
             <div className="handle-1">
               <div className="axis-1"></div>
               <div className="axis-2"></div>
@@ -79,7 +79,7 @@ function Game() {
                   </div>
                 </div>
               </div>
-            </div> : null}
+            </div> : null} */}
             <Player /> 
             { inSetupPhase ? <ShipPlacer /> : null }
             <Enemy />

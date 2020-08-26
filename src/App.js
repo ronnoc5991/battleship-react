@@ -9,8 +9,8 @@ function App() {
   return (
     <GameProvider>
       <div className="App" >
-        <IntroAnimation />
-        {/* <Game /> */}
+        {/* <IntroAnimation /> */}
+        <Game />
       </div>
     </GameProvider>
   );
