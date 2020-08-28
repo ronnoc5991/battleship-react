@@ -87,16 +87,16 @@ body {
 }
 
 .axis-1 {
-width: 150px;
-height: 15px;
-background-color: black;
-left: 50%;
-bottom: 50%;
-transform: translateX(-50%) translateY(50%);
-position: absolute;
-border-top: 2px solid white;
-border-bottom: 2px solid white;
-}
+  width: 150px;
+  height: 15px;
+  background-color: black;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%) translateY(50%);
+  position: absolute;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  }
 
 .axis-2 {
   width: 15px;
@@ -224,12 +224,12 @@ border-bottom: 2px solid white;
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
-  width: 500px;
-  height: 400px;
+  width: 300px;
+  height: 200px;
   background-color: white;
   z-index: 10;
-  font-size: 180px;
-  border: 5px solid blue;
+  font-size: 30px;
+  border: 5px solid red;
   border-radius: 30%;
 }
 
@@ -244,8 +244,8 @@ border-bottom: 2px solid white;
   grid-column-start: 2;
   grid-column-end: 3;
   margin: auto;
-  height: 100px;
-  width: 100px;
+  height: 10vh;
+  width: 10vh;
   border-radius: 50%;
   box-sizing: border-box;
   border: 2px solid black;
@@ -256,8 +256,8 @@ border-bottom: 2px solid white;
 }
 
 .start-button-inner {
-  width: 80px;
-  height: 80px;
+  width: 8vh;
+  height: 8vh;
   border-radius: 50%;
   box-sizing: border-box;
   border: 2px solid rgb(255, 255, 255, .5);
@@ -271,8 +271,10 @@ border-bottom: 2px solid white;
 }
 
 .light {
-  height: 130px;
-  width: 130px;
+  /* height: 130px;
+  width: 130px; */
+  height: 17vh;
+  width: 17vh;
   background-color: rgb(255, 0, 0, .6);
   margin: auto;
   border-radius: 50%;
@@ -285,10 +287,12 @@ border-bottom: 2px solid white;
 }
 
 .light-circle {
-  width: 65px;
-  height: 65px;
+  /* width: 65px;
+  height: 65px; */
+  width: 8.5vh;
+  height: 8.5vh;
   background-color: transparent;
-  border: 4px solid black;
+  border: .6vh solid black;
   border-radius: 50%;
   z-index: 6;
   position: absolute;
@@ -298,8 +302,10 @@ border-bottom: 2px solid white;
 }
 
 .line-1 {
-  width: 130px;
-  height: 5px;
+  /* width: 130px; */
+  width: 17vh;
+  /* height: 5px; */
+  height: .65vh;
   background-color: black;
   border-radius: 50%;
   z-index: 6;
@@ -312,8 +318,10 @@ border-bottom: 2px solid white;
 /* extend lines from these lines to create shadows */
 
 .line-2 {
-  width: 5px;
-  height: 130px;
+  /* width: 5px; */
+  width: .65vh;
+  /* height: 130px; */
+  height: 17vh;
   border-radius: 50%;
   background-color: black;
   z-index: 5;
@@ -324,8 +332,10 @@ border-bottom: 2px solid white;
 }
 
 .line-3 {
-  width: 10px;
-  height: 10px;
+  /* width: 10px;
+  height: 10px; */
+  width: 1.4vh;
+  height: 1.4vh;
   border-radius: 50%;
   background-color: black;
   z-index: 6;
@@ -339,8 +349,10 @@ border-bottom: 2px solid white;
   background-color: rgb(255, 0, 0, .9);
   /* border: 1px solid rgb(255, 255, 255, .5); */
   border: 2px solid black;
-  width: 100px;
-  height: 100px;
+  /* width: 100px;
+  height: 100px; */
+  width: 13vh;
+  height: 13vh;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -354,8 +366,10 @@ border-bottom: 2px solid white;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  height: 100px;
-  width: 100px;
+  /* height: 100px;
+  width: 100px; */
+  height: 13vh;
+  width: 13vh;
   position: absolute;
   /* animation-name: spinLight;
   animation-delay: 5000ms;
@@ -373,8 +387,10 @@ border-bottom: 2px solid white;
 }
 
 .spinner-1 {
-  height: 35px;
-  width: 70px;
+  /* height: 35px; */
+  height: 4.57vh;
+  /* width: 70px; */
+  width: 9.15vh;
   background-color: rgb(0, 0, 0, .6);
   border-top-left-radius: 50% 100%;
   border-top-right-radius: 50% 100%;
@@ -393,9 +409,11 @@ border-bottom: 2px solid white;
 }
 
 .spinner-2 {
-  height: 35px;
+  /* height: 35px; */
+  height: 4.57vh;
   background-color: black;
-  width: 70px;
+  /* width: 70px; */
+  width: 9.15vh;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 50% 100%;
@@ -579,8 +597,10 @@ border-bottom: 2px solid white;
 }
 
 .player-board {
-  width: 500px;
-  height: 500px;
+  /* width: 500px;
+  height: 500px; */
+  width: 65.38vh;
+  height: 65.38vh;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -603,8 +623,10 @@ border-bottom: 2px solid white;
 }
 
 .enemy-board {
-  width: 500px;
-  height: 500px;
+  /* width: 500px;
+  height: 500px; */
+  width: 65.38vh;
+  height: 65.38vh;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -618,7 +640,8 @@ border-bottom: 2px solid white;
 }
 
 .arm {
-  height: 375px;
+  /* height: 375px; */
+  height: 49vh;
   border: 2px solid rgb(0, 255, 0);
   box-shadow: -200px -330px 150px 300px rgb(0, 255, 0, .8);
   position: absolute;
@@ -636,7 +659,8 @@ border-bottom: 2px solid white;
 .arm:after {
   content: '';
   margin-left: 2px;
-  height: 375px;
+  /* height: 375px; */
+  height: 49vh;
   width: 0px;
   position: absolute;
   background-color: rgb(0, 0, 0, .6);
@@ -648,8 +672,10 @@ border-bottom: 2px solid white;
 .arm:before {
   content: '';
   margin-left: 2px;
-  height: 375px;
-  width: 10px;
+  /* height: 375px; */
+  height: 49vh;
+  /* width: 10px; */
+  width: 1.3vh;
   position: absolute;
   background-color: black;
   box-shadow: 300px 0px 0px 300px black;
@@ -695,7 +721,7 @@ border-bottom: 2px solid white;
   transform: translateX(-50%) translateY(-50%);
   height: 1px;
   width: 1px;
-  /* animation-name: expand; */
+  animation-name: expand;
   animation-duration: 1500ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -722,23 +748,31 @@ border-bottom: 2px solid white;
 }
 
 .circle-1 {
-  width: 400px;
-  height: 400px;
+  /* width: 400px;
+  height: 400px; */
+  width: 52vh;
+  height: 52vh;
 }
 
 .circle-2 {
-  width: 300px;
-  height: 300px;
+  /* width: 300px;
+  height: 300px; */
+  width: 39.2vh;
+  height: 39.2vh;
 }
 
 .circle-3 {
-  width: 200px;
-  height: 200px;
+  /* width: 200px;
+  height: 200px; */
+  width: 26.15vh;
+  height: 26.15vh;
 }
 
 .circle-4 {
-  width: 100px;
-  height: 100px;
+  /* width: 100px;
+  height: 100px; */
+  width: 13vh;
+  height: 13vh;
 }
 
 .Row {
@@ -748,8 +782,10 @@ border-bottom: 2px solid white;
 
 .Square {
   box-sizing: border-box;
-  width: 35px;
-  height: 35px;
+  /* width: 35px;
+  height: 35px; */
+  width: 4.57vh;
+  height: 4.57vh;
   border: 1px solid rgb(0, 255, 0);
   align-content: center;
   opacity: 85%;
@@ -758,8 +794,10 @@ border-bottom: 2px solid white;
 
 .player-square {
   box-sizing: border-box;
-  width: 35px;
-  height: 35px;
+  /* width: 35px;
+  height: 35px; */
+  width: 4.57vh;
+  height: 4.57vh;
   border: 1px solid yellow;
   align-content: center;
   display: flex;
@@ -790,8 +828,10 @@ border-bottom: 2px solid white;
 }
 
 .hit {
-  width: 30px;
-  height: 30px;
+  /* width: 30px;
+  height: 30px; */
+  width: 3.92vh;
+  height: 3.92vh;
   border-radius: 50%;
   background-color: red;
   margin: auto;
@@ -802,8 +842,10 @@ border-bottom: 2px solid white;
 }
 
 .missed {
-  width: 30px;
-  height: 30px;
+  /* width: 30px;
+  height: 30px; */
+  width: 3.92vh;
+  height: 3.92vh;
   border-radius: 50%;
   background-color: white;
   margin: auto;
@@ -813,8 +855,10 @@ border-bottom: 2px solid white;
 /* ------------------------- SHIP-STATUS -------------------------*/
 
 .ship-status-container {
-  width: 190px;
-  height: 360px;
+  /* width: 190px; */
+  width: 24.85vh;
+  height: 47vh;
+  /* height: 360px; */
   margin: auto;
   border: 2px solid black;
   display: grid;
@@ -832,13 +876,15 @@ border-bottom: 2px solid white;
 }
 
 .player-side .ship {
-  border: 3px dotted yellow;
+  border: .39vh dotted yellow;
   background-color: transparent;
 }
 
 .player-side .carrier {
-  width: 175px;
-  height: 35px;
+  /* width: 175px; */
+  width: 22.8vh;
+  /* height: 35px; */
+  height: 4.57vh;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
@@ -848,8 +894,10 @@ border-bottom: 2px solid white;
 }
 
 .player-side .battleship {
-  width: 140px;
-  height: 35px;
+  /* width: 140px; */
+  width: 18.3vh;
+  /* height: 35px; */
+  height: 4.57vh;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
@@ -859,8 +907,10 @@ border-bottom: 2px solid white;
 }
 
 .player-side .cruiser {
-  width: 105px;
-  height: 35px;
+  /* width: 105px; */
+  width: 13.7vh;
+  /* height: 35px; */
+  height: 4.57vh;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
@@ -870,8 +920,10 @@ border-bottom: 2px solid white;
 }
 
 .player-side .submarine {
-  width: 105px;
-  height: 35px;
+  /* width: 105px; */
+  width: 13.7vh;
+  /* height: 35px; */
+  height: 4.57vh;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
@@ -881,8 +933,10 @@ border-bottom: 2px solid white;
 }
 
 .player-side .destroyer {
-  width: 70px;
-  height: 35px;
+  /* width: 70px; */
+  width: 9.15vh;
+  /* height: 35px; */
+  height: 4.57vh;
   border-top-right-radius: 100%;
   border-bottom-right-radius: 100%;
   border-bottom-left-radius: 10%;
