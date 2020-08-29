@@ -68,16 +68,26 @@ const Enemy = () => {
 
     return (
         <div className="enemy-side">
-            <div className="enemy-board" onClick={ inSetupPhase ? undefined : takeAttack }>
-                { !inSetupPhase && <div className="arm"></div>}
-                    {/* <div className="arm"></div> */}
-                    <div className="circle circle-1"></div>
-                    <div className="circle circle-2"></div>
-                    <div className="circle circle-3"></div>
-                    <div className="circle circle-4"></div>
-                    { enemy.board.map((row, rowIndex) => {
-                    return <EnemyRow row={row} rowIndex={ rowIndex } />
-                    }) }
+            <div className="border-space">
+                <div className="screw screw-1"></div>
+                <div className="screw screw-2"></div>
+                <div className="screw screw-3"></div>
+                <div className="screw screw-4"></div>
+                <div className="screw screw-5"></div>
+                <div className="screw screw-6"></div>
+                <div className="screw screw-7"></div>
+                <div className="screw screw-8"></div>
+                <div className="enemy-board" onClick={ inSetupPhase ? undefined : takeAttack }>
+                    { !inSetupPhase && <div className="arm"></div>}
+                        {/* <div className="arm"></div> */}
+                        <div className="circle circle-1"></div>
+                        <div className="circle circle-2"></div>
+                        <div className="circle circle-3"></div>
+                        <div className="circle circle-4"></div>
+                        { enemy.board.map((row, rowIndex) => {
+                        return <EnemyRow row={row} rowIndex={ rowIndex } />
+                        }) }
+                </div>
             </div>
             <div className="ship-status-container">
                 <div className="ship carrier"></div>
