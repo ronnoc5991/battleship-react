@@ -30,6 +30,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgb(46, 45, 45);
+  background-color: #CACCCE;
   overflow: hidden;
 }
 
@@ -411,7 +412,7 @@ body {
 .spinner-2 {
   /* height: 35px; */
   height: 4.57vh;
-  background-color: black;
+  background-color: rgb(0, 0, 0, .6);
   /* width: 70px; */
   width: 9.15vh;
   border-top-left-radius: 0;
@@ -599,13 +600,15 @@ body {
 .player-board {
   /* width: 500px;
   height: 500px; */
-  width: 65.38vh;
-  height: 65.38vh;
+  /* width: 65.38vh;
+  height: 65.38vh; */
+  width: 25vw;
+  height: 25vw;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  border: 5px solid #36383C;
-  box-shadow: 0px 0px 10px 5px black;
+  border: 3vw solid #36383C;
+  /* box-shadow: 0px 0px 10px 5px black; */
   align-content: center;
   border-radius: 50%;
   background-color: #0077be;
@@ -625,8 +628,10 @@ body {
 .enemy-board {
   /* width: 500px;
   height: 500px; */
-  width: 65.38vh;
-  height: 65.38vh;
+  /* width: 65.38vh;
+  height: 65.38vh; */
+  width: 25vw;
+  height: 25vw;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -642,6 +647,7 @@ body {
 .arm {
   /* height: 375px; */
   height: 49vh;
+  /* height: 25vw; */
   border: 2px solid rgb(0, 255, 0);
   box-shadow: -200px -330px 150px 300px rgb(0, 255, 0, .8);
   position: absolute;
@@ -714,7 +720,7 @@ body {
   top: 50%;
   left: 50%;
   position: absolute;
-  border: 5px solid yellow;
+  border: 1px solid yellow;
   pointer-events: none;
   opacity: 80%;
   box-sizing: border-box;
@@ -750,8 +756,10 @@ body {
 .circle-1 {
   /* width: 400px;
   height: 400px; */
-  width: 52vh;
-  height: 52vh;
+  /* width: 52vh;
+  height: 52vh; */
+  width: 20vw;
+  height: 20vw;
 }
 
 .circle-2 {
@@ -759,6 +767,8 @@ body {
   height: 300px; */
   width: 39.2vh;
   height: 39.2vh;
+  width: 15vw;
+  height: 15vw;
 }
 
 .circle-3 {
@@ -766,6 +776,8 @@ body {
   height: 200px; */
   width: 26.15vh;
   height: 26.15vh;
+  width: 10vw;
+  height: 10vw;
 }
 
 .circle-4 {
@@ -773,6 +785,8 @@ body {
   height: 100px; */
   width: 13vh;
   height: 13vh;
+  width: 5vw;
+  height: 5vw;
 }
 
 .Row {
@@ -784,8 +798,11 @@ body {
   box-sizing: border-box;
   /* width: 35px;
   height: 35px; */
-  width: 4.57vh;
-  height: 4.57vh;
+  /* width: 4.57vh;
+  height: 4.57vh; */
+  box-sizing: border-box;
+  width: 1.75vw;
+  height: 1.75vw;
   border: 1px solid rgb(0, 255, 0);
   align-content: center;
   opacity: 85%;
@@ -796,8 +813,11 @@ body {
   box-sizing: border-box;
   /* width: 35px;
   height: 35px; */
-  width: 4.57vh;
-  height: 4.57vh;
+  /* width: 4.57vh;
+  height: 4.57vh; */
+  width: 1.75vw;
+  height: 1.75vw;
+  box-sizing: border-box;
   border: 1px solid yellow;
   align-content: center;
   display: flex;
@@ -828,13 +848,12 @@ body {
 }
 
 .hit {
-  /* width: 30px;
-  height: 30px; */
-  width: 3.92vh;
-  height: 3.92vh;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background-color: red;
   margin: auto;
+  z-index: 3;
 }
 
 .filled {
@@ -842,13 +861,12 @@ body {
 }
 
 .missed {
-  /* width: 30px;
-  height: 30px; */
-  width: 3.92vh;
-  height: 3.92vh;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background-color: white;
   margin: auto;
+  z-index: 3;
 }
 
 
@@ -856,13 +874,15 @@ body {
 
 .ship-status-container {
   /* width: 190px; */
-  width: 24.85vh;
-  height: 47vh;
+  height: 20vw;
+  width: 10vw;
   /* height: 360px; */
   margin: auto;
+  box-sizing: border-box;
   border: 2px solid black;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .ship {
@@ -876,15 +896,17 @@ body {
 }
 
 .player-side .ship {
-  border: .39vh dotted yellow;
+  border: .22vw dotted yellow;
   background-color: transparent;
 }
 
 .player-side .carrier {
   /* width: 175px; */
-  width: 22.8vh;
+  /* width: 22.8vh; */
+  width: 9vw;
   /* height: 35px; */
-  height: 4.57vh;
+  /* height: 4.57vh; */
+  height: 1.8vw;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
@@ -895,9 +917,11 @@ body {
 
 .player-side .battleship {
   /* width: 140px; */
-  width: 18.3vh;
+  /* width: 18.3vh; */
+  width: 7.22vw;
   /* height: 35px; */
-  height: 4.57vh;
+  /* height: 4.57vh; */
+  height: 1.8vw;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
@@ -908,9 +932,11 @@ body {
 
 .player-side .cruiser {
   /* width: 105px; */
-  width: 13.7vh;
+  /* width: 13.7vh; */
+  width: 5.4vw;
   /* height: 35px; */
-  height: 4.57vh;
+  /* height: 4.57vh; */
+  height: 1.8vw;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
@@ -921,9 +947,11 @@ body {
 
 .player-side .submarine {
   /* width: 105px; */
-  width: 13.7vh;
+  /* width: 13.7vh; */
+  width: 5.4vw;
   /* height: 35px; */
-  height: 4.57vh;
+  /* height: 4.57vh; */
+  height: 1.8vw;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
@@ -934,9 +962,11 @@ body {
 
 .player-side .destroyer {
   /* width: 70px; */
-  width: 9.15vh;
+  /* width: 9.15vh; */
+  width: 3.6vw;
   /* height: 35px; */
-  height: 4.57vh;
+  /* height: 4.57vh; */
+  height: 1.8vw;
   border-top-right-radius: 100%;
   border-bottom-right-radius: 100%;
   border-bottom-left-radius: 10%;
@@ -951,13 +981,15 @@ body {
 }
 
 .enemy-side .ship {
-  border: 3px dotted rgb(0, 255, 0);
+  border: .22vw dotted rgb(0, 255, 0);
   background-color: transparent;
 }
 
 .enemy-side .carrier {
-  width: 175px;
-  height: 35px;
+  /* width: 175px;
+  height: 35px; */
+  width: 9vw;
+  height: 1.8vw;
   border-top-left-radius: 30% 50%;
   border-bottom-left-radius: 30% 50%;
   border-bottom-right-radius: 10%;
@@ -967,8 +999,10 @@ body {
 }
 
 .enemy-side .battleship {
-  width: 140px;
-  height: 35px;
+  /* width: 140px;
+  height: 35px; */
+  width: 7.22vw;
+  height: 1.8vw;
   border-top-left-radius: 30% 50%;
   border-bottom-left-radius: 30% 50%;
   border-bottom-right-radius: 10%;
@@ -978,8 +1012,10 @@ body {
 }
 
 .enemy-side .cruiser {
-  width: 105px;
-  height: 35px;
+  /* width: 105px;
+  height: 35px; */
+  width: 5.4vw;
+  height: 1.8vw;
   border-top-left-radius: 30% 50%;
   border-bottom-left-radius: 30% 50%;
   border-bottom-right-radius: 10%;
@@ -989,8 +1025,10 @@ body {
 }
 
 .enemy-side .submarine {
-  width: 105px;
-  height: 35px;
+  /* width: 105px;
+  height: 35px; */
+  width: 5.4vw;
+  height: 1.8vw;
   border-top-left-radius: 30% 50%;
   border-bottom-left-radius: 30% 50%;
   border-bottom-right-radius: 10%;
@@ -1000,8 +1038,10 @@ body {
 }
 
 .enemy-side .destroyer {
-  width: 70px;
-  height: 35px;
+  /* width: 70px;
+  height: 35px; */
+  width: 3.6vw;
+  height: 1.8vw;
   border-top-left-radius: 100%;
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 10%;
