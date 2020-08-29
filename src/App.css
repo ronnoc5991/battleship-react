@@ -25,7 +25,6 @@ body {
 .Game {
   text-align: center;
   display: grid;
-  /* grid-template-rows: 1fr 4fr; */
   grid-template-columns: 3fr 1fr 3fr;
   cursor: crosshair;
   margin: auto;
@@ -246,16 +245,76 @@ body {
   height: 100vh;
   position: absolute;
   z-index: 20;
-  background-color: rgba(0, 0, 255, .5);
+  background-color: rgba(0, 0, 255, 1);
   animation-name: floatUp;
-  animation-duration: 3000ms;
+  /* animation-duration: 3000ms; */
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  top: 50%;
 }
 
 @keyframes floatUp {
   0% { top:100% }
   100% { top: 0 }
+}
+
+.rolling-wave {
+  position: absolute;
+  width: 41vw;
+  height: 40vw;
+  top: -2vw;
+  background-color: rgba(0, 0, 255, 1);
+  border-radius: 50%;
+  animation-name: spinWave;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: -1;
+}
+
+@keyframes spinWave {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+
+.wave-1 {
+  left: -5vw;
+}
+
+.wave-2 {
+  left: 7vw;
+}
+
+.wave-3 {
+  left: 19vw;
+}
+
+.wave-4 {
+  left: 31vw;
+}
+
+.wave-5 {
+  left: 43vw;
+}
+
+.wave-6 {
+  left: 55vw;
+}
+
+.wave-7 {
+  left: 67vw;
+}
+
+.wave-8 {
+  left: 79vw;
+}
+
+.wave-9 {
+  left: 91vw;
+}
+
+.wave-10 {
+  left: 103vw;
 }
 
 .end-game-popup {
@@ -277,6 +336,7 @@ body {
   grid-column: 2 / 3;
   display: grid;
   grid-template-rows: 1fr 4fr;
+  width: 15vw;
 }
 
 .buttons {
@@ -378,6 +438,7 @@ body {
   box-shadow: 0px 0px 3px 2px black;
   position: relative;
   grid-row: 1 / 2;
+  z-index: 3;
 }
 
 .light-circle {
@@ -525,12 +586,12 @@ body {
 .ship-placer {
   height: 20vw;
   width: 20vw;
-  background-color: white;
+  background-color: #0077be;
   border-radius: 50%;
   position: absolute;
   left: 50%;
-  bottom: 0;
-  transform: translateX(-50%) translateY(0);
+  bottom: 50%;
+  transform: translateX(18.7vw) translateY(50%);
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
@@ -630,14 +691,12 @@ body {
 /* --------------- PLAYER SIDE --------------- */
 
 .player-side {
-  margin: auto auto 0 auto;
+  margin: auto;
   grid-row: 1 / 2;
   display: flex;
   flex-direction: column;
-  flex-basis: 50%;
   justify-content: space-around;
   align-items: center;
-  height: 90%;
 }
 
 .rotate-button {
@@ -708,11 +767,10 @@ body {
 
 .enemy-side {
   grid-column: 3 / 4;
-  margin: auto auto 0 auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 90%;
   align-items: center
 }
 
