@@ -4,6 +4,7 @@ import Player from './Player';
 import UpperPanel from './UpperPanel';
 import {GameContext} from './GameContext';
 import ShipPlacer from './ShipPlacer';
+import GameOver from './GameOver';
 
 function Game() {
 
@@ -56,7 +57,7 @@ function Game() {
   return (
       <div className="Game" >
         <UpperPanel />
-        { gameIsOver && <div className="end-game-popup"> Game Over</div> }
+        { gameIsOver && <GameOver/> }
         {/* <div className={`${ gameIsOver ? 'unclickable' : ''}` }> */}
           <React.Fragment>
             {/* { intro ? <div className="intro">

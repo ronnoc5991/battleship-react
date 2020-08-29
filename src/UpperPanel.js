@@ -13,13 +13,14 @@ const UpperPanel = () => {
 
     function beginGame () {
         setInSetupPhase(false);
-      }
+    }
+
+    function surrender () {
+        setGameIsOver(true)
+    }
 
     return (
-        <div className="top">
-            <button onClick={ beginGame } className="start-button" > 
-                <div className="start-button-inner"></div>
-            </button>
+        <div className="control-panel">
             <div className="light">
                 <div className="light-circle"></div>
                 <div className="line-1"></div>
@@ -30,6 +31,20 @@ const UpperPanel = () => {
                     <div className={`spinner-2 ${ inSetupPhase ? '' : 'on-2'}`}></div>
                 </div>
                 <div className="inner"></div>
+            </div>
+            <div className="buttons">
+                <div className="screw screw-upper-1"></div>
+                <div className="screw screw-upper-2"></div>
+                <div className="screw screw-lower-1"></div>
+                <div className="screw screw-lower-2"></div>
+                <div className="control-label">START</div>
+                <button onClick={ beginGame } className="start-button" > 
+                    <div className="start-button-inner"></div>
+                </button>
+                <div className="control-label">SURRENDER</div>
+                <button onClick={ surrender } className="surrender-button" > 
+                    <div className="surrender-button-inner"></div>
+                </button>
             </div>
         </div>
     )
