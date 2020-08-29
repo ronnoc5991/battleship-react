@@ -68,6 +68,15 @@ const Enemy = () => {
 
     return (
         <div className="enemy-side">
+            <div className="status-border">
+                <div className="ship-status-container">
+                    <div className="ship carrier"></div>
+                    <div className="ship battleship"></div>
+                    <div className="ship cruiser"></div>
+                    <div className="ship submarine"></div>
+                    <div className="ship destroyer"></div>
+                </div>
+            </div>
             <div className="border-space">
                 <div className="screw screw-1"></div>
                 <div className="screw screw-2"></div>
@@ -88,13 +97,6 @@ const Enemy = () => {
                         return <EnemyRow row={row} rowIndex={ rowIndex } />
                         }) }
                 </div>
-            </div>
-            <div className="ship-status-container">
-                <div className="ship carrier"></div>
-                <div className="ship battleship"></div>
-                <div className="ship cruiser"></div>
-                <div className="ship submarine"></div>
-                <div className="ship destroyer"></div>
             </div>
         </div>
     )

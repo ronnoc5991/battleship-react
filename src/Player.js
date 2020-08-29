@@ -22,20 +22,20 @@ const Player = (props) => {
 
     return (
         <div className="player-side">
-            <div className="player-left">
-                <div className="ship-status-container">
-                    <div className="ship carrier"></div>
-                    <div className="ship battleship"></div>
-                    <div className="ship cruiser"></div>
-                    <div className="ship submarine"></div>
-                    <div className="ship destroyer"></div>
+                <div className="status-border">
+                    <div className="ship-status-container">
+                        <div className="ship carrier"></div>
+                        <div className="ship battleship"></div>
+                        <div className="ship cruiser"></div>
+                        <div className="ship submarine"></div>
+                        <div className="ship destroyer"></div>
+                    </div>
                 </div>
                 {/* <button className={`rotate-button ${ direction ? 'rotated' : undefined }`} onClick={ toggleDirection }>
                     <div className="switch">
                         <div className="arrow"></div>
                     </div>
                 </button> */}
-            </div>
             <div className="border-space">
                 <div className="screw screw-1"></div>
                 <div className="screw screw-2"></div>

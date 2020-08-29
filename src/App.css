@@ -25,7 +25,8 @@ body {
 .Game {
   text-align: center;
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  /* grid-template-rows: 1fr 4fr; */
+  grid-template-columns: 3fr 1fr 3fr;
   cursor: crosshair;
   margin: auto;
   width: 100%;
@@ -169,50 +170,50 @@ body {
 }
 
 .screw-1 {
-  left: 1.2vw;
+  left: .96vw;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 
 .screw-2 {
-  left: 28.8vw;
+  left: 23.04vw;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 
 .screw-3 {
   left: 50%;
-  top: 1.2vw;
+  top: .96vw;
   transform: translateX(-50%) translateY(-50%);
 }
 
 .screw-4 {
   left: 50%;
-  top: 28.8vw;
+  top: 23.04vw;
   transform: translateX(-50%) translateY(-50%);
 }
 
 .screw-5 {
-  left: 5.2vw;
-  top: 5.2vw;
+  left: 4.16vw;
+  top: 4.16vw;
   transform: translateX(-50%) translateY(-50%);
 }
 
 .screw-6 {
-  left: 24.8vw;
-  top: 5.2vw;
+  left: 19.84vw;
+  top: 4.16vw;
   transform: translateX(-50%) translateY(-50%);
 }
 
 .screw-7 {
-  left: 5.2vw;
-  top: 24.8vw;
+  left: 4.16vw;
+  top: 19.84vw;
   transform: translateX(-50%) translateY(-50%);
 }
 
 .screw-8 {
-  left: 24.8vw;
-  top: 24.8vw;
+  left: 19.84vw;
+  top: 19.84vw;
   transform: translateX(-50%) translateY(-50%);
 }
 
@@ -236,15 +237,13 @@ body {
 }
 
 .top {
-  grid-row-start: 1;
-  grid-row-end: 2;
+  grid-column: 2 / 3;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .start-button {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-row: 3 / 4;
   margin: auto;
   height: 10vh;
   width: 10vh;
@@ -284,8 +283,9 @@ body {
   border: 5px solid black;
   box-shadow: 0px 0px 3px 2px black;
   position: relative;
-  grid-column-start: 3;
-  grid-column-end: 4;
+  /* grid-column-start: 3;
+  grid-column-end: 4; */
+  grid-row: 1 / 2;
 }
 
 .light-circle {
@@ -441,24 +441,22 @@ body {
 }
 
 .ship-placer {
-  height: 500px;
-  width: 500px;
+  height: 20vw;
+  width: 20vw;
   background-color: white;
-  border: 25px solid grey;
-  box-shadow: 0px 0px 5px 5px black, 0px 0px 5px 5px black inset;
-  box-sizing: border-box;
+  border-radius: 50%;
   position: absolute;
   left: 50%;
-  bottom: 50%;
-  transform: translateX(-50%) translateY(50%);
+  bottom: 0;
+  transform: translateX(-50%) translateY(0);
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
 }
 
 .ship-5-horizontal {
-  width: 175px;
-  height: 35px;
+  width: 7vw;
+  height: 1.4vw;
   background-color: grey;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
@@ -467,8 +465,8 @@ body {
 }
 
 .ship-4-horizontal {
-  width: 140px;
-  height: 35px;
+  width: 5.6vw;
+  height: 1.4vw;
   background-color: grey;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
@@ -479,8 +477,8 @@ body {
 }
 
 .ship-3-horizontal {
-  width: 105px;
-  height: 35px;
+  width: 4.2vw;
+  height: 1.4vw;
   background-color: grey;
   border-top-right-radius: 30% 50%;
   border-bottom-right-radius: 30% 50%;
@@ -491,8 +489,8 @@ body {
 }
 
 .ship-2-horizontal {
-  width: 70px;
-  height: 35px;
+  width: 2.8vw;
+  height: 1.4vw;
   background-color: grey;
   border-top-right-radius: 100%;
   border-bottom-right-radius: 100%;
@@ -503,63 +501,61 @@ body {
 }
 
 .ship-5-vertical {
-  width: 35px;
-  height: 175px;
+  width: 1.4vw;
+  height: 7vw;
   background-color: grey;
   border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 100%;
 }
 
 .ship-4-vertical {
-  width: 35px;
-  height: 140px;
+  width: 1.4vw;
+  height: 5.6vw;
   background-color: grey;
   border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 100%;
 }
 
 .ship-3-vertical {
-  width: 35px;
-  height: 105px;
+  width: 1.4vw;
+  height: 4.2vw;
   background-color: grey;
   border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 100%;
 }
 
 .ship-2-vertical {
-  width: 35px;
-  height: 70px;
+  width: 1.4vw;
+  height: 2.8vw;
   background-color: grey;
   border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 100%;
 }
 
-.vertical {
+/* .vertical {
   transform-origin: top;
   transform: rotate(90deg);
-}
+} */
 
 /* --------------- PLAYER SIDE --------------- */
 
 .player-side {
-  margin: auto;
+  margin: auto auto 0 auto;
+  grid-row: 1 / 2;
   display: flex;
+  flex-direction: column;
   flex-basis: 50%;
   justify-content: space-around;
-}
-
-.player-left {
-  /* margin: auto; */
-  margin: auto 0 auto 0;
-  height: 100%;
+  align-items: center;
+  height: 90%;
 }
 
 .rotate-button {
@@ -601,8 +597,8 @@ body {
 }
 
 .border-space {
-  width: 30vw;
-  height: 30vw;
+  width: 24vw;
+  height: 24vw;
   border-radius: 50%;
   /* border: 1px solid black; */
   display: flex;
@@ -612,8 +608,8 @@ body {
 }
 
 .player-board {
-  width: 25vw;
-  height: 25vw;
+  width: 20vw;
+  height: 20vw;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -632,19 +628,18 @@ body {
 /* --------------- ENEMY SIDE --------------- */
 
 .enemy-side {
-  margin: auto;
+  grid-column: 3 / 4;
+  margin: auto auto 0 auto;
   display: flex;
-  flex-basis: 50%;
+  flex-direction: column;
   justify-content: space-around;
+  height: 90%;
+  align-items: center
 }
 
 .enemy-board {
-  /* width: 500px;
-  height: 500px; */
-  /* width: 65.38vh;
-  height: 65.38vh; */
-  width: 25vw;
-  height: 25vw;
+  width: 20vw;
+  height: 20vw;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -767,39 +762,23 @@ body {
 }
 
 .circle-1 {
-  /* width: 400px;
-  height: 400px; */
-  /* width: 52vh;
-  height: 52vh; */
-  width: 20vw;
-  height: 20vw;
+  width: 16vw;
+  height: 16vw;
 }
 
 .circle-2 {
-  /* width: 300px;
-  height: 300px; */
-  width: 39.2vh;
-  height: 39.2vh;
-  width: 15vw;
-  height: 15vw;
+  width: 12vw;
+  height: 12vw;
 }
 
 .circle-3 {
-  /* width: 200px;
-  height: 200px; */
-  width: 26.15vh;
-  height: 26.15vh;
-  width: 10vw;
-  height: 10vw;
+  width: 8vw;
+  height: 8vw;
 }
 
 .circle-4 {
-  /* width: 100px;
-  height: 100px; */
-  width: 13vh;
-  height: 13vh;
-  width: 5vw;
-  height: 5vw;
+  width: 4vw;
+  height: 4vw;
 }
 
 .Row {
@@ -809,13 +788,8 @@ body {
 
 .Square {
   box-sizing: border-box;
-  /* width: 35px;
-  height: 35px; */
-  /* width: 4.57vh;
-  height: 4.57vh; */
-  box-sizing: border-box;
-  width: 1.75vw;
-  height: 1.75vw;
+  width: 1.4vw;
+  height: 1.4vw;
   border: 1px solid rgb(0, 255, 0);
   align-content: center;
   opacity: 85%;
@@ -824,12 +798,8 @@ body {
 
 .player-square {
   box-sizing: border-box;
-  /* width: 35px;
-  height: 35px; */
-  /* width: 4.57vh;
-  height: 4.57vh; */
-  width: 1.75vw;
-  height: 1.75vw;
+  width: 1.4vw;
+  height: 1.4vw;
   box-sizing: border-box;
   border: 1px solid yellow;
   align-content: center;
@@ -885,23 +855,32 @@ body {
 
 /* ------------------------- SHIP-STATUS -------------------------*/
 
+.status-border {
+  display: flex;
+  width: 19vw;
+  height: 11vw;
+  justify-content: center;
+  background-color: var(--stainless-steel);
+  box-shadow: 0px 0px 1vw 3px black;
+  position: relative;
+}
+
 .ship-status-container {
-  /* width: 190px; */
-  height: 20vw;
-  width: 10vw;
-  /* height: 360px; */
-  /* margin: auto; */
+  height: 8vw;
+  width: 16vw;
   margin: auto 0 auto 0;
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 1px solid black;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
 }
 
 .ship {
   box-sizing: border-box;
   margin: auto;
+  transition: all 300ms linear;
+  /* have ships disappear on direction change... then reappear with new direction... use classes on button click to do this */
+  /* put direction change button on the control panel and give the panel a border */
 }
 
 /* ------------------------- PLAYER-SHIP-STATUS -------------------------*/
@@ -912,79 +891,55 @@ body {
 .player-side .ship {
   border: .22vw dotted yellow;
   background-color: transparent;
+  width: 1.44vw;
 }
 
 .player-side .carrier {
-  /* width: 175px; */
-  /* width: 22.8vh; */
-  width: 9vw;
-  /* height: 35px; */
-  /* height: 4.57vh; */
-  height: 1.8vw;
+  height: 7.2vw;
   border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 30% 50%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 30% 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 .player-side .battleship {
-  /* width: 140px; */
-  /* width: 18.3vh; */
-  width: 7.22vw;
-  /* height: 35px; */
-  /* height: 4.57vh; */
-  height: 1.8vw;
+  height: 5.776vw;
   border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 30% 50%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 30% 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 .player-side .cruiser {
-  /* width: 105px; */
-  /* width: 13.7vh; */
-  width: 5.4vw;
-  /* height: 35px; */
-  /* height: 4.57vh; */
-  height: 1.8vw;
+  height: 4.32vw;
   border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 30% 50%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 30% 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 .player-side .submarine {
-  /* width: 105px; */
-  /* width: 13.7vh; */
-  width: 5.4vw;
-  /* height: 35px; */
-  /* height: 4.57vh; */
-  height: 1.8vw;
+  height: 4.32vw;
   border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 30% 50%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 30% 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 .player-side .destroyer {
-  /* width: 70px; */
-  /* width: 9.15vh; */
-  width: 3.6vw;
-  /* height: 35px; */
-  /* height: 4.57vh; */
-  height: 1.8vw;
+  height: 2.88vw;
   border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%;
+  border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+  border-top-left-radius: 100%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -997,69 +952,55 @@ body {
 .enemy-side .ship {
   border: .22vw dotted rgb(0, 255, 0);
   background-color: transparent;
+  width: 1.44vw;
 }
 
 .enemy-side .carrier {
-  /* width: 175px;
-  height: 35px; */
-  width: 9vw;
-  height: 1.8vw;
+  height: 7.2vw;
   border-top-left-radius: 30% 50%;
-  border-bottom-left-radius: 30% 50%;
+  border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
-  border-top-right-radius: 10%;
+  border-top-right-radius: 30% 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 .enemy-side .battleship {
-  /* width: 140px;
-  height: 35px; */
-  width: 7.22vw;
-  height: 1.8vw;
+  height: 5.776vw;
   border-top-left-radius: 30% 50%;
-  border-bottom-left-radius: 30% 50%;
+  border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
-  border-top-right-radius: 10%;
+  border-top-right-radius: 30% 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 .enemy-side .cruiser {
-  /* width: 105px;
-  height: 35px; */
-  width: 5.4vw;
-  height: 1.8vw;
+  height: 4.32vw;
   border-top-left-radius: 30% 50%;
-  border-bottom-left-radius: 30% 50%;
+  border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
-  border-top-right-radius: 10%;
+  border-top-right-radius: 30% 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 .enemy-side .submarine {
-  /* width: 105px;
-  height: 35px; */
-  width: 5.4vw;
-  height: 1.8vw;
+  height: 4.32vw;
   border-top-left-radius: 30% 50%;
-  border-bottom-left-radius: 30% 50%;
+  border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
-  border-top-right-radius: 10%;
+  border-top-right-radius: 30% 50%;
   display: flex;
   justify-content: space-evenly;
 }
 
 .enemy-side .destroyer {
-  /* width: 70px;
-  height: 35px; */
-  width: 3.6vw;
-  height: 1.8vw;
+  height: 2.88vw;
   border-top-left-radius: 100%;
-  border-bottom-left-radius: 100%;
+  border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
-  border-top-right-radius: 10%;
+  border-top-right-radius: 100%;
   display: flex;
   justify-content: space-evenly;
 }
