@@ -240,22 +240,31 @@ body {
   pointer-events: none;
 }
 
-.game-over {
+.lose {
   width: 100vw;
   height: 100vh;
   position: absolute;
   z-index: 20;
   background-color: rgba(0, 0, 255, 1);
   animation-name: floatUp;
-  /* animation-duration: 3000ms; */
-  animation-iteration-count: infinite;
+  animation-duration: 3000ms;
+  animation-iteration-count: initial;
   animation-timing-function: linear;
-  top: 50%;
+  z-index: 51;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lose img {
+  filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg) brightness(104%) contrast(104%);
 }
 
 @keyframes floatUp {
-  0% { top:100% }
-  100% { top: 0 }
+  0% { top:100%;   background-color: rgba(0, 0, 255, 0);
+  }
+  100% { top: 0;   background-color: rgba(0, 0, 255, 1);
+  }
 }
 
 .rolling-wave {
@@ -593,20 +602,24 @@ body {
   animation-duration: 2500ms;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  color: black;
+  animation-delay: 6000ms;
+  color: transparent;
 }
 
 @keyframes moveHand {
   0% {
+    color: black;
     transform: rotate(25deg);
     right: 25vw;
   }
   50% {
+    color: black;
     transform: rotate(0deg);
     right: 50vw;
     top: 25vh;
   }
   100% {
+    color: black;
     transform: rotate(-25deg);
     right: 75vw;
     top: 40vh;

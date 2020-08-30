@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Loser from './game-over.png'
 
 function GameOver(props) {
 
@@ -10,7 +11,9 @@ function GameOver(props) {
         <>
             { playerWins ? 
             'You Win!' : 
-            <div className="game-over">You Lose!</div>
+            <div className="lose">
+                <img src={ Loser } alt=""/>
+            </div>
             }
         </>
     )
