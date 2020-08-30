@@ -12,21 +12,10 @@ const Player = (props) => {
     const [refresh, setRefresh] = refresher;
     const [gameIsOver, setGameIsOver] = game;
 
-    function refreshIt (e) {
-        setRefresh(refresh + 1);
-    }
-
-    // function toggleDirection () {
-    //     setDirection(!direction);
-    // }
 
     return (
         <div className="player-side">
-                {/* <button className={`rotate-button ${ direction ? 'rotated' : undefined }`} onClick={ toggleDirection }>
-                    <div className="switch">
-                        <div className="arrow"></div>
-                    </div>
-                </button> */}
+            <div className="side-label">FRIENDLY RADAR</div>
             <div className="border-space">
                 <div className="screw screw-1"></div>
                 <div className="screw screw-2"></div>
@@ -37,7 +26,7 @@ const Player = (props) => {
                 <div className="screw screw-7"></div>
                 <div className="screw screw-8"></div>
                 <div className="player-board" >
-                    <div className="pulse"></div>
+                    <div className={ inSetupPhase ? '' : 'pulse'}></div>
                     <div className="player-circle circle-1"></div>
                     <div className="player-circle circle-2"></div>
                     <div className="player-circle circle-3"></div>
@@ -47,21 +36,8 @@ const Player = (props) => {
                     }) }
                 </div>
             </div>
-            {/* <div className="status-border">
-                <div className="ship-status-container">
-                    <div className="ship carrier"></div>
-                    <div className="ship battleship"></div>
-                    <div className="ship cruiser"></div>
-                    <div className="ship submarine"></div>
-                    <div className="ship destroyer"></div>
-                </div>
-            </div> */}
         </div>
     )
 }
 
 export default Player;
-
-// on dragstart the ship should size up as if it were being picked up and size back down on drop?
-
-// onMouseOver={ refreshIt }

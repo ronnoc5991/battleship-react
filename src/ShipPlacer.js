@@ -16,17 +16,52 @@ const ShipPlacer = () => {
         setDirection(!direction);
     }
 
+    function getShipName (shipLength) {
+        if (shipLength === 5) {
+            return 'CARRIER'
+        } else if (shipLength === 4) {
+            return 'BATTLESHIP'
+        } else if (shipLength === 3 && player.shipsToPlace.length === 3) {
+            return 'DESTROYER'
+        } else if (shipLength === 3) {
+            return 'SUBMARINE'
+        } else if (shipLength === 2) {
+            return 'PATROL BOAT'
+        }
+    }
+
     return (
+        <>
+        { player.shipsToPlace.length === 5 ? 
+            <div className="pointing-hand"><i class="far fa-hand-point-left fa-5x"></i></div>
+            :
+            ''
+        }
         <div className="ship-placer">
-                { player.shipsToPlace.map((ship, shipIndex) => {
-                    return <DraggableShips length={ ship } index={ shipIndex } direction={ direction } />
-                }) }
-                <button className={`rotate-button ${ direction ? 'rotated' : undefined }`} onClick={ toggleDirection }>
-                    <div className="switch">
-                        <div className="arrow"></div>
+
+            { (player.shipsToPlace.length > 0) ? 
+                <>
+                    <div className="ship-text">
+                        <h3>Place your</h3>
+                        <h2>{getShipName(player.shipsToPlace[0])}</h2>
                     </div>
-                </button>
+                    <DraggableShips length={ player.shipsToPlace[0] } index={ 0 } direction={ direction } />
+                    <div className="switch-container">
+                    <i class="fas fa-arrows-alt-v"></i>
+                    <button className={`rotate-button ${ direction ? 'switched' : undefined }`} onClick={ toggleDirection }>
+                        <div className='switch'></div>
+                    </button>
+                    <i class="fas fa-arrows-alt-h"></i>
+                </div>
+                </>
+                :
+                <div className="end-placement">
+                    <h2>START GAME</h2>
+                </div>
+            }
+
         </div>
+        </>
     )
 }
 

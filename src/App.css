@@ -583,110 +583,149 @@ body {
   overflow: hidden;
 }
 
+.pointing-hand {
+  position: absolute;
+  z-index: 50;
+  right: 25vw;
+  top: 40vh;
+  transform: rotate(25deg);
+  animation-name: moveHand;
+  animation-duration: 2500ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  color: black;
+}
+
+@keyframes moveHand {
+  0% {
+    transform: rotate(25deg);
+    right: 25vw;
+  }
+  50% {
+    transform: rotate(0deg);
+    right: 50vw;
+    top: 25vh;
+  }
+  100% {
+    transform: rotate(-25deg);
+    right: 75vw;
+    top: 40vh;
+  }
+}
+
 .ship-placer {
-  height: 20vw;
-  width: 20vw;
+  height: calc(20vw + 5px);
+  width: calc(20vw + 5px);
   background-color: #0077be;
+  box-shadow: 0 0 20px 15px yellow inset;
   border-radius: 50%;
   position: absolute;
   left: 50%;
   bottom: 50%;
-  transform: translateX(18.7vw) translateY(50%);
+  transform: translateX(18.7vw) translateY(12.8vw);
   z-index: 10;
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 8vw 1fr;
   flex-wrap: wrap;
+  animation-name: flashBorder;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-.ship-5-horizontal {
-  width: 7vw;
-  height: 1.4vw;
-  background-color: grey;
-  border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 30% 50%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+.ship-placer i {
+  color: white;
 }
 
-.ship-4-horizontal {
-  width: 5.6vw;
-  height: 1.4vw;
-  background-color: grey;
-  border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 30% 50%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+.ship-text {
+  grid-row: 1 / 2;
+  margin: 2vw auto 2vw auto;
+}
+
+.ship-text h3 {
+  margin: 0;
+  font-size: 1vw;
+}
+
+.ship-text h2 {
+  margin: 1vw 0 0 0;
+  font-size: 1.5vw;
+  font-style: italic;
+  text-shadow: 0 0 10px white;
+}
+
+.ship-placer .ship {
+  grid-row: 2 / 3;
+}
+
+.end-placement {
+  grid-row: 2 / 3;
+  margin: auto;
+  font-style: italic;
+  font-size: 1.8vw;
+}
+
+@keyframes flashBorder {
+  0% {
+    box-shadow: 0 0 15px 15px yellow inset;
+  }
+  50% { 
+    box-shadow: 0 0 0 0 blue; 
+  }
+  100% {
+    box-shadow: 0 0 15px 15px yellow inset;
+  }
+}
+
+.switch-container {
+  margin: auto;
+  width: 6vw;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.ship-3-horizontal {
-  width: 4.2vw;
-  height: 1.4vw;
-  background-color: grey;
-  border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 30% 50%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+.rotate-button {
+  all: unset;
+  outline: none;
+  height: 1vw;
+  width: 3vw;
+  background-color: white;
+  border-radius: 50px;
+  box-sizing: border-box;
+  grid-row: 3 /4;
+  transition: all 300ms linear;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 
-.ship-2-horizontal {
-  width: 2.8vw;
-  height: 1.4vw;
-  background-color: grey;
-  border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 10%;
+.switch {
+  width: 1vw;
+  height: 1vw;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.switched {
+  justify-content: flex-end;
+}
+
+.side-label {
+  height: 2vw;
+  width: 15vw;
+  margin: auto auto 3vw auto;
+  box-shadow: 0 0 .3vw .01vw white inset;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Special Elite', cursive;
+  text-shadow: 0 0 1px white;
+  font-weight: bold;
+  background-color: #173372;
+  padding-top: .4vw;
+  color: white;
+  font-size: 1vw;
 }
-
-.ship-5-vertical {
-  width: 1.4vw;
-  height: 7vw;
-  background-color: grey;
-  border-top-right-radius: 100%;
-  border-bottom-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 100%;
-}
-
-.ship-4-vertical {
-  width: 1.4vw;
-  height: 5.6vw;
-  background-color: grey;
-  border-top-right-radius: 100%;
-  border-bottom-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 100%;
-}
-
-.ship-3-vertical {
-  width: 1.4vw;
-  height: 4.2vw;
-  background-color: grey;
-  border-top-right-radius: 100%;
-  border-bottom-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 100%;
-}
-
-.ship-2-vertical {
-  width: 1.4vw;
-  height: 2.8vw;
-  background-color: grey;
-  border-top-right-radius: 100%;
-  border-bottom-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 100%;
-}
-
-/* .vertical {
-  transform-origin: top;
-  transform: rotate(90deg);
-} */
 
 /* --------------- PLAYER SIDE --------------- */
 
@@ -697,44 +736,6 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-}
-
-.rotate-button {
-  outline: none;
-  height: 75px;
-  width: 75px;
-  background-color: white;
-  border-radius: 50%;
-  box-sizing: border-box;
-  border: 3px solid black;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  margin: auto;
-  position: relative;
-}
-
-.switch {
-  width: 70px;
-  height: 20px;
-  background-color: grey;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-.rotated {
-  transform: rotate(90deg);
-}
-
-.arrow {
-  width: 20px;
-  height: 4px;
-  background-color: black;
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  transform: translateX(-50%) translateY(-50%);
 }
 
 .border-space {
@@ -790,9 +791,7 @@ body {
 }
 
 .arm {
-  /* height: 375px; */
   height: 49vh;
-  /* height: 25vw; */
   border: 2px solid rgb(0, 255, 0);
   box-shadow: -200px -330px 150px 300px rgb(0, 255, 0, .8);
   position: absolute;
@@ -810,7 +809,6 @@ body {
 .arm:after {
   content: '';
   margin-left: 2px;
-  /* height: 375px; */
   height: 49vh;
   width: 0px;
   position: absolute;
@@ -823,9 +821,7 @@ body {
 .arm:before {
   content: '';
   margin-left: 2px;
-  /* height: 375px; */
   height: 49vh;
-  /* width: 10px; */
   width: 1.3vh;
   position: absolute;
   background-color: black;
@@ -947,16 +943,8 @@ body {
   background-color: rgb(0, 255, 0);;
 }
 
-.placed {
-  height: 15px;
-  width: 15px;
-  background-color: green;
-  border-radius: 50%;
-  margin: auto;
-}
-
 .placed-ship {
-  background-color: grey;
+  background-color: rgb(223, 223, 0);
 }
 
 .blank {
@@ -990,156 +978,92 @@ body {
 }
 
 
-/* ------------------------- SHIP-STATUS -------------------------*/
-
-.status-border {
-  display: flex;
-  width: 19vw;
-  height: 11vw;
-  justify-content: center;
-  background-color: var(--stainless-steel);
-  box-shadow: 0px 0px 1vw 3px black;
-  position: relative;
-}
-
-.ship-status-container {
-  height: 8vw;
-  width: 16vw;
-  margin: auto 0 auto 0;
-  box-sizing: border-box;
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-around;
-}
+/* ------------------------- SHIPS -------------------------*/
 
 .ship {
   box-sizing: border-box;
   margin: auto;
+  background-color: grey;
+  box-shadow: 0 0 10px 3px white;
   transition: all 300ms linear;
-  /* have ships disappear on direction change... then reappear with new direction... use classes on button click to do this */
-  /* put direction change button on the control panel and give the panel a border */
 }
 
-/* ------------------------- PLAYER-SHIP-STATUS -------------------------*/
-.player-side .ship-status-container {
-  background-color: #0077be;
-}
-
-.player-side .ship {
-  border: .22vw dotted yellow;
-  background-color: transparent;
-  width: 1.44vw;
-}
-
-.player-side .carrier {
-  height: 7.2vw;
+.ship-5-horizontal {
+  width: 7vw;
+  height: 1.4vw;
   border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 10%;
+  border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 30% 50%;
+  border-top-left-radius: 10%;
+}
+
+.ship-4-horizontal {
+  width: 5.6vw;
+  height: 1.4vw;
+  border-top-right-radius: 30% 50%;
+  border-bottom-right-radius: 30% 50%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 10%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.player-side .battleship {
-  height: 5.776vw;
+.ship-3-horizontal {
+  width: 4.2vw;
+  height: 1.4vw;
   border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 10%;
+  border-bottom-right-radius: 30% 50%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 30% 50%;
+  border-top-left-radius: 10%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.player-side .cruiser {
-  height: 4.32vw;
-  border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 10%;
+.ship-2-horizontal {
+  width: 2.8vw;
+  height: 1.4vw;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
   border-bottom-left-radius: 10%;
-  border-top-left-radius: 30% 50%;
+  border-top-left-radius: 10%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.player-side .submarine {
-  height: 4.32vw;
-  border-top-right-radius: 30% 50%;
-  border-bottom-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  border-top-left-radius: 30% 50%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.player-side .destroyer {
-  height: 2.88vw;
+.ship-5-vertical {
+  width: 1.4vw;
+  height: 7vw;
   border-top-right-radius: 100%;
   border-bottom-right-radius: 10%;
   border-bottom-left-radius: 10%;
   border-top-left-radius: 100%;
-  display: flex;
-  justify-content: space-evenly;
 }
 
-/* ------------------- ENEMY SHIP STATUS ------------------- */
-.enemy-side .ship-status-container {
-  background-color: black;
-}
-
-.enemy-side .ship {
-  border: .22vw dotted rgb(0, 255, 0);
-  background-color: transparent;
-  width: 1.44vw;
-}
-
-.enemy-side .carrier {
-  height: 7.2vw;
-  border-top-left-radius: 30% 50%;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
-  border-top-right-radius: 30% 50%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.enemy-side .battleship {
-  height: 5.776vw;
-  border-top-left-radius: 30% 50%;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
-  border-top-right-radius: 30% 50%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.enemy-side .cruiser {
-  height: 4.32vw;
-  border-top-left-radius: 30% 50%;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
-  border-top-right-radius: 30% 50%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.enemy-side .submarine {
-  height: 4.32vw;
-  border-top-left-radius: 30% 50%;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
-  border-top-right-radius: 30% 50%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.enemy-side .destroyer {
-  height: 2.88vw;
-  border-top-left-radius: 100%;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
+.ship-4-vertical {
+  width: 1.4vw;
+  height: 5.6vw;
   border-top-right-radius: 100%;
-  display: flex;
-  justify-content: space-evenly;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 100%;
+}
+
+.ship-3-vertical {
+  width: 1.4vw;
+  height: 4.2vw;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 100%;
+}
+
+.ship-2-vertical {
+  width: 1.4vw;
+  height: 2.8vw;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 100%;
 }
 
 /* -------------------- IntroAnimation ----------------------- */
