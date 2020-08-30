@@ -864,7 +864,7 @@ body {
   position: absolute;
   border: 2px solid yellow;
   pointer-events: none;
-  opacity: 60%;
+  opacity: 100%;
   box-sizing: border-box;
   transform: translateX(-50%) translateY(-50%);
 }
@@ -902,7 +902,7 @@ body {
   position: absolute;
   border: 2px solid rgb(0, 255, 0);
   pointer-events: none;
-  opacity: 60%;
+  opacity: 100%;
   box-sizing: border-box;
   transform: translateX(-50%) translateY(-50%);
 }
@@ -938,7 +938,7 @@ body {
   height: 1.4vw;
   border: 1px solid rgb(0, 255, 0);
   align-content: center;
-  opacity: 85%;
+  opacity: 99%;
   display: flex;
 }
 
