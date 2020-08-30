@@ -875,7 +875,6 @@ body {
   position: absolute;
   border: 1px solid yellow;
   pointer-events: none;
-  opacity: 80%;
   box-sizing: border-box;
   transform: translateX(-50%) translateY(-50%);
   height: 1px;
