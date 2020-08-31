@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Enemy from './Enemy';
 import Player from './Player';
-import UpperPanel from './UpperPanel';
+import ControlPanel1 from './ControlPanel1'
+import ControlPanel2 from './ControlPanel2';
 import {GameContext} from './GameContext';
 import ShipPlacer from './ShipPlacer';
 import GameOver from './GameOver';
@@ -53,16 +54,15 @@ function Game() {
 
 
   return (
-      <div className="Game" >
-        <UpperPanel />
+      <div className={`Game ${ inSetupPhase ? '' : 'started' }`} >
         { gameIsOver && <GameOver winner={enemy.allSunk()} /> }
-        {/* <div className={`${ gameIsOver ? 'unclickable' : ''}` }> */}
           <React.Fragment>
+            <ShipPlacer />
+            <ControlPanel1 />
             <Player /> 
-            { inSetupPhase ? <ShipPlacer /> : null }
+            <ControlPanel2 />
             <Enemy />
           </React.Fragment>
-        {/* </div> */}
       </div>
   );
 }

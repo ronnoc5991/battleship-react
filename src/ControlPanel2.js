@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import {GameContext} from './GameContext';
 
-const UpperPanel = () => {
+const ControlPanel2 = () => {
 
     const {playerObject, enemyObject, orientation, setUp, refresher, game} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
@@ -50,4 +50,4 @@ const UpperPanel = () => {
     )
 }
 
-export default UpperPanel;
+export default ControlPanel2;
