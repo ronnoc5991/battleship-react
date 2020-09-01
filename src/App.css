@@ -193,6 +193,10 @@ body {
 
 .button-light h2 {
   margin: auto;
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
 .dummy-buttons-container {
@@ -221,7 +225,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1vw;
+  margin: .5vw;
 }
 
 .button-light {
@@ -245,8 +249,8 @@ body {
 }
 
 .button-2 {
-  background-color:  rgba(125, 255, 118, .5);
-  box-shadow: 0 0 15px 15px rgba(56, 189, 62, .8);
+  background-color:  rgba(161, 255, 157, 0.5);
+  box-shadow: 0 0 15px 15px rgba(89, 235, 96, 0.8);
 }
 
 .dummy-3 {
@@ -254,8 +258,8 @@ body {
 }
 
 .button-3 {
-  background-color:  rgba(252, 255, 228, .5);
-  box-shadow: 0 0 15px 15px rgba(254, 170, 54, .8);
+  background-color:  rgba(255, 243, 228, 0.5);
+  box-shadow: 0 0 15px 15px rgba(254, 77, 54, 0.8);
 }
 
 .dummy-4 {
@@ -267,15 +271,16 @@ body {
   box-shadow: 0 0 15px 15px rgba(251, 255, 135, .8);
 }
 
-
-
-
+.off {
+  /* this should be applied to the button when clicked */
+  box-shadow: 0 0 0 0 transparent;
+}
 
 
 .control-panel {
   grid-column: 4 / 5;
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 2fr 5fr;
   width: 15vw;
 }
 
@@ -311,12 +316,14 @@ body {
   font-weight: bold;
   background-color: #173372;
   padding-top: .4vw;
-  color: white
+  color: white;
+  pointer-events: none;
+  font-size: 1vw;
 }
 
 .start-button {
-  height: 10vh;
-  width: 10vh;
+  height: 4vw;
+  width: 4vw;
   border-radius: 50%;
   box-sizing: border-box;
   border: 2px solid black;
@@ -327,8 +334,8 @@ body {
 }
 
 .start-button-inner {
-  width: 8vh;
-  height: 8vh;
+  width: 3vw;
+  height: 3vw;
   border-radius: 50%;
   box-sizing: border-box;
   border: 2px solid rgb(255, 255, 255, .5);
@@ -341,8 +348,8 @@ body {
 }
 
 .surrender-button {
-  height: 10vh;
-  width: 10vh;
+  height: 4vw;
+  width: 4vw;
   border-radius: 50%;
   box-sizing: border-box;
   border: 2px solid black;
@@ -353,8 +360,8 @@ body {
 }
 
 .surrender-button-inner {
-  width: 8vh;
-  height: 8vh;
+  width: 3vw;
+  height: 3vw;
   border-radius: 50%;
   box-sizing: border-box;
   border: 2px solid rgb(255, 255, 255, .5);
@@ -515,14 +522,6 @@ body {
   box-shadow: 0px -60px 90px 60px rgba(255, 0, 0, 0.8);
 }
 
-/* .bottom {
-  grid-row-start: 2;
-  grid-row-end: 3;
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-} */
-
 /* SHIP PLACEMENT */
 
 .placement-container {
@@ -532,7 +531,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 80%;
+  /* height: 100%; */
 }
 
 .pointing-hand {
@@ -598,6 +597,9 @@ body {
 .ship-text h3 {
   margin: 0;
   font-size: 1vw;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
 .ship-text h2 {
@@ -605,6 +607,9 @@ body {
   font-size: 1.5vw;
   font-style: italic;
   text-shadow: 0 0 10px white;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
 .ship-placer .ship {
@@ -680,6 +685,10 @@ body {
   padding-top: .4vw;
   color: white;
   font-size: 1vw;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -moz-user-select: none;
 }
 
 .player-side {
@@ -689,7 +698,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 80%;
+  /* height: 80%; */
 }
 
 .border-space {
@@ -727,7 +736,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 80%;
+  /* height: 80%; */
 }
 
 .enemy-board {
@@ -1020,26 +1029,12 @@ body {
 
 /* -------------------- IntroAnimation ----------------------- */
 
-.intro-animation-container {
+/* .intro-animation-container {
   width: 100%;
   height: 100%;
   background-color: var(--ocean-blue-3);
   display: grid;
   grid-template-rows: 50vh 1fr;
-}
-
-.logo-container {
-  position: absolute;
-  z-index: 10;
-  bottom: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(30%);
-}
-
-.logo {
-  margin: auto;
-  width: 1000px;
-  height: 1000px;
 }
 
 .sky {
@@ -1325,4 +1320,4 @@ body {
   0% { transform: rotate(-45deg); }
   50% { transform: rotate(45deg); }
   100% { transform: rotate(-45deg); }
-}
+} */
