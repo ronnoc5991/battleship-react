@@ -4,13 +4,14 @@ import {GameContext} from './GameContext';
 
 const ShipPlacer = () => {
 
-    const {playerObject, enemyObject, orientation, setUp, refresher, game} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher, game, shiftObject} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     const [direction, setDirection] = orientation;
     const [inSetupPhase, setInSetupPhase] = setUp;
     const [refresh, setRefresh] = refresher;
     const [gameIsOver, setGameIsOver] = game;
+    const [shift, setShift] = shiftObject;
 
     function toggleDirection () {
         setDirection(!direction);
@@ -63,7 +64,7 @@ const ShipPlacer = () => {
                     :
                     <div className="end-placement">
                         <h2>GOOD LUCK</h2>
-                        { setInSetupPhase(false) }
+                        { setShift(true) }
                     </div>
                 }
 

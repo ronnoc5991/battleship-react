@@ -9,7 +9,7 @@ import GameOver from './GameOver';
 
 function Game() {
 
-    const {playerObject, enemyObject, orientation, setUp, refresher, game} = useContext(GameContext);
+    const {playerObject, enemyObject, orientation, setUp, refresher, game, shiftObject} = useContext(GameContext);
     const [player, setPlayer] = playerObject;
     const [enemy, setEnemy] = enemyObject;
     const [direction, setDirection] = orientation;
@@ -17,6 +17,7 @@ function Game() {
     const [refresh, setRefresh] = refresher;
     const [gameIsOver, setGameIsOver] = game;
     const [intro, setIntro] = useState(true);
+    const [shift, setShift] = shiftObject;
 
     let winner;
 
@@ -54,7 +55,7 @@ function Game() {
 
 
   return (
-      <div className={`Game ${ inSetupPhase ? '' : 'started' }`} >
+      <div className={`Game ${ shift ? 'started' : '' }`} >
         { gameIsOver && <GameOver winner={enemy.allSunk()} /> }
           <React.Fragment>
             <ShipPlacer />
