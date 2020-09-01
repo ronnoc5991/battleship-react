@@ -218,14 +218,19 @@ body {
 }
 
 .dummy-button {
-  border: 1px solid black;
-  box-shadow: 0 0 5px 3px black;
+  border: 1px solid grey;
+  box-shadow: 0 0 5px 1px black;
   width: 3vw;
   height: 3vw;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: .5vw;
+}
+
+.dummy-button:active {
+  box-shadow: 0 0 5px 2px black inset;
+  font-size: .45vw;
 }
 
 .button-light {
