@@ -1045,295 +1045,251 @@ body {
 
 /* -------------------- IntroAnimation ----------------------- */
 
-/* .intro-animation-container {
-  width: 100%;
-  height: 100%;
-  background-color: var(--ocean-blue-3);
-  display: grid;
-  grid-template-rows: 50vh 1fr;
+
+.outer {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.container {
+  box-sizing: border-box;
+  height: 350vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  scroll: none;
 }
 
 .sky {
-  width: 100%;
-  height: 50%;
-  background-color: rgb(255, 166, 125);
-  grid-row-start: 1;
-  grid-row-end: 2;
-  position: relative;
-  z-index: 2;
+  width: 100vw;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(54,209,220);
+  background: linear-gradient(0deg, rgba(54,209,220,1) 0%, rgba(91,134,229,1) 47%);
 }
 
 .sun {
-  width: 150px;
-  height: 150px;
-  background-color: rgb(255, 184, 53);
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   position: absolute;
+  top: 50%;
   left: 50%;
-  bottom: 50%;
-  transform: translateX(-50%) translateY(50%);
-  box-shadow: 0px 0px 15px 5px rgb(255, 74, 74), 0px 0px 50px 20px rgb(255, 120, 120);
+  transform: translate(-50%, -50%);
+  background-color: #fefff0;
+  box-shadow: 0 0 5vw 3vw #fffeb3;
 }
 
-.wave-parent {
-  grid-row-start: 2;
-  grid-row-end: 3;
+.ocean {
+  position: absolute;
+  width: 100vw;
   height: 100vh;
+  top: 50vh;
+  left: 0;
+  background-color: #2a2a72;
+  background-image: linear-gradient(0deg, #2a2a72 0%, #009ffd 90%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.reflection {
+  position: absolute;
+  top: -70%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 50vh;
+  width: .5vw;
+  border-radius: 10px;
+  background-color: rgba(255,254,179,.9);
+  box-shadow: 0vw 55vh 10vw 5vw #fffeb3;
+  z-index: 2;
 }
 
 .wave-container {
-  width: 105vw;
-  position: absolute;
+  width: 100vw;
+}
+
+.wave-container img {
+  width: 100vw;
+  height: 100%;
+  filter: invert(100%) sepia(100%) saturate(50%) hue-rotate(150deg) brightness(103%) contrast(100%) opacity(.3);
+}
+
+.one {
+  height: 5vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.two {
+  height: 6vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+.three {
+  height: 7vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.four {
+  height: 7vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+.five {
+  height: 8vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.six {
+  height: 9vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+.seven {
+  height: 10vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.eight {
+  height: 11vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+.nine {
+  height: 12vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.ten {
+  height: 13vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+@keyframes waveUp {
+  0% { transform: scale(1) }
+  50% { transform: scale(1.2) }
+  100% { transform: scale(1) }
+}
+
+@keyframes waveDown {
+  0% { transform: scale(1.2) }
+  50% { transform: scale(1) }
+  100% { transform: scale(1.2) }
+}
+
+.darkness {
+  height: 200vh;
+  width: 100vw;
+  background-color: #292b75;
   display: flex;
-  bottom: 50%;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+}
+.title {
+  position: absolute;
+  text-align: center;
+  transform-origin: center;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
 }
 
-.wave {
-  flex-basis: 5%;
-  height: 50px;
+.title h1 {
+  color: var(--stainless-steel);
+  font-size: 10vmin;
+  font-family: 'Squada One', cursive;
+  text-shadow: 0 0 10px black;
+}
+
+.submarine-container {
+  transform-origin: center;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 3vh;
+  width: 3vh;
+  opacity: 0;
+}
+
+.submarine-top {
+  margin: 0 auto -50% auto;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  width: 30%;
+  height: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
+  postion: relative;
+}
+
+.crossbar {
+  position: absolute;
+  width: 70%;
+  height: 5%;
+  border-radius: 10px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
+}
+
+.submarine {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  transform: rotate(45deg);
-  animation-duration: 3000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  margin-left: -30px;
-  border-right: 5px solid rgb(255, 105, 105);
+  background: rgb(124,124,124);
+  background: radial-gradient(circle, rgba(124,124,124,1) 0%, rgba(0,0,0,1) 50%);
+  box-shadow: 0 1vmin 5vmin .5vmin rgba(124,124,124,1) inset;
+  position: relative;
 }
 
-.row-1 {
-  transform: translateY(750%);
+.body-crossbar {
+  position: absolute;
+  width: 120%;
+  height: 5%;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
 }
 
-.row-1 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinWaves;
+.body-crossbar-2 {
+  position: absolute;
+  width: 120%;
+  height: 5%;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  z-index: -1;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
 }
 
-.row-2 {
-  transform: translateY(700%);
+.fade-out {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  z-index: 10;
 }
-
-.row-2 .wave {
-  background-color: var(--ocean-blue-2);
-  animation-name: spinReverse;
-}
-
-.row-3 {
-  transform: translateY(650%);
-}
-
-.row-3 .wave {
-  background-color: var(--ocean-blue-3);
-  animation-name: spinWaves;
-}
-
-.row-4 {
-  transform: translateY(600%);
-}
-
-.row-4 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinReverse;
-}
-
-.row-5 {
-  transform: translateY(550%);
-}
-
-.row-5 .wave {
-  background-color: var(--ocean-blue-2);
-  animation-name: spinWaves;
-}
-
-.row-6 {
-  transform: translateY(500%);
-}
-
-.row-6 .wave {
-  background-color: var(--ocean-blue-3);
-  animation-name: spinReverse;
-}
-
-.row-7 {
-  transform: translateY(450%);
-}
-
-.row-7 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinWaves;
-}
-
-.row-8 {
-  transform: translateY(400%);
-}
-
-.row-8 .wave {
-  background-color: var(--ocean-blue-2);
-  animation-name: spinReverse;
-}
-
-.row-9 {
-  transform: translateY(350%);
-}
-
-.row-9 .wave {
-  background-color: var(--ocean-blue-3);
-  animation-name: spinWaves;
-}
-
-.row-10 {
-  transform: translateY(300%);
-}
-
-.row-10 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinReverse;
-}
-
-.row-11 {
-  transform: translateY(250%);
-}
-
-.row-11 .wave {
-  background-color: var(--ocean-blue-2);
-  animation-name: spinWaves;
-}
-
-.row-12 {
-  transform: translateY(200%);
-}
-
-.row-12 .wave {
-  background-color: var(--ocean-blue-3);
-  animation-name: spinReverse;
-}
-
-.row-13 {
-  transform: translateY(150%);
-}
-
-.row-13 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinWaves;
-}
-
-.row-14 {
-  transform: translateY(100%);
-}
-
-.row-14 .wave {
-  background-color: var(--ocean-blue-2);
-  animation-name: spinReverse;
-}
-
-.row-15 {
-  transform: translateY(50%);
-}
-
-.row-15 .wave {
-  background-color: var(--ocean-blue-3);
-  animation-name: spinWaves;
-}
-
-.row-16 {
-  transform: translateY(0%);
-}
-
-.row-16 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinReverse;
-}
-
-.row-17 {
-  transform: translateY(-50%);
-}
-
-.row-17 .wave {
-  background-color: var(--ocean-blue-2);
-  animation-name: spinWaves;
-}
-
-.row-18 {
-  transform: translateY(-100%);
-}
-
-.row-18 .wave {
-  background-color: var(--ocean-blue-3);
-  animation-name: spinReverse;
-}
-
-.row-19 {
-  transform: translateY(-150%);
-}
-
-.row-19 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinWaves;
-}
-
-.row-20 {
-  transform: translateY(-200%);
-}
-
-.row-20 .wave {
-  background-color: var(--ocean-blue-2);
-  animation-name: spinReverse;
-}
-
-.row-21 {
-  transform: translateY(-250%);
-}
-
-.row-21 .wave {
-  background-color: var(--ocean-blue-3);
-  animation-name: spinWaves;
-}
-
-.row-22 {
-  transform: translateY(-300%);
-}
-
-.row-22 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinReverse;
-}
-
-.row-23 {
-  transform: translateY(-350%);
-}
-
-.row-23 .wave {
-  background-color: var(--ocean-blue-2);
-  animation-name: spinWaves;
-}
-
-.row-24 {
-  transform: translateY(-400%);
-}
-
-.row-24 .wave {
-  background-color: var(--ocean-blue-3);
-  animation-name: spinReverse;
-}
-
-.row-25 {
-  transform: translateY(-450%);
-}
-
-.row-25 .wave {
-  background-color: var(--ocean-blue-1);
-  animation-name: spinWaves;
-}
-
-
-@keyframes spinWaves {
-  0% { transform: rotate(45deg); }
-  50% { transform: rotate(-45deg); }
-  100% { transform: rotate(45deg); }
-}
-
-@keyframes spinReverse {
-  0% { transform: rotate(-45deg); }
-  50% { transform: rotate(45deg); }
-  100% { transform: rotate(-45deg); }
-} */

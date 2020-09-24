@@ -9,7 +9,7 @@ function App() {
   return (
     <GameProvider>
       <div className="App" >
-        {/* <IntroAnimation /> */}
+        <IntroAnimation />
         <Game />
       </div>
     </GameProvider>
