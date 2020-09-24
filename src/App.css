@@ -277,7 +277,6 @@ body {
 }
 
 .off {
-  /* this should be applied to the button when clicked */
   box-shadow: 0 0 0 0 transparent;
 }
 
@@ -1232,7 +1231,7 @@ body {
   height: 100%;
   background: rgb(0,0,0);
   background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
-  postion: relative;
+  position: relative;
 }
 
 .crossbar {
@@ -1292,4 +1291,8 @@ body {
   left: 0;
   background-color: black;
   z-index: 10;
+}
+
+@media (max-width: 1400px) {
+
 }
