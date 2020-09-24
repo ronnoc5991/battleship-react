@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/battleship-react/static/css/main.4dd85513.chunk.css",
-    "main.js": "/battleship-react/static/js/main.49c6b090.chunk.js",
-    "main.js.map": "/battleship-react/static/js/main.49c6b090.chunk.js.map",
+    "main.css": "/battleship-react/static/css/main.06041989.chunk.css",
+    "main.js": "/battleship-react/static/js/main.861c8c28.chunk.js",
+    "main.js.map": "/battleship-react/static/js/main.861c8c28.chunk.js.map",
     "runtime-main.js": "/battleship-react/static/js/runtime-main.7585f23a.js",
     "runtime-main.js.map": "/battleship-react/static/js/runtime-main.7585f23a.js.map",
-    "static/js/2.644a4b0b.chunk.js": "/battleship-react/static/js/2.644a4b0b.chunk.js",
-    "static/js/2.644a4b0b.chunk.js.map": "/battleship-react/static/js/2.644a4b0b.chunk.js.map",
+    "static/js/2.86806e65.chunk.js": "/battleship-react/static/js/2.86806e65.chunk.js",
+    "static/js/2.86806e65.chunk.js.map": "/battleship-react/static/js/2.86806e65.chunk.js.map",
     "index.html": "/battleship-react/index.html",
-    "precache-manifest.b49296874c1ff63fd09780ec70c1d9a8.js": "/battleship-react/precache-manifest.b49296874c1ff63fd09780ec70c1d9a8.js",
+    "precache-manifest.d799787c146d41c2c4a57bf5f92415d8.js": "/battleship-react/precache-manifest.d799787c146d41c2c4a57bf5f92415d8.js",
     "service-worker.js": "/battleship-react/service-worker.js",
-    "static/css/main.4dd85513.chunk.css.map": "/battleship-react/static/css/main.4dd85513.chunk.css.map",
-    "static/js/2.644a4b0b.chunk.js.LICENSE.txt": "/battleship-react/static/js/2.644a4b0b.chunk.js.LICENSE.txt",
+    "static/css/main.06041989.chunk.css.map": "/battleship-react/static/css/main.06041989.chunk.css.map",
+    "static/js/2.86806e65.chunk.js.LICENSE.txt": "/battleship-react/static/js/2.86806e65.chunk.js.LICENSE.txt",
     "static/media/App.css": "/battleship-react/static/media/explosion.eec3d9f7.png",
-    "static/media/fireworks.png": "/battleship-react/static/media/fireworks.04ae7a00.png"
+    "static/media/fireworks.png": "/battleship-react/static/media/fireworks.04ae7a00.png",
+    "static/media/waves.svg": "/battleship-react/static/media/waves.e8332aa7.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.7585f23a.js",
-    "static/js/2.644a4b0b.chunk.js",
-    "static/css/main.4dd85513.chunk.css",
-    "static/js/main.49c6b090.chunk.js"
+    "static/js/2.86806e65.chunk.js",
+    "static/css/main.06041989.chunk.css",
+    "static/js/main.861c8c28.chunk.js"
   ]
 }
