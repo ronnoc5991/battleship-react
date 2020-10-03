@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Game from './Game';
-import {GameProvider} from './GameContext';
+import { GameProvider } from './GameContext';
 import IntroAnimation from './IntroAnimation';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
     <GameProvider>
       <div className="App" >
-        <IntroAnimation />
+        {/* <IntroAnimation /> */}
         <Game />
       </div>
     </GameProvider>

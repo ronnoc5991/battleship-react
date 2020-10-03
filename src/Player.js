@@ -14,8 +14,7 @@ const Player = (props) => {
 
 
     return (
-        <div className="player-side">
-            <div className="side-label">FRIENDLY RADAR</div>
+        <div className="player">
             <div className="border-space">
                 <div className="screw screw-1"></div>
                 <div className="screw screw-2"></div>

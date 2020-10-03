@@ -67,8 +67,8 @@ const Enemy = () => {
     }
 
     return (
-        <div className="enemy-side">
-                <div className="side-label">ENEMY RADAR</div>
+        <div className="enemy">
+                {/* <div className="side-label">ENEMY RADAR</div> */}
             <div className="border-space">
                 <div className="screw screw-1"></div>
                 <div className="screw screw-2"></div>

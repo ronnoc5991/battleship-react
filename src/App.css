@@ -23,80 +23,76 @@ body {
 }
 
 .Game {
-  width: 157.5vw;
+  width: 100vw;
   height: 100%;
   text-align: center;
-  display: grid;
-  grid-template-columns: 42.5vw 15vw 42.5vw 15vw 42.5vw;
+  display: flex;
+
   cursor: crosshair;
   margin: auto;
   background-color: lightgray;
   overflow: hidden;
-  transition: all 1200ms linear;
-}
-
-.started {
-  transform: translate(-57.5vw);
+  transition: all 300ms linear;
 }
 
 /* SCREWS */
 
 .screw {
-  height: 1vw;
-  width: 1vw;
+  height: 1vmin;
+  width: 1vmin;
   background-color: silver;
-  border: 2px solid gray;
-  box-shadow: 0 0 3px 1px silver;
+  border: .2vmin solid gray;
+  box-shadow: 0 0 .3vmin .1vmin silver;
   border-radius: 50%;
   box-sizing: border-box;
   position: absolute;
 }
 
-.screw-1 {
-  left: .96vw;
+.enemy .screw-1 {
+  left: 1%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.screw-2 {
-  left: 23.04vw;
+.enemy .screw-2 {
+  right: .4%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.screw-3 {
+.enemy .screw-3 {
   left: 50%;
-  top: .96vw;
+  top: 1.2%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.screw-4 {
+.enemy .screw-4 {
   left: 50%;
-  top: 23.04vw;
+  bottom: .3%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.screw-5 {
-  left: 4.16vw;
-  top: 4.16vw;
+.enemy .screw-5 {
+  left: 15.5%;
+  top: 15.5%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.screw-6 {
-  left: 19.84vw;
-  top: 4.16vw;
+.enemy .screw-6 {
+  right: 15.1%;
+  top: 15.1%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.screw-7 {
-  left: 4.16vw;
-  top: 19.84vw;
+.enemy .screw-7 {
+  left: 15%;
+  bottom: 15%;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.screw-8 {
-  left: 19.84vw;
-  top: 19.84vw;
+.enemy .screw-8 {
+  right: 14.5%;
+  bottom: 14.5%;
   transform: translateX(-50%) translateY(-50%);
 }
 
@@ -693,34 +689,31 @@ body {
   -moz-user-select: none;
 }
 
-.player-side {
-  margin: auto;
-  grid-column: 3 / 4;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  /* height: 80%; */
+.player {
+  position: absolute;
+  top: 2vmin;
+  left: 2vmin;
 }
 
-.border-space {
-  width: 24vw;
-  height: 24vw;
+.player .border-space {
+  box-sizing: border-box;
+  width: 30vmin;
+  height: 30vmin;
   border-radius: 50%;
   display: flex;
   background-color: var(--stainless-steel);
-  box-shadow: 0px 0px 1vw 3px black;
+  box-shadow: 0px 0px 1vmin .3vmin black;
   position: relative;
 }
 
 .player-board {
-  width: 20vw;
-  height: 20vw;
+  width: 25vmin;
+  height: 25vmin;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid black;
-  box-shadow: 0px 0px 1vw 5px black inset;
+  border: .1vmin solid black;
+  box-shadow: 0px 0px .5vmin .1vmin black inset;
   align-content: center;
   border-radius: 50%;
   background-color: #0077be;
@@ -731,33 +724,71 @@ body {
 
 /* --------------- ENEMY SIDE --------------- */
 
-.enemy-side {
-  grid-column: 5 / 6;
+.enemy {
   margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100vmin;
+  width: 100vmin;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  /* height: 80%; */
+}
+
+.enemy .border-space {
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  display: flex;
+  background-color: var(--stainless-steel);
+  box-shadow: 0px 0px 1vmin .3vmin black;
+  position: relative;
 }
 
 .enemy-board {
-  width: 20vw;
-  height: 20vw;
+  box-sizing: border-box;
+  width: 95%;
+  height: 95%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   border-radius: 50%;
   background-color: black;
-  border: 1px solid black;
-  box-shadow: 0px 0px 1vw 5px rgb(0, 255, 0) inset;
-  position: relative;
+  border: .1vmin solid black;
+  box-shadow: 0px 0px 1vmin .3vmin rgb(0, 255, 0) inset;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   overflow: hidden;
 }
 
+.enemy .circle-1 {
+  width: 72vmin;
+  height: 72vmin;
+}
+
+.enemy .circle-2 {
+  width: 54vmin;
+  height: 54vmin;
+}
+
+.enemy .circle-3 {
+  width: 36vmin;
+  height: 36vmin;
+}
+
+.enemy .circle-4 {
+  width: 18vmin;
+  height: 18vmin;
+}
+
 .arm {
-  height: 49vh;
+  height: 49vmin;
   border: 2px solid rgb(0, 255, 0);
   box-shadow: -200px -330px 150px 300px rgb(0, 255, 0, .8);
   position: absolute;
@@ -815,7 +846,7 @@ body {
   top: 50%;
   left: 50%;
   position: absolute;
-  border: 2px solid yellow;
+  border: .2vmin solid yellow;
   pointer-events: none;
   box-sizing: border-box;
   transform: translateX(-50%) translateY(-50%);
@@ -851,30 +882,30 @@ body {
   top: 50%;
   left: 50%;
   position: absolute;
-  border: 2px solid rgb(0, 255, 0);
+  border: .15vmin solid rgb(0, 255, 0);
   pointer-events: none;
   box-sizing: border-box;
   transform: translateX(-50%) translateY(-50%);
 }
 
-.circle-1 {
-  width: 16vw;
-  height: 16vw;
+.player .circle-1 {
+  width: 20vmin;
+  height: 20vmin;
 }
 
-.circle-2 {
-  width: 12vw;
-  height: 12vw;
+.player .circle-2 {
+  width: 15vmin;
+  height: 15vmin;
 }
 
-.circle-3 {
-  width: 8vw;
-  height: 8vw;
+.player .circle-3 {
+  width: 10vmin;
+  height: 10vmin;
 }
 
-.circle-4 {
-  width: 4vw;
-  height: 4vw;
+.player .circle-4 {
+  width: 5vmin;
+  height: 5vmin;
 }
 
 .Row {
@@ -882,11 +913,11 @@ body {
   display: flex;
 }
 
-.Square {
+.enemy .Square {
   box-sizing: border-box;
-  width: 1.4vw;
-  height: 1.4vw;
-  border: 1px solid rgb(0, 255, 0);
+  width: 6.15vmin;
+  height: 6.15vmin;
+  border: .1vmin solid rgb(0, 255, 0);
   align-content: center;
   display: flex;
   z-index: 2;
@@ -894,10 +925,10 @@ body {
 
 .player-square {
   box-sizing: border-box;
-  width: 1.4vw;
-  height: 1.4vw;
+  width: 1.7vmin;
+  height: 1.7vmin;
   box-sizing: border-box;
-  border: 1px solid yellow;
+  border: .01vmin solid yellow;
   align-content: center;
   display: flex;
 }
