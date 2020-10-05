@@ -68,16 +68,14 @@ const Enemy = () => {
 
     return (
         <div className="enemy">
-                {/* <div className="side-label">ENEMY RADAR</div> */}
-            <div className="border-space">
-                <div className="screw screw-1"></div>
+                {/* <div className="screw screw-1"></div>
                 <div className="screw screw-2"></div>
                 <div className="screw screw-3"></div>
                 <div className="screw screw-4"></div>
                 <div className="screw screw-5"></div>
                 <div className="screw screw-6"></div>
                 <div className="screw screw-7"></div>
-                <div className="screw screw-8"></div>
+                <div className="screw screw-8"></div> */}
                 <div className="enemy-board" onClick={ inSetupPhase ? undefined : takeAttack }>
                     { !inSetupPhase && <div className="arm"></div>}
                         {/* <div className="arm"></div> */}
@@ -89,7 +87,6 @@ const Enemy = () => {
                         return <EnemyRow row={row} rowIndex={ rowIndex } />
                         }) }
                 </div>
-            </div>
         </div>
     )
 }

@@ -53,11 +53,12 @@ function Game() {
       <div className={`Game ${ shift ? 'started' : '' }`} >
         { gameIsOver && <GameOver winner={enemy.allSunk()} /> }
           <React.Fragment>
-            {/* <ShipPlacer /> */}
+            { inSetupPhase ? <ShipPlacer /> : '' }
+            
             {/* <ControlPanel1 /> */}
             <Player /> 
             {/* <ControlPanel2 /> */}
-            <Enemy />
+            { inSetupPhase ? '' : <Enemy /> }
           </React.Fragment>
       </div>
   );
