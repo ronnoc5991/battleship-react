@@ -42,6 +42,7 @@ const ShipPlacer = () => {
                                 <h3>Place your</h3>
                                 <h2>{getShipName(player.shipsToPlace[0])}</h2>
                             </div>
+
                             <DraggableShips length={ player.shipsToPlace[0] } index={ 0 } direction={ direction } />
                             <div className="switch-container">
                                 <i class="fas fa-arrows-alt-v"></i>

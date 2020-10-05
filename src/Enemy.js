@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import EnemyRow from './EnemyRow';
 import { GameContext } from './GameContext';
+import gsap from 'gsap';
 
 const Enemy = () => {
     const [number, setNumber] = useState(1);
@@ -12,6 +13,13 @@ const Enemy = () => {
     const [inSetupPhase, setInSetupPhase] = setUp;
     const [refresh, setRefresh] = refresher;
     const [gameIsOver, setGameIsOver] = game;
+
+    var enemyBoard = useRef(null);
+
+    useEffect(() => {
+        const tl = gsap.timeline();
+        tl.fromTo(enemyBoard, {opacity: 0}, {opacity: 1, duration: 1, delay: .6}); 
+    }, [])
 
     while (enemy.shipsToPlace.length > 0) {
         randomPlacement();
@@ -46,7 +54,7 @@ const Enemy = () => {
             }
         }
 
-    function takeAttack (e) { //should maybe launch an attack after taking an attack
+    function takeAttack (e) {
         if (e.target.dataset.status === 'attackable') {
             if (e.target.dataset.coordinates) {
                 let coordinates = e.target.dataset.coordinates
@@ -57,28 +65,30 @@ const Enemy = () => {
         }
     }
 
+    var guessed = [];
+
     function retaliate () {
-        let coordinates = [getRndInteger(0 , 9), getRndInteger(0 , 9)];
+        let coordinates;
+        let foundGuess = false;
+        while (!foundGuess) {
+            coordinates = [getRndInteger(0 , 9), getRndInteger(0 , 9)];
+            if (guessed.includes(coordinates)) {
+            } else {
+                guessed.push(coordinates);
+                foundGuess = true;
+            }
+        }
         player.receiveAttack(coordinates);
-        //coordinates that have not yet been guessed
         //if it is a hit... guess an adjacent set of coordinates
         //if not try somewhere else
         //save last attack coordiantes and result? outside of this function
     }
 
+
     return (
-        <div className="enemy">
-                {/* <div className="screw screw-1"></div>
-                <div className="screw screw-2"></div>
-                <div className="screw screw-3"></div>
-                <div className="screw screw-4"></div>
-                <div className="screw screw-5"></div>
-                <div className="screw screw-6"></div>
-                <div className="screw screw-7"></div>
-                <div className="screw screw-8"></div> */}
+        <div className="enemy" ref= { el => { enemyBoard = el } }>
                 <div className="enemy-board" onClick={ inSetupPhase ? undefined : takeAttack }>
                     { !inSetupPhase && <div className="arm"></div>}
-                        {/* <div className="arm"></div> */}
                         <div className="circle circle-1"></div>
                         <div className="circle circle-2"></div>
                         <div className="circle circle-3"></div>

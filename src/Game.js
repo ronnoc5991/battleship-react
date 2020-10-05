@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Enemy from './Enemy';
 import Player from './Player';
-import ControlPanel1 from './ControlPanel1'
-import ControlPanel2 from './ControlPanel2';
 import {GameContext} from './GameContext';
 import ShipPlacer from './ShipPlacer';
 import GameOver from './GameOver';
+import DummyModule1 from './DummyModule1';
 
 function Game() {
 
@@ -52,13 +51,12 @@ function Game() {
   return (
       <div className={`Game ${ shift ? 'started' : '' }`} >
         { gameIsOver && <GameOver winner={enemy.allSunk()} /> }
-          <React.Fragment>
-            { inSetupPhase ? <ShipPlacer /> : '' }
-            
-            {/* <ControlPanel1 /> */}
+          <React.Fragment>            
             <Player /> 
-            {/* <ControlPanel2 /> */}
+            { inSetupPhase ? <ShipPlacer /> : '' }
             { inSetupPhase ? '' : <Enemy /> }
+            { inSetupPhase ? '' : <DummyModule1 /> }
+
           </React.Fragment>
       </div>
   );

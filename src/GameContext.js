@@ -11,6 +11,7 @@ export const GameProvider = (props) => {
     const [enemy, setEnemy] = useState(gameboardFactory());
 
     const [inSetupPhase, setInSetupPhase] = useState(true);
+    // Needs to be true;
 
     const [direction, setDirection] = useState(true);
 
