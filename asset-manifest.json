@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/battleship-react/static/css/main.45091066.chunk.css",
-    "main.js": "/battleship-react/static/js/main.f48cd1e9.chunk.js",
-    "main.js.map": "/battleship-react/static/js/main.f48cd1e9.chunk.js.map",
+    "main.css": "/battleship-react/static/css/main.65de08a8.chunk.css",
+    "main.js": "/battleship-react/static/js/main.c9882ba5.chunk.js",
+    "main.js.map": "/battleship-react/static/js/main.c9882ba5.chunk.js.map",
     "runtime-main.js": "/battleship-react/static/js/runtime-main.7585f23a.js",
     "runtime-main.js.map": "/battleship-react/static/js/runtime-main.7585f23a.js.map",
-    "static/js/2.86806e65.chunk.js": "/battleship-react/static/js/2.86806e65.chunk.js",
-    "static/js/2.86806e65.chunk.js.map": "/battleship-react/static/js/2.86806e65.chunk.js.map",
+    "static/js/2.9b72ffb2.chunk.js": "/battleship-react/static/js/2.9b72ffb2.chunk.js",
+    "static/js/2.9b72ffb2.chunk.js.map": "/battleship-react/static/js/2.9b72ffb2.chunk.js.map",
     "index.html": "/battleship-react/index.html",
-    "precache-manifest.6874db6f9d82c9e4c45e43d41fb7ffe9.js": "/battleship-react/precache-manifest.6874db6f9d82c9e4c45e43d41fb7ffe9.js",
+    "precache-manifest.7c5367bc8bd987484f366e436dcef5ec.js": "/battleship-react/precache-manifest.7c5367bc8bd987484f366e436dcef5ec.js",
     "service-worker.js": "/battleship-react/service-worker.js",
-    "static/css/main.45091066.chunk.css.map": "/battleship-react/static/css/main.45091066.chunk.css.map",
-    "static/js/2.86806e65.chunk.js.LICENSE.txt": "/battleship-react/static/js/2.86806e65.chunk.js.LICENSE.txt",
+    "static/css/main.65de08a8.chunk.css.map": "/battleship-react/static/css/main.65de08a8.chunk.css.map",
+    "static/js/2.9b72ffb2.chunk.js.LICENSE.txt": "/battleship-react/static/js/2.9b72ffb2.chunk.js.LICENSE.txt",
     "static/media/App.css": "/battleship-react/static/media/explosion.eec3d9f7.png",
     "static/media/fireworks.png": "/battleship-react/static/media/fireworks.04ae7a00.png",
     "static/media/waves.svg": "/battleship-react/static/media/waves.e8332aa7.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.7585f23a.js",
-    "static/js/2.86806e65.chunk.js",
-    "static/css/main.45091066.chunk.css",
-    "static/js/main.f48cd1e9.chunk.js"
+    "static/js/2.9b72ffb2.chunk.js",
+    "static/css/main.65de08a8.chunk.css",
+    "static/js/main.c9882ba5.chunk.js"
   ]
 }

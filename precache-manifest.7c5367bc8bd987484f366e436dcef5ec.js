@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "500e6fad776883c176747fe75e2e72c8",
+    "revision": "ed1f0e98cb8bff8f522c0a606df717a0",
     "url": "/battleship-react/index.html"
   },
   {
-    "revision": "c7bf3f777ac2f0ebc16e",
-    "url": "/battleship-react/static/css/main.45091066.chunk.css"
+    "revision": "40a9d1a6d8cd14287cce",
+    "url": "/battleship-react/static/css/main.65de08a8.chunk.css"
   },
   {
-    "revision": "e2ae7dc4c342d97fafd0",
-    "url": "/battleship-react/static/js/2.86806e65.chunk.js"
+    "revision": "b7ba93285a568fb63b1e",
+    "url": "/battleship-react/static/js/2.9b72ffb2.chunk.js"
   },
   {
     "revision": "3377ffda74687e7745ec38a7bdbe5cdb",
-    "url": "/battleship-react/static/js/2.86806e65.chunk.js.LICENSE.txt"
+    "url": "/battleship-react/static/js/2.9b72ffb2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c7bf3f777ac2f0ebc16e",
-    "url": "/battleship-react/static/js/main.f48cd1e9.chunk.js"
+    "revision": "40a9d1a6d8cd14287cce",
+    "url": "/battleship-react/static/js/main.c9882ba5.chunk.js"
   },
   {
     "revision": "571a2ae2df6bc3d8c81c",
