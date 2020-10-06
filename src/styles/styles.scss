@@ -1,1298 +1,988 @@
 /* --------------- GLOBAL APP DECLARATIONS --------------- */
 
 :root {
-    --ocean-blue-1: #004772;
-    --ocean-blue-2: #00578b;
-    --ocean-blue-3: #0067a5;
-    --ocean-blue-4: #0077be;
-    --ocean-blue-5: #0087d8;
-    --ocean-blue-6: #0097f1;
-    --ocean-blue-7: #0ca4ff;
-    --stainless-steel: #CACCCE;
+  --ocean-blue-1: #004772;
+  --ocean-blue-2: #00578b;
+  --ocean-blue-3: #0067a5;
+  --ocean-blue-4: #0077be;
+  --ocean-blue-5: #0087d8;
+  --ocean-blue-6: #0097f1;
+  --ocean-blue-7: #0ca4ff;
+  --stainless-steel: #CACCCE;
+  --radar-green: rgb(0, 255, 0);
+}
+
+
+body {
+  overflow: hidden;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: .5vmin;
+  background-color: rgb(0, 0, 0);
+}
+
+.Game {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  cursor: crosshair;
+  margin: auto;
+  overflow: hidden;
+  transition: all 300ms linear;
+  box-sizing: border-box;
+  border: .3vmin solid var(--radar-green);
+}
+
+/* END GAME SCREENS */
+
+.unclickable {
+  pointer-events: none;
+}
+
+.win {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 51;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.win h1 {
+  z-index: 2;
+  font-size: 4vw;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+.win img {
+  height: 30vw;
+  position: absolute;
+}
+
+.lose {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  z-index: 20;
+  background-color: rgba(0, 0, 255, 1);
+  animation-name: floatUp;
+  animation-duration: 3000ms;
+  animation-iteration-count: initial;
+  animation-timing-function: linear;
+  z-index: 51;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lose img {
+  filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg) brightness(104%) contrast(104%);
+}
+
+@keyframes floatUp {
+  0% { top:100%;   background-color: rgba(0, 0, 255, 0);
   }
-  
-  
-  body {
-    overflow: hidden;
+  100% { top: 0;   background-color: rgba(0, 0, 255, 1);
   }
-  
-  .App {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .Game {
-    width: 157.5vw;
-    height: 100%;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 42.5vw 15vw 42.5vw 15vw 42.5vw;
-    cursor: crosshair;
-    margin: auto;
-    background-color: lightgray;
-    overflow: hidden;
-    transition: all 1200ms linear;
-  }
-  
-  .started {
-    transform: translate(-57.5vw);
-  }
-  
-  /* SCREWS */
-  
-  .screw {
-    height: 1vw;
-    width: 1vw;
-    background-color: silver;
-    border: 2px solid gray;
-    box-shadow: 0 0 3px 1px silver;
-    border-radius: 50%;
-    box-sizing: border-box;
-    position: absolute;
-  }
-  
-  .screw-1 {
-    left: .96vw;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .screw-2 {
-    left: 23.04vw;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .screw-3 {
-    left: 50%;
-    top: .96vw;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .screw-4 {
-    left: 50%;
-    top: 23.04vw;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .screw-5 {
-    left: 4.16vw;
-    top: 4.16vw;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .screw-6 {
-    left: 19.84vw;
-    top: 4.16vw;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .screw-7 {
-    left: 4.16vw;
-    top: 19.84vw;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .screw-8 {
-    left: 19.84vw;
-    top: 19.84vw;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .screw-upper-1 {
-    top: 1vw;
-    left: 1vw;
-  }
-  
-  .screw-upper-2 {
-    top: 1vw;
-    right: 1vw;
-  }
-  
-  .screw-lower-1 {
-    bottom: 1vw;
-    left: 1vw;
-  }
-  
-  .screw-lower-2 {
-    bottom: 1vw;
-    right: 1vw;
-  }
-  
-  /* END GAME SCREENS */
-  
-  .unclickable {
-    pointer-events: none;
-  }
-  
-  .win {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    right: 0;
-    background-color: rgba(0, 0, 0, .6);
-    z-index: 51;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .win h1 {
-    z-index: 2;
-    font-size: 4vw;
-    color: white;
-    text-shadow: 0 0 10px black;
-  }
-  
-  .win img {
-    height: 30vw;
-    position: absolute;
-  }
-  
-  .lose {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    right: 0;
-    z-index: 20;
-    background-color: rgba(0, 0, 255, 1);
-    animation-name: floatUp;
-    animation-duration: 3000ms;
-    animation-iteration-count: initial;
-    animation-timing-function: linear;
-    z-index: 51;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .lose img {
-    filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg) brightness(104%) contrast(104%);
-  }
-  
-  @keyframes floatUp {
-    0% { top:100%;   background-color: rgba(0, 0, 255, 0);
-    }
-    100% { top: 0;   background-color: rgba(0, 0, 255, 1);
-    }
-  }
-  
-  /* CONTROL PANELS */
-  
-  /* DUMMY CONTROL PANEL */
-  .control-panel-1 {
-    grid-column: 2 / 3;
-    display: grid;
-    grid-template-rows: 1fr 4fr;
-    width: 15vw;
-    font-family: 'Lexend Peta', sans-serif;
+}
+
+/* SHIP PLACEMENT */
+
+.placement-container {
+  margin: 0 auto auto auto;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 37vh;
+  width: 100vw;
+  z-index: 5;
+}
+
+.pointing-hand {
+  position: absolute;
+  z-index: 50;
+  right: 25vw;
+  top: 40vh;
+  transform: rotate(25deg);
+  animation-name: moveHand;
+  animation-duration: 2500ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 6000ms;
+  color: transparent;
+}
+
+@keyframes moveHand {
+  0% {
     color: black;
-    font-size: .5vw;
-  }
-  
-  .button-light h2 {
-    margin: auto;
-    pointer-events: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-  }
-  
-  .dummy-buttons-container {
-    grid-row: 2 / 3;
-    height: 25vw;
-    width: 15vw;
-    box-sizing: border-box;
-    border: 1px solid black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--stainless-steel);
-    box-shadow: 0px 0px 1vw 3px black;
-    margin: auto;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-    position: relative;
-  }
-  
-  .dummy-button {
-    border: 1px solid grey;
-    box-shadow: 0 0 5px 1px black;
-    width: 3vw;
-    height: 3vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: .5vw;
-  }
-  
-  .dummy-button:active {
-    box-shadow: 0 0 5px 2px black inset;
-    font-size: .45vw;
-  }
-  
-  .button-light {
-    width: 2.5vw;
-    height: 2.5vw;
-    border-radius: 50%;
-    display: flex;
-  }
-  
-  .dummy-1 {
-    background-color: rgba(6, 162, 247, .5);
-  }
-  
-  .button-1 {
-    background-color: rgb(186, 255, 254, .9);
-    box-shadow: 0 0 15px 15px rgba(114, 250, 250, .8);
-  }
-  
-  .dummy-2 {
-    background-color: rgba(22, 118, 28, .5);
-  }
-  
-  .button-2 {
-    background-color:  rgba(161, 255, 157, 0.5);
-    box-shadow: 0 0 15px 15px rgba(89, 235, 96, 0.8);
-  }
-  
-  .dummy-3 {
-    background-color: rgba(250, 80, 31, .5);
-  }
-  
-  .button-3 {
-    background-color:  rgba(255, 243, 228, 0.5);
-    box-shadow: 0 0 15px 15px rgba(254, 77, 54, 0.8);
-  }
-  
-  .dummy-4 {
-    background-color: rgba(249, 217, 54, .5);
-  }
-  
-  .button-4 {
-    background-color:  rgba(250, 254, 240, 0.5);
-    box-shadow: 0 0 15px 15px rgba(251, 255, 135, .8);
-  }
-  
-  .off {
-    box-shadow: 0 0 0 0 transparent;
-  }
-  
-  
-  .control-panel {
-    grid-column: 4 / 5;
-    display: grid;
-    grid-template-rows: 2fr 5fr;
-    width: 15vw;
-  }
-  
-  .buttons {
-    grid-row: 2 / 3;
-    height: 25vw;
-    width: 15vw;
-    box-sizing: border-box;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--stainless-steel);
-    box-shadow: 0px 0px 1vw 3px black;
-    margin: auto;
-    padding-top: 2vh;
-    padding-bottom: 4vh;
-    position: relative;
-  }
-  
-  .control-label {
-    height: 9vh;
-    width: 95%;
-    box-sizing: border-box;
-    border: 2vh solid var(--stainless-steel);
-    box-shadow: 0 0 .3vw .01vw white inset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Special Elite', cursive;
-    text-shadow: 0 0 1px white;
-    font-weight: bold;
-    background-color: #173372;
-    padding-top: .4vw;
-    color: white;
-    pointer-events: none;
-    font-size: 1vw;
-  }
-  
-  .start-button {
-    height: 4vw;
-    width: 4vw;
-    border-radius: 50%;
-    box-sizing: border-box;
-    border: 2px solid black;
-    background-color: green;
-    box-shadow: 0px 0px 2px 2px black;
-    display: flex;
-    outline: none;
-  }
-  
-  .start-button-inner {
-    width: 3vw;
-    height: 3vw;
-    border-radius: 50%;
-    box-sizing: border-box;
-    border: 2px solid rgb(255, 255, 255, .5);
-    box-shadow: 0px 0px 2px 2px black inset;
-    margin: auto;
-  }
-  
-  .start-button:active .start-button-inner {
-    box-shadow: 0px 0px 5px 5px black inset;
-  }
-  
-  .surrender-button {
-    height: 4vw;
-    width: 4vw;
-    border-radius: 50%;
-    box-sizing: border-box;
-    border: 2px solid black;
-    background-color: red;
-    box-shadow: 0px 0px 2px 2px black;
-    display: flex;
-    outline: none;
-  }
-  
-  .surrender-button-inner {
-    width: 3vw;
-    height: 3vw;
-    border-radius: 50%;
-    box-sizing: border-box;
-    border: 2px solid rgb(255, 255, 255, .5);
-    background-color: red;
-    box-shadow: 0px 0px 2px 2px black inset;
-    margin: auto;
-  }
-  
-  .surrender-button:active .surrender-button-inner {
-    box-shadow: 0px 0px 5px 5px black inset;
-  }
-  
-  .light {
-    height: 17vh;
-    width: 17vh;
-    background-color: rgb(255, 0, 0, .6);
-    margin: auto;
-    border-radius: 50%;
-    box-sizing: border-box;
-    border: 5px solid black;
-    box-shadow: 0px 0px 3px 2px black;
-    position: relative;
-    grid-row: 1 / 2;
-    z-index: 3;
-  }
-  
-  .light-circle {
-    width: 8.5vh;
-    height: 8.5vh;
-    background-color: transparent;
-    border: .6vh solid black;
-    border-radius: 50%;
-    z-index: 6;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .line-1 {
-    width: 17vh;
-    height: .65vh;
-    background-color: black;
-    border-radius: 50%;
-    z-index: 6;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .line-2 {
-    width: .65vh;
-    height: 17vh;
-    border-radius: 50%;
-    background-color: black;
-    z-index: 5;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .line-3 {
-    width: 1.4vh;
-    height: 1.4vh;
-    border-radius: 50%;
-    background-color: black;
-    z-index: 6;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .inner {
-    background-color: rgb(255, 0, 0, .9);
-    /* border: 1px solid rgb(255, 255, 255, .5); */
-    border: 2px solid black;
-    /* width: 100px;
-    height: 100px; */
-    width: 13vh;
-    height: 13vh;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: 3;
-  }
-  
-  .spinners {
-    background-color: transparent;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    /* height: 100px;
-    width: 100px; */
-    height: 13vh;
-    width: 13vh;
-    position: absolute;
-    /* animation-name: spinLight;
-    animation-delay: 5000ms;
-    animation-duration: 500ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear; */
-  }
-  
-  .animate-spinner {
-    animation-name: spinLight;
-    animation-duration: 1000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-  
-  .spinner-1 {
-    /* height: 35px; */
-    height: 4.57vh;
-    /* width: 70px; */
-    width: 9.15vh;
-    background-color: rgb(0, 0, 0, .6);
-    border-top-left-radius: 50% 100%;
-    border-top-right-radius: 50% 100%;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    /* box-shadow: 0px 60px 90px 60px rgba(255, 0, 0, 0.8); */
-    position: absolute;
-    bottom: 35%;
-    left: 50%;
-    transform: translateX(-50%) translateY(50%);
-    z-index: 1;
-  }
-  
-  .on-1 {
-    box-shadow: 0px 60px 90px 60px rgba(255, 0, 0, 0.8);
-  }
-  
-  .spinner-2 {
-    /* height: 35px; */
-    height: 4.57vh;
-    background-color: rgb(0, 0, 0, .6);
-    /* width: 70px; */
-    width: 9.15vh;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 50% 100%;
-    border-bottom-left-radius: 50% 100%;
-    /* box-shadow: 0px -60px 90px 60px rgba(255, 0, 0, 0.8); */
-    position: absolute;
-    bottom: 65%;
-    left: 50%;
-    transform: translateX(-50%) translateY(50%);
-    z-index: 1;
-  }
-  
-  .on-2 {
-    box-shadow: 0px -60px 90px 60px rgba(255, 0, 0, 0.8);
-  }
-  
-  /* SHIP PLACEMENT */
-  
-  .placement-container {
-    grid-column: 1 / 2;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .pointing-hand {
-    position: absolute;
-    z-index: 50;
-    right: 25vw;
-    top: 40vh;
     transform: rotate(25deg);
-    animation-name: moveHand;
-    animation-duration: 2500ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: 6000ms;
-    color: transparent;
-  }
-  
-  @keyframes moveHand {
-    0% {
-      color: black;
-      transform: rotate(25deg);
-      right: 25vw;
-    }
-    50% {
-      color: black;
-      transform: rotate(0deg);
-      right: 50vw;
-      top: 25vh;
-    }
-    100% {
-      color: black;
-      transform: rotate(-25deg);
-      right: 75vw;
-      top: 40vh;
-    }
-  }
-  
-  .ship-placer {
-    height: 20vw;
-    width: 20vw;
-    background-color: #0077be;
-    box-shadow: 0 0 20px 15px yellow inset;
-    border-radius: 50%;
-    z-index: 10;
-    display: grid;
-    grid-template-rows: 1fr 8vw 1fr;
-    flex-wrap: wrap;
-    animation-name: flashBorder;
-    animation-duration: 1500ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    margin: auto;
-  }
-  
-  .ship-placer i {
-    color: white;
-  }
-  
-  .ship-text {
-    grid-row: 1 / 2;
-    margin: 2vw auto 2vw auto;
-  }
-  
-  .ship-text h3 {
-    margin: 0;
-    font-size: 1vw;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-  }
-  
-  .ship-text h2 {
-    margin: 1vw 0 0 0;
-    font-size: 1.5vw;
-    font-style: italic;
-    text-shadow: 0 0 10px white;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-  }
-  
-  .ship-placer .ship {
-    grid-row: 2 / 3;
-  }
-  
-  .end-placement {
-    grid-row: 2 / 3;
-    margin: auto;
-    font-style: italic;
-    font-size: 1.8vw;
-  }
-  
-  @keyframes flashBorder {
-    0% {
-      box-shadow: 0 0 15px 15px yellow inset;
-    }
-    50% { 
-      box-shadow: 0 0 0 0 blue; 
-    }
-    100% {
-      box-shadow: 0 0 15px 15px yellow inset;
-    }
-  }
-  
-  .switch-container {
-    margin: auto;
-    width: 6vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .rotate-button {
-    all: unset;
-    outline: none;
-    height: 1vw;
-    width: 3vw;
-    background-color: white;
-    border-radius: 50px;
-    box-sizing: border-box;
-    grid-row: 3 /4;
-    transition: all 300ms linear;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .switch {
-    width: 1vw;
-    height: 1vw;
-    border-radius: 50%;
-    background-color: black;
-  }
-  
-  .switched {
-    justify-content: flex-end;
-  }
-  
-  /* --------------- PLAYER SIDE --------------- */
-  
-  .side-label {
-    height: 2vw;
-    width: 15vw;
-    margin: auto auto 3vw auto;
-    box-shadow: 0 0 .3vw .01vw white inset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Special Elite', cursive;
-    text-shadow: 0 0 1px white;
-    font-weight: bold;
-    background-color: #173372;
-    padding-top: .4vw;
-    color: white;
-    font-size: 1vw;
-    pointer-events: none;
-    -webkit-user-select: none;
-    user-select: none;
-    -moz-user-select: none;
-  }
-  
-  .player-side {
-    margin: auto;
-    grid-column: 3 / 4;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    /* height: 80%; */
-  }
-  
-  .border-space {
-    width: 24vw;
-    height: 24vw;
-    border-radius: 50%;
-    display: flex;
-    background-color: var(--stainless-steel);
-    box-shadow: 0px 0px 1vw 3px black;
-    position: relative;
-  }
-  
-  .player-board {
-    width: 20vw;
-    height: 20vw;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid black;
-    box-shadow: 0px 0px 1vw 5px black inset;
-    align-content: center;
-    border-radius: 50%;
-    background-color: #0077be;
-    align-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* --------------- ENEMY SIDE --------------- */
-  
-  .enemy-side {
-    grid-column: 5 / 6;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    /* height: 80%; */
-  }
-  
-  .enemy-board {
-    width: 20vw;
-    height: 20vw;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    border-radius: 50%;
-    background-color: black;
-    border: 1px solid black;
-    box-shadow: 0px 0px 1vw 5px rgb(0, 255, 0) inset;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .arm {
-    height: 49vh;
-    border: 2px solid rgb(0, 255, 0);
-    box-shadow: -200px -330px 150px 300px rgb(0, 255, 0, .8);
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform-origin: bottom;
-    transform: translateX(-50%) rotate(0deg);
-    animation-name: rotateArm;
-    animation-delay: 1000ms;
-    animation-duration: 3000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-  
-  .arm:after {
-    content: '';
-    margin-left: 2px;
-    height: 49vh;
-    width: 0px;
-    position: absolute;
-    background-color: rgb(0, 0, 0, .6);
-    box-shadow: -300px 0px 40px 300px black;
-    transform-origin: bottom;
-    transform: rotate(-100deg);
-  }
-  
-  .arm:before {
-    content: '';
-    margin-left: 2px;
-    height: 49vh;
-    width: 1.3vh;
-    position: absolute;
-    background-color: black;
-    box-shadow: 300px 0px 0px 300px black;
-  }
-  
-  @keyframes rotateArm {
-    0% {transform: translateX(-50%) rotate(0deg);}
-    25% {transform: translateX(-50%) rotate(90deg);}
-    50% {transform: translateX(-50%) rotate(180deg);}
-    75% {transform: translateX(-50%) rotate(270deg);}
-    100% {transform: translateX(-50%) rotate(360deg);}
-  }
-  
-  @keyframes spinLight {
-    0% {transform: translateX(-50%) translateY(-50%) rotate(0deg);}
-    25% {transform: translateX(-50%) translateY(-50%) rotate(90deg);}
-    50% {transform: translateX(-50%) translateY(-50%) rotate(180deg);}
-    75% {transform: translateX(-50%) translateY(-50%) rotate(270deg);}
-    100% {transform: translateX(-50%) translateY(-50%) rotate(360deg);}
-  }
-  
-  .player-circle {
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    border: 2px solid yellow;
-    pointer-events: none;
-    box-sizing: border-box;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .pulse {
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    border: 1px solid yellow;
-    pointer-events: none;
-    box-sizing: border-box;
-    transform: translateX(-50%) translateY(-50%);
-    height: 1px;
-    width: 1px;
-    animation-name: expand;
-    animation-duration: 1500ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    box-shadow: 0px 0px 100px 80px rgb(255, 255, 0, .6) inset;
-    z-index: 10;
-    pointer-events: none;
-  }
-  
-  @keyframes expand {
-    0% {height: 1px; width: 1px}
-    100% {height: 550px; width: 550px}
-  }
-  
-  .circle {
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    border: 2px solid rgb(0, 255, 0);
-    pointer-events: none;
-    box-sizing: border-box;
-    transform: translateX(-50%) translateY(-50%);
-  }
-  
-  .circle-1 {
-    width: 16vw;
-    height: 16vw;
-  }
-  
-  .circle-2 {
-    width: 12vw;
-    height: 12vw;
-  }
-  
-  .circle-3 {
-    width: 8vw;
-    height: 8vw;
-  }
-  
-  .circle-4 {
-    width: 4vw;
-    height: 4vw;
-  }
-  
-  .Row {
-    margin: auto;
-    display: flex;
-  }
-  
-  .Square {
-    box-sizing: border-box;
-    width: 1.4vw;
-    height: 1.4vw;
-    border: 1px solid rgb(0, 255, 0);
-    align-content: center;
-    display: flex;
-    z-index: 2;
-  }
-  
-  .player-square {
-    box-sizing: border-box;
-    width: 1.4vw;
-    height: 1.4vw;
-    box-sizing: border-box;
-    border: 1px solid yellow;
-    align-content: center;
-    display: flex;
-  }
-  
-  .Square:hover {
-    background-color: rgba(0, 255, 0, .5);;
-  }
-  
-  .placed-ship {
-    background-color: rgb(223, 223, 0);
-  }
-  
-  .blank {
-    align-content: center;
-  }
-  
-  /* differentiate for player hit and enemy hit for colors */
-  
-  .hit {
-    width: 100%;
-    height: 100%;
-    background-image: url(./explosion.png);
-    background-position: center;
-    background-size: 100%;
-    margin: auto;
-    z-index: 3;
-  }
-  
-  .enemy-board .hit {
-    filter: invert(63%) sepia(86%) saturate(3148%) hue-rotate(80deg) brightness(114%) contrast(130%);
-  }
-  
-  .player-board .hit {
-    filter: contrast(100%);
-    background-color: transparent;
-  }
-  
-  .missed {
-    width: 100%;
-    height: 100%;
-    background-image: url(./water.png);
-    background-position: center;
-    background-size: 100%;
-    margin: auto;
-    z-index: 3;
-  }
-  
-  .enemy-board .missed {
-    filter: invert(63%) sepia(86%) saturate(3148%) hue-rotate(80deg) brightness(114%) contrast(130%);
-  }
-  
-  .player-board .missed {
-    filter: invert(94%) sepia(87%) saturate(6440%) hue-rotate(358deg) brightness(109%) contrast(101%);
-  }
-  
-  
-  /* ------------------------- SHIPS -------------------------*/
-  
-  .ship {
-    box-sizing: border-box;
-    margin: auto;
-    background-color: grey;
-    box-shadow: 0 0 10px 3px white;
-    transition: all 300ms linear;
-  }
-  
-  .ship-5-horizontal {
-    width: 7vw;
-    height: 1.4vw;
-    border-top-right-radius: 30% 50%;
-    border-bottom-right-radius: 30% 50%;
-    border-bottom-left-radius: 10%;
-    border-top-left-radius: 10%;
-  }
-  
-  .ship-4-horizontal {
-    width: 5.6vw;
-    height: 1.4vw;
-    border-top-right-radius: 30% 50%;
-    border-bottom-right-radius: 30% 50%;
-    border-bottom-left-radius: 10%;
-    border-top-left-radius: 10%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .ship-3-horizontal {
-    width: 4.2vw;
-    height: 1.4vw;
-    border-top-right-radius: 30% 50%;
-    border-bottom-right-radius: 30% 50%;
-    border-bottom-left-radius: 10%;
-    border-top-left-radius: 10%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .ship-2-horizontal {
-    width: 2.8vw;
-    height: 1.4vw;
-    border-top-right-radius: 100%;
-    border-bottom-right-radius: 100%;
-    border-bottom-left-radius: 10%;
-    border-top-left-radius: 10%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .ship-5-vertical {
-    width: 1.4vw;
-    height: 7vw;
-    border-top-right-radius: 100%;
-    border-bottom-right-radius: 10%;
-    border-bottom-left-radius: 10%;
-    border-top-left-radius: 100%;
-  }
-  
-  .ship-4-vertical {
-    width: 1.4vw;
-    height: 5.6vw;
-    border-top-right-radius: 100%;
-    border-bottom-right-radius: 10%;
-    border-bottom-left-radius: 10%;
-    border-top-left-radius: 100%;
-  }
-  
-  .ship-3-vertical {
-    width: 1.4vw;
-    height: 4.2vw;
-    border-top-right-radius: 100%;
-    border-bottom-right-radius: 10%;
-    border-bottom-left-radius: 10%;
-    border-top-left-radius: 100%;
-  }
-  
-  .ship-2-vertical {
-    width: 1.4vw;
-    height: 2.8vw;
-    border-top-right-radius: 100%;
-    border-bottom-right-radius: 10%;
-    border-bottom-left-radius: 10%;
-    border-top-left-radius: 100%;
-  }
-  
-  /* -------------------- IntroAnimation ----------------------- */
-  
-  
-  .outer {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    z-index: 20;
-  }
-  
-  .container {
-    box-sizing: border-box;
-    height: 350vh;
-    width: 100vw;
-    overflow: hidden;
-    position: relative;
-    scroll: none;
-  }
-  
-  .sky {
-    width: 100vw;
-    height: 50vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgb(54,209,220);
-    background: linear-gradient(0deg, rgba(54,209,220,1) 0%, rgba(91,134,229,1) 47%);
-  }
-  
-  .sun {
-    width: 10vw;
-    height: 10vw;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fefff0;
-    box-shadow: 0 0 5vw 3vw #fffeb3;
-  }
-  
-  .ocean {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 50vh;
-    left: 0;
-    background-color: #2a2a72;
-    background-image: linear-gradient(0deg, #2a2a72 0%, #009ffd 90%);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .reflection {
-    position: absolute;
-    top: -70%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    height: 50vh;
-    width: .5vw;
-    border-radius: 10px;
-    background-color: rgba(255,254,179,.9);
-    box-shadow: 0vw 55vh 10vw 5vw #fffeb3;
-    z-index: 2;
-  }
-  
-  .wave-container {
-    width: 100vw;
-  }
-  
-  .wave-container img {
-    width: 100vw;
-    height: 100%;
-    filter: invert(100%) sepia(100%) saturate(50%) hue-rotate(150deg) brightness(103%) contrast(100%) opacity(.3);
-  }
-  
-  .one {
-    height: 5vh;
-    animation: waveUp linear 2000ms infinite;
-  }
-  
-  .two {
-    height: 6vh;
-    animation: waveDown linear 2000ms infinite;
-  }
-  
-  .three {
-    height: 7vh;
-    animation: waveUp linear 2000ms infinite;
-  }
-  
-  .four {
-    height: 7vh;
-    animation: waveDown linear 2000ms infinite;
-  }
-  
-  .five {
-    height: 8vh;
-    animation: waveUp linear 2000ms infinite;
-  }
-  
-  .six {
-    height: 9vh;
-    animation: waveDown linear 2000ms infinite;
-  }
-  
-  .seven {
-    height: 10vh;
-    animation: waveUp linear 2000ms infinite;
-  }
-  
-  .eight {
-    height: 11vh;
-    animation: waveDown linear 2000ms infinite;
-  }
-  
-  .nine {
-    height: 12vh;
-    animation: waveUp linear 2000ms infinite;
-  }
-  
-  .ten {
-    height: 13vh;
-    animation: waveDown linear 2000ms infinite;
-  }
-  
-  @keyframes waveUp {
-    0% { transform: scale(1) }
-    50% { transform: scale(1.2) }
-    100% { transform: scale(1) }
-  }
-  
-  @keyframes waveDown {
-    0% { transform: scale(1.2) }
-    50% { transform: scale(1) }
-    100% { transform: scale(1.2) }
-  }
-  
-  .darkness {
-    height: 200vh;
-    width: 100vw;
-    background-color: #292b75;
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    overflow: hidden;
-  }
-  .title {
-    position: absolute;
-    text-align: center;
-    transform-origin: center;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-    z-index: 50;
-  }
-  
-  .title h1 {
-    color: var(--stainless-steel);
-    font-size: 10vmin;
-    font-family: 'Squada One', cursive;
-    text-shadow: 0 0 10px black;
-  }
-  
-  .submarine-container {
-    transform-origin: center;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 3vh;
-    width: 3vh;
-    opacity: 0;
-  }
-  
-  .submarine-top {
-    margin: 0 auto -50% auto;
-    border-top-left-radius: 30%;
-    border-top-right-radius: 30%;
-    width: 30%;
-    height: 100%;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
-    position: relative;
-  }
-  
-  .crossbar {
-    position: absolute;
-    width: 70%;
-    height: 5%;
-    border-radius: 10px;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
-  }
-  
-  .submarine {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: rgb(124,124,124);
-    background: radial-gradient(circle, rgba(124,124,124,1) 0%, rgba(0,0,0,1) 50%);
-    box-shadow: 0 1vmin 5vmin .5vmin rgba(124,124,124,1) inset;
-    position: relative;
-  }
-  
-  .body-crossbar {
-    position: absolute;
-    width: 120%;
-    height: 5%;
-    border-radius: 10px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
-  }
-  
-  .body-crossbar-2 {
-    position: absolute;
-    width: 120%;
-    height: 5%;
-    border-radius: 10px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg);
-    z-index: -1;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
-  }
-  
-  .fade-out {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    z-index: 10;
-  }
-  
-  @media (max-width: 1400px) {
-  
-  }
+    right: 25vw;
+  }
+  50% {
+    color: black;
+    transform: rotate(0deg);
+    right: 50vw;
+    top: 25vh;
+  }
+  100% {
+    color: black;
+    transform: rotate(-25deg);
+    right: 75vw;
+    top: 40vh;
+  }
+}
+
+.ship-placer {
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  display: grid;
+  grid-template-rows: 1fr 8vw 1fr;
+  flex-wrap: wrap;
+}
+
+.ship-placer i {
+  color: var(--radar-green);
+}
+
+.ship-text {
+  grid-row: 1 / 2;
+  margin: 4vmin auto;
+  color: var(--radar-green);
+}
+
+.ship-text h3 {
+  margin: 0;
+  font-size: 2vmin;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.ship-text h2 {
+  margin: 1vmin 0 0 0;
+  font-size: 4vmin;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.ship-placer .ship {
+  grid-row: 2 / 3;
+}
+
+.switch-container {
+  margin: auto auto 0 auto;
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.rotate-button {
+  all: unset;
+  outline: none;
+  height: 15px;
+  width: 50px;
+  background-color: black;
+  border: .1vmin solid var(--radar-green);
+  border-radius: 50px;
+  box-sizing: border-box;
+  grid-row: 3 /4;
+  transition: all 300ms linear;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.switch {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: var(--radar-green);
+}
+
+.switched {
+  justify-content: flex-end;
+}
+
+/* --------------- PLAYER SIDE --------------- */
+
+.player {
+  position: absolute;
+  top: 3vmin;
+  left: 3vmin;
+  transition: all 800ms ease-in-out;
+}
+
+.player-board {
+  width: 20vmin;
+  height: 20vmin;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-content: center;
+  position: relative;
+  overflow: hidden;
+  transform: all 300ms ease-in-out;
+}
+
+.player-square {
+  box-sizing: border-box;
+  width: 2vmin;
+  height: 2vmin;
+  box-sizing: border-box;
+  border: .1vmin solid rgba(0, 255, 0, .5);
+  align-content: center;
+  display: flex;
+}
+
+#setup {
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto 5vmin auto auto;
+}
+
+#setup .player-board {
+  width: 50vmin;
+  height: 50vmin;
+}
+
+#setup .player-square {
+  width: 5vmin;
+  height: 5vmin;
+  border: .2vmin solid rgba(0, 255, 0, 1);
+}
+
+/* --------------- ENEMY RADAR --------------- */
+
+.enemy {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vmin;
+  width: 80vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.enemy .large-circle {
+  position: absolute;
+  width: 95vmin;
+  height: 50vmin;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30%;
+  border-left: .1vmin solid var(--radar-green);
+  border-right: .1vmin solid var(--radar-green);
+  border-bottom: .1vmin solid black;
+  border-top: .1vmin solid black;
+}
+
+.enemy .large-circle-2 {
+  position: absolute;
+  width: 50vmin;
+  height: 95vmin;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30%;
+  border-top: .1vmin solid var(--radar-green);
+  border-bottom: .1vmin solid var(--radar-green);
+  border-left: .1vmin solid black;
+  border-right: .1vmin solid black;
+}
+
+.enemy-board {
+  box-sizing: border-box;
+  width: 95%;
+  height: 95%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  border-radius: 50%;
+  background-color: black;
+  border: .3vmin solid var(--radar-green);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.circle {
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border: .25vmin solid var(--radar-green);
+  pointer-events: none;
+  box-sizing: border-box;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.enemy .circle-1 {
+  width: 80%;
+  height: 80%;
+}
+
+.enemy .circle-2 {
+  width: 60%;
+  height: 60%;
+}
+
+.enemy .circle-3 {
+  width: 40%;
+  height: 40%;
+}
+
+.enemy .circle-4 {
+  width: 20%;
+  height: 20%;
+}
+
+.enemy .Square {
+  box-sizing: border-box;
+  width: 5.25vmin;
+  height: 5.25vmin;
+  border: .1vmin solid var(--radar-green);
+  align-content: center;
+  display: flex;
+  z-index: 2;
+}
+
+.arm {
+  height: 49vmin;
+  border: 2px solid var(--radar-green);
+  box-shadow: -200px -330px 150px 300px rgba(0, 255, 0, .5);
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(0deg);
+  animation-name: rotateArm;
+  animation-delay: 1000ms;
+  animation-duration: 3000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.arm:after {
+  content: '';
+  margin-left: 2px;
+  height: 49vh;
+  width: 0px;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  box-shadow: -300px 0px 40px 300px black;
+  transform-origin: bottom;
+  transform: rotate(-100deg);
+}
+
+.arm:before {
+  content: '';
+  margin-left: 2px;
+  height: 49vh;
+  width: 1.3vh;
+  position: absolute;
+  background-color: black;
+  box-shadow: 300px 0px 0px 300px black;
+}
+
+@keyframes rotateArm {
+  0% {transform: translateX(-50%) rotate(0deg);}
+  25% {transform: translateX(-50%) rotate(90deg);}
+  50% {transform: translateX(-50%) rotate(180deg);}
+  75% {transform: translateX(-50%) rotate(270deg);}
+  100% {transform: translateX(-50%) rotate(360deg);}
+}
+
+.Row {
+  margin: auto;
+  display: flex;
+}
+
+.Square:hover {
+  background-color: rgba(0, 255, 0, .5);;
+}
+
+.placed-ship {
+  background-color: var(--radar-green);
+}
+
+.blank {
+  align-content: center;
+}
+
+/* differentiate for player hit and enemy hit for colors */
+
+.hit {
+  width: 100%;
+  height: 100%;
+  background-image: url(../explosion.png);
+  background-position: center;
+  background-size: 100%;
+  margin: auto;
+  z-index: 3;
+}
+
+.enemy-board .hit {
+  // filter: invert(63%) sepia(86%) saturate(3148%) hue-rotate(80deg) brightness(114%) contrast(130%);
+}
+
+.player-board .hit {
+  filter: contrast(100%);
+  background-color: transparent;
+}
+
+.missed {
+  width: 100%;
+  height: 100%;
+  background-image: url(../water.png);
+  background-position: center;
+  background-size: 100%;
+  margin: auto;
+  z-index: 3;
+}
+
+.enemy-board .missed {
+  filter: invert(63%) sepia(86%) saturate(3148%) hue-rotate(80deg) brightness(114%) contrast(130%);
+}
+
+.player-board .missed {
+  filter: invert(63%) sepia(86%) saturate(3148%) hue-rotate(80deg) brightness(114%) contrast(130%);
+}
+
+
+/* ------------------------- SHIPS -------------------------*/
+
+.ship {
+  box-sizing: border-box;
+  margin: auto;
+  background-color: var(--radar-green);
+  transition: all 300ms linear;
+}
+
+.ship-5-horizontal {
+  width: 18vmin;
+  height: 3.6vmin;
+  border-top-right-radius: 30% 50%;
+  border-bottom-right-radius: 30% 50%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 10%;
+}
+
+.ship-4-horizontal {
+  width: 14.4vmin;
+  height: 3.6vmin;
+  border-top-right-radius: 30% 50%;
+  border-bottom-right-radius: 30% 50%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 10%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ship-3-horizontal {
+  width: 10.8vmin;
+  height: 3.6vmin;
+  border-top-right-radius: 30% 50%;
+  border-bottom-right-radius: 30% 50%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 10%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ship-2-horizontal {
+  width: 7.2vmin;
+  height: 3.6vmin;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 10%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ship-5-vertical {
+  width: 3.6vmin;
+  height: 18vmin;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 100%;
+}
+
+.ship-4-vertical {
+  width: 3.6vmin;
+  height: 14.4vmin;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 100%;
+}
+
+.ship-3-vertical {
+  width: 3.6vmin;
+  height: 10.8vmin;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 100%;
+}
+
+.ship-2-vertical {
+  width: 3.6vmin;
+  height: 7.2vmin;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-top-left-radius: 100%;
+}
+
+/* -------------------- DUMMY MODULE 1 ---------------------------*/
+
+.DummyModule1 {
+  opacity: 0;
+  position: absolute;
+  top: 3vmin;
+  right: 3vmin;
+  width: 25vmin;
+  height: 12vmin;
+  box-sizing: border-box;
+  border-top: 1px solid var(--radar-green);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.DummyModule1 .bar {
+  height: 1.5vmin;
+  margin: .8vmin 0 0 auto;
+  background-color: var(--radar-green);
+  transition: all 1600ms ease-in-out;
+}
+
+.DummyModule1 .cross-section {
+  position: absolute;
+  width: 5vmin;
+  height: 2vmin;
+  top: -1vmin;
+  border-right: 1px solid var(--radar-green);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cross-1 {
+  border-left: 1px solid var(--radar-green);
+  left: 0;
+}
+
+.cross-2 {
+  left: 20%;
+}
+
+.cross-3 {
+  left: 40%;
+}
+
+.cross-4 {
+  left: 60%;
+}
+
+.cross-5 {
+  left: 80%;
+}
+
+.cross-6 {
+  left: 100%;
+}
+
+.cross-med {
+  height: 70%;
+  width: .1vmin;
+  background-color: var(--radar-green);
+}
+
+.cross-sm {
+  height: 50%;
+  width: .1vmin;
+  background-color: var(--radar-green);
+}
+
+// -------------------- Dummy Module 2 -------------------- 
+
+.DummyModule2 {
+  opacity: 0;
+  position: absolute;
+  bottom: 3vmin;
+  left: 3vmin;
+  width: 20vmin;
+  height: 20vmin;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--radar-green);
+  border-left: 1px solid var(--radar-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DummyModule2 .bar {
+  width: 1%;
+  background-color: var(--radar-green);
+  transition: all 1600ms ease-in-out;
+}
+
+.DummyModule2 .cross-section {
+  position: absolute;
+  width: 4vmin;
+  height: 2vmin;
+  bottom: -1vmin;
+  border-right: .1vmin solid var(--radar-green);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  transform: translateX(-.1vmin);
+}
+
+// -------------------- DummyModule3 -------------------- 
+
+.DummyModule3 {
+  opacity: 0;
+  position: absolute;
+  bottom: 3vmin;
+  right: 3vmin;
+  width: 20vmin;
+  height: 20vmin;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DummyModule3 .sphere {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotatex(10deg) rotate(10deg);
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgb(0,255,0);
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+
+@keyframes spin {
+  0% {transform: translate(-50%, -50%) rotatey(0deg);}
+  100% {transform: translate(-50%, -50%) rotatey(360deg);}
+}
+
+/* -------------------- IntroAnimation ----------------------- */
+
+
+.outer {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.container {
+  box-sizing: border-box;
+  height: 350vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  scroll-behavior: none;
+}
+
+.sky {
+  width: 100vw;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(54,209,220);
+  background: linear-gradient(0deg, rgba(54,209,220,1) 0%, rgba(91,134,229,1) 47%);
+}
+
+.sun {
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefff0;
+  box-shadow: 0 0 5vw 3vw #fffeb3;
+}
+
+.ocean {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 50vh;
+  left: 0;
+  background-color: #2a2a72;
+  background-image: linear-gradient(0deg, #2a2a72 0%, #009ffd 90%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.reflection {
+  position: absolute;
+  top: -70%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 50vh;
+  width: .5vw;
+  border-radius: 10px;
+  background-color: rgba(255,254,179,.9);
+  box-shadow: 0vw 55vh 10vw 5vw #fffeb3;
+  z-index: 2;
+}
+
+.wave-container {
+  width: 100vw;
+}
+
+.wave-container img {
+  width: 100vw;
+  height: 100%;
+  filter: invert(100%) sepia(100%) saturate(50%) hue-rotate(150deg) brightness(103%) contrast(100%) opacity(.3);
+}
+
+.one {
+  height: 5vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.two {
+  height: 6vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+.three {
+  height: 7vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.four {
+  height: 7vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+.five {
+  height: 8vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.six {
+  height: 9vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+.seven {
+  height: 10vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.eight {
+  height: 11vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+.nine {
+  height: 12vh;
+  animation: waveUp linear 2000ms infinite;
+}
+
+.ten {
+  height: 13vh;
+  animation: waveDown linear 2000ms infinite;
+}
+
+@keyframes waveUp {
+  0% { transform: scale(1) }
+  50% { transform: scale(1.2) }
+  100% { transform: scale(1) }
+}
+
+@keyframes waveDown {
+  0% { transform: scale(1.2) }
+  50% { transform: scale(1) }
+  100% { transform: scale(1.2) }
+}
+
+.darkness {
+  height: 200vh;
+  width: 100vw;
+  background-color: #292b75;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+}
+.title {
+  position: absolute;
+  text-align: center;
+  transform-origin: center;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
+.title h1 {
+  color: var(--stainless-steel);
+  font-size: 10vmin;
+  font-family: 'Squada One', cursive;
+  text-shadow: 0 0 10px black;
+}
+
+.submarine-container {
+  transform-origin: center;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 3vh;
+  width: 3vh;
+  opacity: 0;
+}
+
+.submarine-top {
+  margin: 0 auto -50% auto;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  width: 30%;
+  height: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
+  position: relative;
+}
+
+.crossbar {
+  position: absolute;
+  width: 180%;
+  height: 5%;
+  border-radius: 10px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
+}
+
+.submarine {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgb(124,124,124);
+  background: radial-gradient(circle, rgba(124,124,124,1) 0%, rgba(0,0,0,1) 50%);
+  box-shadow: 0 1vmin 5vmin .5vmin rgba(124,124,124,1) inset;
+  position: relative;
+}
+
+.body-crossbar {
+  position: absolute;
+  width: 120%;
+  height: 5%;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
+}
+
+.body-crossbar-2 {
+  position: absolute;
+  width: 120%;
+  height: 5%;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  z-index: -1;
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(124,124,124,1) 50%, rgba(0,0,0,1) 100%);
+}
+
+.fade-out {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  z-index: 10;
+}
+
+/* media queries */
+
+@media (max-width: 600px) {
+  .enemy {
+    height: 100vmin;
+    width: 100vmin;
+  }
+
+  .enemy .Square {
+    height: 6.5vmin;
+    width: 6.5vmin;
+  }
+
+  .enemy .large-circle {
+    display: none;
+  }
+
+  .enemy .large-circle-2 {
+    display: none;
+  }
+}

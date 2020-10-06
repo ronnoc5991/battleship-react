@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
+import './styles/styles.css'
 import Game from './Game';
 import { GameProvider } from './GameContext';
 import IntroAnimation from './IntroAnimation';

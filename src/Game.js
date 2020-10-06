@@ -5,6 +5,8 @@ import {GameContext} from './GameContext';
 import ShipPlacer from './ShipPlacer';
 import GameOver from './GameOver';
 import DummyModule1 from './DummyModule1';
+import DummyModule2 from './DummyModule2';
+import DummyModule3 from './DummyModule3';
 
 function Game() {
 
@@ -56,7 +58,8 @@ function Game() {
             { inSetupPhase ? <ShipPlacer /> : '' }
             { inSetupPhase ? '' : <Enemy /> }
             { inSetupPhase ? '' : <DummyModule1 /> }
-
+            { inSetupPhase ? '' : <DummyModule2 /> }
+            { inSetupPhase ? '' : <DummyModule3 /> }
           </React.Fragment>
       </div>
   );

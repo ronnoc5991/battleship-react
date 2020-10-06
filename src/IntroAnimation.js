@@ -12,12 +12,12 @@ const IntroAnimation = () => {
 
     useEffect(() => {
         var tl = gsap.timeline();
-        tl.fromTo(container, {y: 0}, {y: '-250vh', duration: 2, delay: 5});
-        tl.fromTo(subContainer, {height: '3vh', width: '3vh', opacity: 0}, {height: '20vmax', width: '20vmax', opacity: 1, duration: 5});
+        tl.fromTo(container, {y: 0}, {y: '-250vh', duration: 2, delay: 4});
+        tl.fromTo(subContainer, {height: '3vh', width: '3vh', opacity: 0}, {height: '20vmax', width: '20vmax', opacity: 1, duration: 4});
         tl.fromTo(title, {opacity: 0}, {opacity: 1, duration: 1.5});
-        tl.fromTo(subContainer, {height: '20vmax', width: '20vmax'}, {height: '150vmax', width: '150vmax', duration: 3, y: '-50%', delay: 2});
+        tl.fromTo(subContainer, {height: '20vmax', width: '20vmax'}, {height: '150vmax', width: '150vmax', duration: 3, y: '-50%', delay: 1});
         tl.fromTo(fader, {opacity: 0}, {opacity: 1, duration: 1});
-        tl.fromTo(outer, {opacity: 1}, {opacity: 0, duration: 1, delay: 2});
+        tl.fromTo(outer, {opacity: 1}, {opacity: 0, duration: 1, delay: 1});
         tl.fromTo(outer, {y: 0}, {y: '-100vh', duration: .1});
     }, [])
 

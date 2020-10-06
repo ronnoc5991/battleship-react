@@ -87,6 +87,8 @@ const Enemy = () => {
 
     return (
         <div className="enemy" ref= { el => { enemyBoard = el } }>
+            <div className="large-circle"></div>
+            <div className="large-circle-2"></div>
                 <div className="enemy-board" onClick={ inSetupPhase ? undefined : takeAttack }>
                     { !inSetupPhase && <div className="arm"></div>}
                         <div className="circle circle-1"></div>

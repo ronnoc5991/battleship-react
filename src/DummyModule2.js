@@ -1,32 +1,32 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 
-function DummyModule1() {
 
-    var dummy1 = useRef(null);
-    
+function DummyModule2() {
+
+    var module2 = useRef(null);
+
     useEffect(() => {
-        const tl = gsap.timeline();
-        tl.fromTo(dummy1, {opacity: 0}, {opacity: 1, duration: 1, delay: .6}); 
+        gsap.fromTo(module2, {opacity: 0}, {opacity: 1, duration: 1, delay: .6}); 
     }, [])
 
     var bars = []
 
     function createBars () {
         let i;
-        for (i=5; i > 0; --i) {
-            let width = Math.random()*100;
-            bars.push(width);
+        for (i=100; i > 0; --i) {
+            let height = Math.random()*70;
+            bars.push(height);
         }
     }
 
     createBars();
 
     return (
-        <div className="DummyModule1" ref={ el => { dummy1 = el } } >
-            { bars.map((bar, index) => {
-                return <div className="bar" style={{width: `${bar}%`}}></div>
-            }) }
+        <div className="DummyModule2" ref={ el => { module2 = el } }>
+            { bars.map((bar) => {
+                return <div className="bar" style={{height: `${bar}%`}} ></div>
+            } ) }
             <div className="cross-section cross-1">
                 <div className="cross-med"></div>
                 <div className="cross-sm"></div>
@@ -52,9 +52,8 @@ function DummyModule1() {
                 <div className="cross-sm"></div>
                 <div className="cross-med"></div>
             </div>
-            <div className="cross-section cross-6"></div>
         </div>
     )
 }
 
-export default DummyModule1
+export default DummyModule2

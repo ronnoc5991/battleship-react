@@ -53,10 +53,9 @@ const ShipPlacer = () => {
                             </div>
                         </>
                         :
-                        <div className="end-placement">
-                            <h2>GOOD LUCK</h2>
+                        <>
                             { setInSetupPhase(false) }
-                        </div>
+                        </>
                     }
 
                 </div>
