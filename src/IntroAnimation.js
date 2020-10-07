@@ -64,7 +64,7 @@ const IntroAnimation = () => {
                     </div>
                 </div>
                 <div class="darkness">
-                    <div className="title" ref={ el => title = el }><h1>SUBMARINE ATTACK</h1></div>
+                    <div className="title" ref={ el => title = el }><h1>BATTLESHIP</h1></div>
                     <div class="submarine-container" ref={ el => subContainer = el }>
                         <div class="submarine-top">
                             <div class="crossbar"></div>
